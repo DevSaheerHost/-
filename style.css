@@ -337,7 +337,7 @@ message-div {
   padding: 20px;
   gap: 20px;
   justify-content: space-evenly;
-  max-height: 600px;
+  max-height: 500px;
   overflow: auto;
   margin-bottom: 20px;
   border-top: 2px solid #BDBDBD;
