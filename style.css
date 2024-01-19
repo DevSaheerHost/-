@@ -1,0 +1,523 @@
+*{
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  transition: .3s;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+a{
+  color: white;
+  text-decoration: none;
+}
+header{
+  background: linear-gradient(#000000A8, #0C18309C), url('banner1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding: 20px;
+  height: 75vh;
+}
+header container{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-around;
+}
+header container .logo{
+  margin: 0;
+  padding: 0;
+}
+header container nav{
+  width: 60%;
+  transition: .3s;
+}
+
+header container span{
+  display: none;
+  z-index: 99;
+}
+header container span svg{
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  z-index: 62;
+  color: white;
+}
+
+header container nav ul{
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  
+  overflow: hidden;
+}
+header container nav li{
+  display: inline;
+}
+
+header div{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header div h1{
+  color: white;
+  transform: translateX(-50%)
+}
+header div h1:after{
+  content: "";
+  font-weight: 100;
+  animation: text 1.5s infinite ease-in-out;
+  overflow: hidden;
+  display: inline;
+  position: absolute;
+  transition: .4s;
+  margin-left: 7px;
+}
+@keyframes text{
+  0%{
+    content: "";
+    opacity: .4;
+  }
+  10%{
+    content: " A";
+  }
+  20%{
+    content: " Add";
+  }
+  30%{
+    content: " Addic";
+  }
+  40%{
+    content: " Addictive";
+    opacity: 1;
+  }
+  50%{
+    content: " Addic";
+  }
+  60%{
+    content: " Add";
+  }
+  70%{
+    content: " A";
+  }
+  80%{
+    content: "";
+    opacity: .4;
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+main{
+  width: 100%;
+}
+main container{
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+main container loader{
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  padding: 10px;
+  display: block;
+}
+
+
+.loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+  .loader:before{
+    content: '';
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    top: 50%;
+    left: 0;
+    transform: translate(-5px, -50%);
+    background: linear-gradient(to right, #B1B1B1C7 50%, #42445A 50%) no-repeat;
+    background-size: 200% auto;
+    background-position: 100% 0;
+    animation: colorBallMoveX 1.5s linear infinite alternate;
+  }
+ .loader:after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: #de3500;
+ }
+@keyframes colorBallMoveX {
+  0%  {
+    background-position: 0% 0;
+    transform: translate(-15px, -50%);
+  }
+  15%  , 25% {
+    background-position: 0% 0;
+    transform: translate(0px, -50%);
+  }
+  75% , 85% {
+    background-position: 100% 0;
+    transform: translate(50px, -50%);
+  }
+  100% {
+    background-position: 100% 0;
+    transform: translate(65px, -50%);
+  }
+}
+  
+
+
+
+
+
+
+
+
+
+main container section{
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+main container section card{
+  height: 300px;
+  width: 300px;
+  height: max-content;
+  display: flex;
+  flex-flow: column;
+  
+  overflow: hidden;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px gray;
+  padding: 2px;
+}
+main container section card img{
+  width: 100%;
+  border-radius: 10px;
+}
+main container section card text-area{
+  padding: 20px;
+  display: block;
+  overflow: scroll;
+  /* background: #E4E4E4; */
+  margin: 3px;
+  border-radius: 7px;
+  height: 100%;
+}
+main container section card text-area h3{
+  margin: 0;
+  padding: 0;
+}
+main container section card text-area label{
+  color: darkgray;
+  margin: auto;
+}
+
+iframe{
+  display: none;
+  min-height: 100vh;
+  height: max-content;
+  width: 100%;
+}
+#back{
+  display: none;
+  background: #5A5A5A21;
+  padding: 6px 8px;
+  border-radius: 7px;
+  font-size: 20px;
+  font-weight: 700px;
+  height: min-content;
+}
+#back svg{
+  display: flex;
+  height: 30px;
+  width: 30px;
+}
+
+card h3{
+  color: black;
+}
+
+
+
+
+
+
+
+msg-container{
+  padding: 20px;
+}
+msg-container container{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-bottom: 2px solid #BDBDBD;
+}
+msg-container container input-group{
+  display: flex;
+  flex-flow: column;
+  padding: 20px 0;
+}
+msg-container container input{
+  border-radius: 100px;
+  padding: 6px;
+  border: 5px solid #42445A57;
+  outline: none;
+  font-weight: bold;
+  color: #42445A57;
+}
+
+msg-container container input:focus{
+  transition: .3s;
+  border: 5px solid #42445A;
+  color: #42445A;
+}
+
+msg-container container button{
+  height: min-content;
+  background: none;
+  border: none;
+}
+msg-container container button svg{
+  transition: .2s;
+  width: 30px;
+  height: 30px;
+  color: #42445A57;
+  font-weight: bold;
+  transform: rotateZ(45deg)
+}
+
+
+
+
+
+
+
+message-div {
+  display: flex;
+  flex-flow: row-reverse;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+  justify-content: space-evenly;
+  max-height: 600px;
+  overflow: auto;
+  margin-bottom: 20px;
+  border-top: 2px solid #BDBDBD;
+  border-bottom: 2px solid #BDBDBD;
+  box-shadow: 0 0 5px #BDBDBD inset;
+}
+
+message-div card{
+  max-width: 400px;
+  width: 300px;
+  background: white;
+  padding: 8px;
+  border-radius: 7px;
+  box-shadow: 0 0 5px #BDBDBD;
+  max-height: 200px;
+  color: #797979;
+}
+message-div card h3{
+  color: #797979;
+}
+
+message-div card container div{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  gap: 8px;
+}
+message-div card svg{
+  border-radius: 555px;
+  width: 30px;
+  height: 30px;
+}
+message-div card container p{
+  color: #BDBDBD;
+}
+message-div card .timelabel{
+  font-size: 10px;
+  color: #BDBDBD;
+  float: right;
+}
+
+
+
+
+
+
+
+
+
+
+footer{
+  background: #383C4F;
+  padding: 20px;
+  color: white;
+}
+footer top-row {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  padding: 10px;
+  border: 3px solid #80808036;
+  border-radius: 3px;
+}
+footer top-row svg{
+  width: 30px;
+  height: 30px;
+  color: #B1B1B1C7;
+}
+
+footer .div{
+  width: 100%;
+  text-align: center;
+  padding: 25px;
+  padding-top: 60px;
+}
+
+footer middle-row{
+  display: flex;
+  flex-flow: row;
+  max-width: min-content;
+  justify-content: space-around;
+  text-align: center;
+  margin: auto;
+  
+}
+
+
+footer middle-row h3{
+  border: 3px solid white;
+  border-radius: 3px;
+  color: white;
+  padding: 6px 8px;
+  margin: 16px;
+}
+footer .div2 {
+  width: 100%;
+  text-align: center;
+}
+
+.dim{
+  color: #B1B1B1C7;
+  font-size: 13px;
+}
+footer .div3{
+  font-size: 13px;
+  text-align: center;
+  width: 100%;
+}
+
+::placeholder{
+  color: darkgray;
+}
+
+
+
+
+
+
+
+
+
+
+alert{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #0000003D;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+  display: none;
+}
+alert container card{
+  background: white;
+  display: flex;
+  flex-flow: column;
+  padding: 10px;
+  max-width: 350px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 7px;
+}
+alert container card input{
+  padding: 6px;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 2px solid #00000080;
+  outline: none;
+}
+alert container card input:focus{
+  border: 2px solid #00000080;
+  border-radius: 30px;
+}
+alert container card label{
+  font-size: 13px;
+  margin: 0 20px;
+}
+alert container card div{
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}
+alert container card div button{
+  width: 40%;
+  border-radius: 50px;
+  padding: 8px;
+  border: none;
+}
+alert container card div #signup{
+  background: #3D89C7;
+  color: white;
+}
+#3D89C7{
+  
+}

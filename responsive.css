@@ -1,0 +1,31 @@
+@media (max-width: 750px) {
+  header container nav{
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    background: #000000A8;
+    z-index: 1;
+  }
+  header container nav ul {
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  header container nav li {
+    padding: 6px;
+  }
+  
+  
+  header container{
+    justify-content: space-between;
+  }
+  header container span {
+    display: block;
+  }
+  
+  
+  
+}
