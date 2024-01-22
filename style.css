@@ -226,6 +226,9 @@ main container section card{
   box-shadow: 0 0 5px gray;
   padding: 2px;
 }
+main container section card a{
+  border-radius: 10px;
+}
 main container section card img{
   width: 100%;
   border-radius: 10px;
@@ -281,6 +284,8 @@ card h3{
 
 msg-container{
   padding: 20px;
+  border-bottom: 2px solid #BDBDBD;
+  display: block;
 }
 msg-container container{
   display: flex;
@@ -288,7 +293,7 @@ msg-container container{
   align-items: center;
   justify-content: center;
   gap: 20px;
-  border-bottom: 2px solid #BDBDBD;
+  width: 50%;
 }
 msg-container container input-group{
   display: flex;
@@ -316,7 +321,7 @@ msg-container container button{
   border: none;
 }
 msg-container container button svg{
-  transition: .2s;
+  transition: .2s !important;
   width: 30px;
   height: 30px;
   color: #42445A57;
@@ -337,12 +342,16 @@ message-div {
   padding: 20px;
   gap: 20px;
   justify-content: space-evenly;
-  max-height: 500px;
+  max-height: 600px;
   overflow: auto;
   margin-bottom: 20px;
   border-top: 2px solid #BDBDBD;
   border-bottom: 2px solid #BDBDBD;
   box-shadow: 0 0 5px #BDBDBD inset;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 30px;
+  border-radius: 3px;
 }
 
 message-div card{
@@ -352,8 +361,10 @@ message-div card{
   padding: 8px;
   border-radius: 7px;
   box-shadow: 0 0 5px #BDBDBD;
+  height: max-content;
   max-height: 200px;
   color: #797979;
+  overflow: hidden;
 }
 message-div card h3{
   color: #797979;
@@ -364,6 +375,18 @@ message-div card container div{
   flex-flow: row;
   align-items: center;
   gap: 8px;
+}
+
+message-div card container texts{
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  max-height: 150px;
+  display: block;
+}
+message-div card container texts p{
+  overflow-wrap: break-word;
+  
 }
 message-div card svg{
   border-radius: 555px;
