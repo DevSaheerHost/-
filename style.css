@@ -384,6 +384,7 @@ message-div {
   padding: 20px;
   gap: 20px;
   justify-content: space-evenly;
+  min-height: 200px;
   max-height: 600px;
   overflow: auto;
   margin-bottom: 20px;
