@@ -342,7 +342,7 @@ msg-container container button svg{
 message-div {
   display: flex;
   flex-flow: row-reverse;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   padding: 20px;
   gap: 20px;
   justify-content: space-evenly;
