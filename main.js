@@ -1,3 +1,5 @@
+// v 3.1
+
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAthM6oD2dYuAPrrLtqZT3pOWvkb17zRME",
@@ -33,11 +35,14 @@ database.ref("web/data/").on("child_added", (snapshot) => {
   
   cardSection.innerHTML += `
   <card>
-            <a href="` + data.pageurl + `"><img src="` + data.image + `" alt="">
+            <a href="` + data.pageurl + `" target="_blank"><img src="` + data.image + `" alt="">
             <text-area>
+            
               <h3>` + data.title + `</h3>
               <label for="">` + data.subtitle + `</label>
-            </text-area><a>
+            </text-area>
+            <label class="timeLbl">` + data.time + `</label>
+            <a>
           </card>`
   
   TotalData++
@@ -133,6 +138,15 @@ commandInput.oninput=()=>{
   } else{
     sendSvg.style.color='#42445A57'
   }
+  
+  if (commandInput.value.length>=100) {
+    commandInput.style.color='red'
+    sendSvg.style.color='red'
+  } else{
+    commandInput.style.color='#42445A'
+    //endSvg.style.color='#42445A'
+    
+  }
 }
 
 
@@ -191,6 +205,9 @@ function signup(){
 
 
 commandBtn.onclick=()=>{
+  if (commandInput.value.length>=100) {
+    
+  }else{
   
   if (localStorage.getItem('login')=='true') {
     
@@ -229,6 +246,7 @@ var userAgent = navigator.userAgent;
   Alert.style.display = 'flex'
 }
 }
+}
 
 
 
@@ -255,18 +273,19 @@ database.ref("web/messages/").on("child_added", (snapshot) => {
       
       
       messageDiv.innerHTML+=`
-      <card>
+      <card id="myid">
               <container>
                 <div>
                 
                   <h3>`+uname+`</h3>
                 </div>
+                <texts>
                 <p>`+msg+`</p>
+                </texts>
               </container>
               <label class="timelabel">`+time+`</label>
             </card>
             `
-      
       
       
 })
