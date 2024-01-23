@@ -141,15 +141,17 @@ main container{
   width: 100%;
 }
 main container loader{
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   margin: auto;
   padding: 10px;
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 
-.loader {
+/* .loader {
     position: relative;
     width: 100px;
     height: 100px;
@@ -196,7 +198,36 @@ main container loader{
     transform: translate(65px, -50%);
   }
 }
-  
+   */
+
+
+
+
+.loader {
+  display: block;
+  margin-bottom: 20px;
+  margin: auto;
+  width: 300px;
+  height: 220px;
+  border-radius: 7px;
+  background:
+    linear-gradient(0.25turn, transparent, #FFF, transparent),
+    linear-gradient(#DDD, #DDD),
+    linear-gradient(#DDD, #DDD),
+    linear-gradient(#DDD, #DDD);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: 300px 220px, 300px 130px, 100px 15px, 150px 15px;
+  background-position: -215px 0, 0 0, 15px 150px, 15px 180px;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position: 215px 0, 0 0, 15px 150px, 15px 180px;
+  }
+}
+
 
 
 
