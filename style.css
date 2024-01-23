@@ -1,4 +1,4 @@
-/* v 3.0*/
+/* v 3.1*/
 
 *{
   box-sizing: border-box;
@@ -374,6 +374,13 @@ message-div card h3{
   color: #797979;
 }
 
+
+.timeLbl {
+  color: black;
+  float: right;
+  padding: 8px;
+}
+
 message-div card container div{
   display: flex;
   flex-flow: row;
@@ -548,3 +555,4 @@ alert container card div #signup{
 #3D89C7{
   
 }
+
