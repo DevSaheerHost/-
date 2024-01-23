@@ -1,4 +1,4 @@
-/* v 3.0 */
+/* v 3.1 */
 
 @media (max-width: 800px) {
   header container nav{
@@ -43,6 +43,9 @@
     flex-flow: column-reverse;
   }
   
-  
+  loader{
+    flex-flow: column;
+    gap: 20px;
+  }
   
 }
