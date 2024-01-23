@@ -32,7 +32,7 @@ database.ref("web/data/").on("child_added", (snapshot) => {
   const loader = document.querySelector('loader')
   
   cardSection.innerHTML += `
-  <card onclick='card()'>
+  <card>
             <a href="` + data.pageurl + `"><img src="` + data.image + `" alt="">
             <text-area>
               <h3>` + data.title + `</h3>
