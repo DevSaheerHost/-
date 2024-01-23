@@ -1,4 +1,4 @@
-/* v 3.1 */
+/* v 3.2 */
 
 @media (max-width: 800px) {
   header container nav{
@@ -47,5 +47,10 @@
     flex-flow: column;
     gap: 20px;
   }
+  
+  message-div loader2{
+  flex-flow: column;
+}
+
   
 }
