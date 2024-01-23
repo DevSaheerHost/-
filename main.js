@@ -1,5 +1,4 @@
-// v 3.1
-
+// v 3.2
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAthM6oD2dYuAPrrLtqZT3pOWvkb17zRME",
@@ -32,6 +31,7 @@ database.ref("web/data/").on("child_added", (snapshot) => {
   
   const totellabel = document.querySelector('#totelText')
   const loader = document.querySelector('loader')
+  
   
   cardSection.innerHTML += `
   <card>
@@ -286,9 +286,11 @@ database.ref("web/messages/").on("child_added", (snapshot) => {
               <label class="timelabel">`+time+`</label>
             </card>
             `
-      
+            
       
 })
+const loader2 = document.querySelector('loader2')
+loader2.style.display='none'
 }
 
 
