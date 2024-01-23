@@ -1,3 +1,5 @@
+/* v 3.0 */
+
 @media (max-width: 800px) {
   header container nav{
     position: fixed;
@@ -35,6 +37,10 @@
   msg-container container{
     width: 100%;
     padding: 6px;
+  }
+  
+  main container section{
+    flex-flow: column-reverse;
   }
   
   
