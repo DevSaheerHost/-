@@ -173,12 +173,14 @@ var userAgent = navigator.userAgent;
 
 
 
+const usernameInput = document.querySelector('#name')
+const emailInput = document.querySelector('#email')
+
+
 // signup function from alert //
 function signup(){
-  const usernameInput=document.querySelector('#name') 
-  const emailInput=document.querySelector('#email') 
   if (usernameInput.value.length!==0 && emailInput.value.length!==0) {
-    Alert.style.display = 'none'
+    cancel();
     
     database.ref("web/users/").push({
       name: usernameInput.value,
@@ -187,8 +189,10 @@ function signup(){
       // timestamp: firebase.database.ServerValue.TIMESTAMP
     })
     
-    if (commandInput.value.length!==0) {
+    if (commandInput.value.length !== 0) {
       commandBtn.onclick()
+      cancel();
+      
     }
     
     
@@ -259,6 +263,7 @@ function loadCmd(){
 
 const messageDiv = document.querySelector('message-div')
 
+
 database.ref("web/messages/").on("child_added", (snapshot) => {
       const Messages = snapshot.val();
 
@@ -273,7 +278,7 @@ database.ref("web/messages/").on("child_added", (snapshot) => {
       
       
       messageDiv.innerHTML+=`
-      <card id="myid">
+      <card id="myid message-card">
               <container>
                 <div>
                 <span>
@@ -296,9 +301,16 @@ database.ref("web/messages/").on("child_added", (snapshot) => {
 })
 const loader2 = document.querySelector('loader2')
 loader2.style.display='none'
+
+setTimeout(scroll, 2000)
+
 }
 
-
+function scroll() {
+  var messageDiv = document.querySelector('message-div')
+  messageDiv.scrollTop= -999999999
+  console.log(messageDiv.scrollTop)
+}
 
 
 // var userAgent = navigator.userAgent;
