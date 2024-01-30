@@ -1,4 +1,8 @@
-// v 3.2
+// v 3.3
+
+// "use strict"
+
+
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAthM6oD2dYuAPrrLtqZT3pOWvkb17zRME",
@@ -34,12 +38,12 @@ database.ref("web/data/").on("child_added", (snapshot) => {
   
   
   cardSection.innerHTML += `
-  <card>
+  <card onclick="data()">
             <a href="` + data.pageurl + `" target="_blank"><img src="` + data.image + `" alt="">
             <text-area>
             
-              <h3>` + data.title + `</h3>
-              <label for="">` + data.subtitle + `</label>
+              <h3 style="color:`+data.color+`;">` + data.title + `</h3>
+              <label for=""> &nbsp &nbsp ` + data.subtitle + `</label>
             </text-area>
             <label class="timeLbl">` + data.time + `</label>
             <a>
@@ -198,11 +202,16 @@ function signup(){
     
     localStorage.setItem('login', 'true')
     localStorage.setItem('name', usernameInput.value)
+    document.title=localStorage.getItem('name');
   }
   
   
 }
 
+
+if(localStorage.getItem('name')!==null){
+  document.title=localStorage.getItem('name');
+}
 
 
 
@@ -246,6 +255,7 @@ var userAgent = navigator.userAgent;
   } else {
     
   }
+  document.title=localStorage.getItem('name');
 } else{
   Alert.style.display = 'flex'
 }
@@ -256,14 +266,13 @@ var userAgent = navigator.userAgent;
 
 
 setTimeout(loadCmd, 2000)
-
 // Comment Getting
 function loadCmd(){
   
 
 const messageDiv = document.querySelector('message-div')
 
-
+var commendId = 0
 database.ref("web/messages/").on("child_added", (snapshot) => {
       const Messages = snapshot.val();
 
@@ -277,8 +286,12 @@ database.ref("web/messages/").on("child_added", (snapshot) => {
       //console.log(time)
       
       
+      console.log(document.title);
+      
+      commendId++
+      console.log("cmd Id "+commendId)
       messageDiv.innerHTML+=`
-      <card id="myid message-card">
+      <card class="msgdiv" id="myid message-card">
               <container>
                 <div>
                 <span>
@@ -308,7 +321,7 @@ setTimeout(scroll, 2000)
 
 function scroll() {
   var messageDiv = document.querySelector('message-div')
-  messageDiv.scrollTop= -999999999
+  messageDiv.scrollTop= -999999999;
   console.log(messageDiv.scrollTop)
 }
 
@@ -324,3 +337,9 @@ function scroll() {
 // } else {
 //   console.log("Operating System: Unknown");
 // }
+
+
+
+
+// test /////
+
