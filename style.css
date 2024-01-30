@@ -1,4 +1,4 @@
-/* v 3.2*/
+/* v 3.3*/
 
 *{
   box-sizing: border-box;
@@ -280,12 +280,16 @@ main container section card text-area{
 }
 main container section card text-area h3{
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 0;
+  color: #42445A;
+  padding-bottom: 16px;
+  text-align: center;
 }
 main container section card text-area label{
   color: darkgray;
   margin: auto;
 }
+ 
 main container section card .timeLbl {
   color: black;
   float: right;
