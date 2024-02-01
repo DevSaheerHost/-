@@ -120,7 +120,10 @@ togleMenu=()=>{
 
 // scroll //
 
-window.onscroll = function() { myFunction() };
+window.onscroll = function() {
+  myFunction() 
+ // bottomScroll()
+};
 
 function myFunction() {
   if (document.documentElement.scrollTop > 350) {
@@ -196,14 +199,19 @@ function signup(){
     if (commandInput.value.length !== 0) {
       commandBtn.onclick()
       cancel();
-      
     }
     
     
     localStorage.setItem('login', 'true')
     localStorage.setItem('name', usernameInput.value)
     document.title=localStorage.getItem('name');
-  }
+    
+    var logTxt = 'Login Success with '+ localStorage.getItem('name');
+    showLog(logTxt)
+  } else{
+      var logTxt = 'Please Fill all inputs '
+      showLog(logTxt)
+    }
   
   
 }
@@ -219,7 +227,8 @@ if(localStorage.getItem('name')!==null){
 
 commandBtn.onclick=()=>{
   if (commandInput.value.length>=100) {
-    
+    var logTxt = 'Maximum Characters Exeeded'
+    showLog(logTxt)
   }else{
   
   if (localStorage.getItem('login')=='true') {
@@ -253,11 +262,14 @@ var userAgent = navigator.userAgent;
     })
     commandInput.value=''
   } else {
-    
+    var logTxt = 'Please Enter Something'
+    showLog(logTxt)
   }
   document.title=localStorage.getItem('name');
 } else{
   Alert.style.display = 'flex'
+  var logTxt = 'Please login First'
+  showLog(logTxt)
 }
 }
 }
@@ -341,5 +353,30 @@ function scroll() {
 
 
 
-// test /////
+// scroll footer effect /////
 
+// logout
+
+function logout() {
+  
+  if (localStorage.getItem('login')=='true') {
+    localStorage.removeItem('login')
+    localStorage.removeItem('name')
+    var logTxt = 'Logout success'
+    showLog(logTxt)
+    document.title='CODER'
+  } else {
+    var logTxt = 'Login Info not Exists'
+    showLog(logTxt)
+  }
+ // 
+  
+}
+
+// snackbar
+function showLog(logTxt) {
+  var snackbar = document.getElementById("snackbar");
+  snackbar.className = "show";
+  setTimeout(function() { snackbar.className = snackbar.className.replace("show", ""); }, 3000);
+  snackbar.innerHTML=logTxt
+}
