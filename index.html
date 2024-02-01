@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v 3.2-->
+<!-- v 3.3-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -45,6 +45,7 @@
           <li><a href="#">Clients</a></li>
           <li><a href="#">Blog</a></li>
           <li><a href="#">Contact</a></li>
+          <li onclick="logout()"><a>Log out</a></li>
         </ul>
       </nav>
       <span id="menu-btn" onclick="togleMenu()">
@@ -182,7 +183,7 @@
       <div class="div3">
         <i><label class="dim">&copy; Copyright not claimed!</label><br>
         <label class="dim">All rights reservedby, Designed by </label></i>
-        <label class="small"> Saheer Babu</label>
+        <label class="small name"> Saheer Babu</label>
       </div>
     </container>
   </footer>
@@ -206,6 +207,9 @@
       </card>
     </container>
   </alert>
+  
+  
+  <div id="snackbar">Some text some message..</div>
   
   <script src="main.js"></script>
 </body>
