@@ -333,6 +333,7 @@ main container section card text-area label{
  
 main container section card .timeLbl {
   color: var(--time-color);
+  color: gray;
   float: right;
   padding: 8px;
   font-size: 10px;
