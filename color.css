@@ -1,0 +1,24 @@
+/* v 1.0 */
+:root {
+  --bg-color-light: #ffffff;
+  --box-shadow-light: #B8B8B8;
+  --text-color-light: #333333;
+
+  --bg-color-dark: #1a1a1a;
+  --text-color-dark: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  /* Your dark theme styles go here */
+  body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+
+  /* Add more styles for other elements as needed */
+  
+  main container section card:hover {
+    width: 310px;
+  }
+}
