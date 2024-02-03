@@ -1,4 +1,4 @@
-/* v 3.3*/
+/* v 3.4*/
 
 *{
   box-sizing: border-box;
@@ -31,9 +31,19 @@ a{
   color: white;
   text-decoration: none;
 }
+a:link{
+  background: none;
+}
+a:hover{
+  background: none;
+}
+a:actived{
+  background: none;
+}
 header{
-  background: linear-gradient(#000000A8, #0C18309C), url('banner1.jpg');
+  background: linear-gradient(#000000A8, #0C18309C), url('5.jpg');
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   color: white;
   padding: 20px;
@@ -461,6 +471,7 @@ message-div {
   margin: auto;
   margin-bottom: 30px;
   border-radius: 3px;
+  
 }
 
 message-div card{
@@ -545,7 +556,7 @@ message-div card container texts{
 }
 message-div card container texts p{
   overflow-wrap: break-word;
-  
+  user-select: text;
 }
 message-div card svg{
   border-radius: 555px;
