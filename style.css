@@ -734,9 +734,9 @@ alert container card div #signup{
   background: #3D89C7;
   color: white;
 }
-#3D89C7{
+/* #3D89C7{
   
-}
+} */
 
 .name{
   animation-timeline: view(block 95% 1%);
