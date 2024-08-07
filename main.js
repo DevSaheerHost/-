@@ -47,7 +47,14 @@ database.ref("web/data/").on("child_added", (snapshot) => {
             </text-area>
             <label class="timeLbl">` + data.time + `</label>
             <a>
-          </card>`
+          </card>
+          
+
+          <style>
+          body.dark-theme.dark-theme {
+            --box-shadow-light:${data.color} !important;
+          </style>
+          `
   
   TotalData++
   totellabel.innerHTML=TotalData +' Projects'
@@ -303,6 +310,7 @@ database.ref("web/messages/").on("child_added", (snapshot) => {
       var time = Messages.time;
       var uname = Messages.name;
       var Udp = Messages.userDp;
+      var adminDP =  `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bug-fill" viewBox="0 0 16 16">   <path d="M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A5 5 0 0 0 3 6h10a5 5 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A5 5 0 0 0 8 1a5 5 0 0 0-2.731.811l-.29-.956z"/>   <path d="M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 1 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 1 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975"/> </svg>`
       //var tit = Messages.;
       
       //console.log(msg)
@@ -315,12 +323,32 @@ database.ref("web/messages/").on("child_added", (snapshot) => {
       console.log("cmd Id "+commendId)
       
       
-      messageDiv.innerHTML+=`
+      
+
+            if (uname=='Developer') {
+              messageDiv.innerHTML+=`
+            <card class="msgdiv" id="myid message-card">
+                    <container>
+                      <div class="user-name-box>
+                      <span class="dp">
+                      ${adminDP}
+                      </span>
+                        <h3>`+uname+`</h3>
+                      </div>
+                      <texts>
+                      <p>`+msg+`</p>
+                      </texts>
+                    </container>
+                    <label class="timelabel">`+time+`</label>
+                  </card>
+                  `
+            } else{
+              messageDiv.innerHTML+=`
       <card class="msgdiv" id="myid message-card">
               <container>
-                <div>
+                <div class="user-name-box>
                 <span class="dp">
-                `+Udp+`
+                ${Udp}
                 </span>
                   <h3>`+uname+`</h3>
                 </div>
@@ -331,6 +359,7 @@ database.ref("web/messages/").on("child_added", (snapshot) => {
               <label class="timelabel">`+time+`</label>
             </card>
             `
+            }
             
       
 })
@@ -394,13 +423,17 @@ function showLog(logTxt) {
 var a = 0
 
 togleTheme=()=>{
-  document.body.classList.toggle('dark-theme')
   if (a == 0) {
     a = 1
     themeBtn.innerHTML=lightIcon;
+    document.body.classList.add('dark-theme')
+    document.body.classList.remove('light-theme')
+
   } else{
     a = 0
     themeBtn.innerHTML=darckIcon;
+    document.body.classList.remove('dark-theme')
+    document.body.classList.add('light-theme')
   }
 }
 

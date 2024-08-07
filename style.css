@@ -1,46 +1,44 @@
 /* v 3.4*/
 
-*{
+* {
   box-sizing: border-box;
   scroll-behavior: smooth;
   transition: .3s;
   user-select: none;
 }
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    
-    background-color: var(--bg-color-light);
-    color: var(--text-color-light);
-     --box-shadow-light: #B8B8B8;
-     --time-color: black;
-     /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+  --box-shadow-light: #494949;
+  --time-color: black;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
 }
 
-body.dark-theme {
-  /* background-color: var(--bg-color-dark);
-  color: var(--text-color-dark); */
-    --bg-color-light: #1a1a1a;
-    --text-color-light: #ffffff;
-     --box-shadow-light: #4B4B4B;
-     --time-color: white;
-}
+/*  */
 
-a{
+a {
   color: white;
   text-decoration: none;
 }
-a:link{
+
+a:link {
   background: none;
 }
-a:hover{
+
+a:hover {
   background: none;
 }
-a:actived{
+
+a:actived {
   background: none;
 }
-header{
+
+header {
   background: linear-gradient(#000000A8, #0C18309C), url('5.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -49,26 +47,30 @@ header{
   padding: 20px;
   height: 75vh;
 }
-header container{
+
+header container {
   display: flex;
   flex-flow: row;
   align-items: center;
   justify-content: space-around;
 }
-header container .logo{
+
+header container .logo {
   margin: 0;
   padding: 0;
 }
-header container nav{
+
+header container nav {
   width: 60%;
   transition: .3s;
 }
 
-header container span{
+header container span {
   display: none;
   z-index: 99;
 }
-header container span svg{
+
+header container span svg {
   height: 30px;
   width: 30px;
   cursor: pointer;
@@ -76,19 +78,20 @@ header container span svg{
   color: white;
 }
 
-header container nav ul{
+header container nav ul {
   width: 100%;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  
+
   overflow: hidden;
 }
-header container nav li{
+
+header container nav li {
   display: inline;
 }
 
-header div{
+header div {
   width: 100%;
   height: 100%;
   text-align: center;
@@ -98,11 +101,12 @@ header div{
   justify-content: center;
 }
 
-header div h1{
+header div h1 {
   color: white;
   transform: translateX(-50%)
 }
-header div h1:after{
+
+header div h1:after {
   content: "";
   font-weight: 100;
   animation: text 1.5s infinite ease-in-out;
@@ -112,38 +116,51 @@ header div h1:after{
   transition: .4s;
   margin-left: 7px;
 }
-@keyframes text{
-  0%{
+
+.menuList li {
+  cursor: pointer;
+}
+
+@keyframes text {
+  0% {
     content: "";
     opacity: .4;
   }
-  10%{
+
+  10% {
     content: " A";
   }
-  20%{
+
+  20% {
     content: " Add";
   }
-  30%{
+
+  30% {
     content: " Addic";
   }
-  40%{
+
+  40% {
     content: " Addictive";
     opacity: 1;
   }
-  50%{
+
+  50% {
     content: " Addic";
   }
-  60%{
+
+  60% {
     content: " Add";
   }
-  70%{
+
+  70% {
     content: " A";
   }
-  80%{
+
+  80% {
     content: "";
     opacity: .4;
   }
-  
+
 }
 
 
@@ -157,16 +174,18 @@ header div h1:after{
 
 
 
-main{
+main {
   width: 100%;
 }
-main container{
+
+main container {
   padding: 20px;
   display: flex;
   flex-flow: column;
   width: 100%;
 }
-main container loader{
+
+main container loader {
   width: 100%;
   height: 100%;
   margin: auto;
@@ -175,7 +194,7 @@ main container loader{
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  
+
   animation-timeline: view(block 130% 10%);
   animation-name: fTopRow;
   animation-fill-mode: both;
@@ -271,32 +290,31 @@ main container loader{
 
 
 
-main container section{
+main container section {
   width: 100%;
-  padding: 20px;
-  display: flex;
-  flex-flow: row-reverse;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
+  padding: 1rem;
+  justify-content: start;
+  align-items: start;
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: dense; */
+
 }
 
 
-main container section card{
-  height: 300px;
-  width: 300px;
-  height: max-content;
+main container section card {
+  /* height: 300px;
+  width: 300px; */
   display: flex;
   flex-flow: column;
-  
+
   overflow: hidden;
   margin: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 5px gray;
+  border-radius: .5rem;
   padding: 2px;
-  
-  
-  
+
+
+
   animation-timeline: view(block 120% 0%);
   animation-name: fTopRow;
   animation-fill-mode: both;
@@ -305,22 +323,26 @@ main container section card{
   animation-timing-function: linear;
 }
 
-main container section card:hover{
-  
-  box-shadow: -6px -6px 15px var( --box-shadow-light),
-  6px 6px 15px var( --box-shadow-light);
-  width: 310px;
+main container section card:hover {
+
+  box-shadow: -6px -6px 15px var(--box-shadow-light),
+    6px 6px 15px var(--box-shadow-light);
+  width: auto !important;
 }
 
 
-main container section card a{
+main container section card a {
   border-radius: 10px;
+  display: flex;
 }
-main container section card img{
+
+main container section card img {
   width: 100%;
-  border-radius: 10px;
+  max-width: 350px;
+  border-radius: .5rem;
 }
-main container section card text-area{
+
+main container section card text-area {
   padding: 20px;
   display: block;
   overflow: scroll;
@@ -329,33 +351,40 @@ main container section card text-area{
   border-radius: 7px;
   height: 100%;
 }
-main container section card text-area h3{
+
+main container section card text-area h3 {
   margin: 0;
   padding: 0 0 0 0;
   color: #42445A;
   padding-bottom: 16px;
   text-align: center;
+  position: relative;
 }
-main container section card text-area label{
+
+main container section card text-area label {
   color: darkgray;
   margin: auto;
 }
- 
+
 main container section card .timeLbl {
   color: var(--time-color);
   color: gray;
   float: right;
   padding: 8px;
   font-size: 10px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
-iframe{
+iframe {
   display: none;
   min-height: 100vh;
   height: max-content;
   width: 100%;
 }
-#back{
+
+#back {
   display: none;
   background: #5A5A5A21;
   padding: 6px 8px;
@@ -364,13 +393,14 @@ iframe{
   font-weight: 700px;
   height: min-content;
 }
-#back svg{
+
+#back svg {
   display: flex;
   height: 30px;
   width: 30px;
 }
 
-card h3{
+card h3 {
   color: black;
 }
 
@@ -380,12 +410,13 @@ card h3{
 
 
 
-msg-container{
+msg-container {
   padding: 20px;
   border-bottom: 2px solid #BDBDBD;
   display: block;
 }
-msg-container container{
+
+msg-container container {
   display: flex;
   flex-flow: row;
   align-items: center;
@@ -393,33 +424,35 @@ msg-container container{
   gap: 20px;
   width: 50%;
 }
-msg-container container input-group{
+
+msg-container container input-group {
   display: flex;
   flex-flow: column;
   padding: 20px 0;
 }
-msg-container container input{
+
+msg-container container input {
   border-radius: 100px;
   padding: 6px;
   border: 5px solid #42445A57;
   outline: none;
   font-weight: bold;
   color: #42445A57;
-  
-  
+
+
 }
 
-msg-container container input:focus{
+msg-container container input:focus {
   transition: .3s;
   border: 5px solid #42445A;
   color: #42445A;
 }
 
-msg-container container button{
+msg-container container button {
   height: min-content;
   background: none;
   border: none;
-  
+
   animation-timeline: view(block 90% 0%);
   animation-name: sndBtn;
   animation-fill-mode: both;
@@ -428,17 +461,18 @@ msg-container container button{
   animation-timing-function: linear;
 }
 
-@keyframes sndBtn{
-  from{
+@keyframes sndBtn {
+  from {
     transform: translateX(100%)
   }
-  to{
+
+  to {
     transform: translateX(0px)
   }
 }
 
 
-msg-container container button svg{
+msg-container container button svg {
   transition: .2s !important;
   width: 30px;
   height: 30px;
@@ -471,13 +505,16 @@ message-div {
   margin: auto;
   margin-bottom: 30px;
   border-radius: 3px;
-  
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
 }
 
-message-div card{
+message-div card {
   max-width: 400px;
   width: 300px;
-  background: white;
+  background: var(--bg-color-light);
   padding: 8px;
   border-radius: 7px;
   box-shadow: 0 0 5px #BDBDBD;
@@ -486,11 +523,15 @@ message-div card{
   color: #797979;
   overflow: hidden;
 }
-message-div card h3{
+message-div .user-name-box{
+  display: flex;align-items: center;
+}
+
+message-div card h3 {
   color: #797979;
 }
 
-message-div loader2{
+message-div loader2 {
   width: 100%;
   height: 100%;
   margin: auto;
@@ -512,9 +553,10 @@ message-div .loader2 {
   background: #FFF;
   box-sizing: border-box;
 }
+
 .loader2::after {
   border-radius: 7px;
-  content: '';  
+  content: '';
   width: calc(100% - 30px);
   height: calc(100% - 30px);
   top: 15px;
@@ -532,6 +574,7 @@ message-div .loader2 {
   0% {
     background-position: 0% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
   }
+
   100% {
     background-position: 150% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
   }
@@ -540,33 +583,37 @@ message-div .loader2 {
 
 
 
-message-div card container div{
+message-div card container div {
   display: flex;
   flex-flow: row;
   align-items: center;
   gap: 8px;
 }
 
-message-div card container texts{
+message-div card container texts {
   overflow-y: scroll;
   height: 100%;
   width: 100%;
   max-height: 150px;
   display: block;
 }
-message-div card container texts p{
+
+message-div card container texts p {
   overflow-wrap: break-word;
   user-select: text;
 }
-message-div card svg{
+
+message-div card svg {
   border-radius: 555px;
   width: 30px;
   height: 30px;
 }
-message-div card container p{
+
+message-div card container p {
   color: #BDBDBD;
 }
-message-div card .timelabel{
+
+message-div card .timelabel {
   font-size: 10px;
   color: #BDBDBD;
   float: right;
@@ -581,11 +628,12 @@ message-div card .timelabel{
 
 
 
-footer{
+footer {
   background: #383C4F;
   padding: 20px;
   color: white;
 }
+
 footer top-row {
   display: flex;
   flex-flow: row;
@@ -593,7 +641,7 @@ footer top-row {
   padding: 10px;
   border: 3px solid #80808036;
   border-radius: 3px;
-  
+
   animation-timeline: view(block 80% 5%);
   animation-name: fTopRow;
   animation-fill-mode: both;
@@ -602,68 +650,70 @@ footer top-row {
   animation-timing-function: linear;
 }
 
-  @keyframes fTopRow {
-    from {
-      transform: translateY(70px);
-      opacity: 0;
-    }
-
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+@keyframes fTopRow {
+  from {
+    transform: translateY(70px);
+    opacity: 0;
   }
 
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
 
 
-footer top-row svg{
+
+footer top-row svg {
   width: 30px;
   height: 30px;
   color: #B1B1B1C7;
 }
 
-footer .div{
+footer .div {
   width: 100%;
   text-align: center;
   padding: 25px;
   padding-top: 60px;
 }
 
-footer middle-row{
+footer middle-row {
   display: flex;
   flex-flow: row;
   max-width: min-content;
   justify-content: space-around;
   text-align: center;
   margin: auto;
-  
+
 }
 
 
-footer middle-row h3{
+footer middle-row h3 {
   border: 3px solid white;
   border-radius: 3px;
   color: white;
   padding: 6px 8px;
   margin: 16px;
 }
+
 footer .div2 {
   width: 100%;
   text-align: center;
 }
 
-.dim{
+.dim {
   color: #B1B1B1C7;
   font-size: 13px;
 }
-footer .div3{
+
+footer .div3 {
   font-size: 13px;
   text-align: center;
   width: 100%;
 }
 
-::placeholder{
+::placeholder {
   color: darkgray;
 }
 
@@ -676,7 +726,7 @@ footer .div3{
 
 
 
-alert{
+alert {
   width: 100%;
   position: fixed;
   top: 0;
@@ -684,15 +734,16 @@ alert{
   right: 0;
   bottom: 0;
   background: #0000003D;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  
+
+
   display: none;
 }
-alert container card{
+
+alert container card {
   background: white;
   display: flex;
   flex-flow: column;
@@ -702,43 +753,50 @@ alert container card{
   gap: 8px;
   border-radius: 7px;
 }
-alert container card input{
+
+alert container card input {
   padding: 6px;
   border-radius: 0px;
   border: none;
   border-bottom: 2px solid #00000080;
   outline: none;
 }
-alert container card input:focus{
+
+alert container card input:focus {
   border: 2px solid #00000080;
   border-radius: 30px;
 }
-alert container card label{
+
+alert container card label {
   font-size: 13px;
   margin: 0 20px;
 }
-alert container card div{
+
+alert container card div {
   width: 100%;
   padding: 20px;
   display: flex;
   flex-flow: row;
   justify-content: space-around;
 }
-alert container card div button{
+
+alert container card div button {
   width: 40%;
   border-radius: 50px;
   padding: 8px;
   border: none;
 }
-alert container card div #signup{
+
+alert container card div #signup {
   background: #3D89C7;
   color: white;
 }
+
 /* #3D89C7{
   
 } */
 
-.name{
+.name {
   animation-timeline: view(block 95% 1%);
   animation-name: name;
   animation-fill-mode: both;
@@ -747,16 +805,17 @@ alert container card div #signup{
   animation-timing-function: linear;
 }
 
-  @keyframes name {
-    from{
-      color: #117879;
-    }
-    to {
-      color: white;
-    }
-
-    
+@keyframes name {
+  from {
+    color: #117879;
   }
+
+  to {
+    color: white;
+  }
+
+
+}
 
 
 
@@ -789,28 +848,104 @@ alert container card div #signup{
 }
 
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 /* darck theme */
 
-.hind{
-  color:darkgray;
+#themeBtn {
+  cursor: pointer;
+}
+
+.hind {
+  color: darkgray;
   padding-left: 20px;
+}
+
+body.dark-theme {
+  /* background-color: var(--bg-color-dark);
+  color: var(--text-color-dark); */
+  color: var(--text-color-light); 
+  --bg-color-light: #1a1a1a;
+  --text-color-light: #ffffff;
+  --box-shadow-light: #16216970;
+  --time-color: white;
+}
+
+body.light-theme {
+  /* background-color: var(--bg-color-dark);*/
+  color: var(--text-color-light); 
+  --bg-color-light: #ffffff !important;
+  --box-shadow-light: #B8B8B8 !important;
+  --text-color-light: #333333 !important;
+
+  --bg-color-dark: #1a1a1a !important;
+  --text-color-dark: #ffffff !important;
+}
+
+.name {
+  color: #0fb0b3 !important;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#commandBtn svg{
+  fill: var(--text-color-light);
+}
+
+
+
+@media (max-width: 750px) {
+  main container section card a{
+    display: block;
+  }
+
+  message-div{
+    display: flex;
+    flex-direction: row-reverse;
+  }
 }

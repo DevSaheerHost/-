@@ -2,6 +2,7 @@
 :root {
   --bg-color-light: #ffffff;
   --box-shadow-light: #B8B8B8;
+  --box-shadow-light: #f14242;
   --text-color-light: #333333;
 
   --bg-color-dark: #1a1a1a;
@@ -12,13 +13,26 @@
 
   /* Your dark theme styles go here */
   body {
-    background-color: #1a1a1a;
-    color: #ffffff;
-  }
+    background-color: var(--bg-color-light);
+    color: var(--bg-color-dark);
 
-  /* Add more styles for other elements as needed */
-  
-  main container section card:hover {
-    width: 310px;
+    --bg-color-light: #1a1a1a;
+    --text-color-light: #ffffff;
+    --box-shadow-light: rgba(0, 130, 250, .24);
+    --time-color: white;
+  }
+}
+
+
+@media (prefers-color-scheme: light) {
+
+  /* Your dark theme styles go here */
+  body {
+    --bg-color-light: #ffffff;
+    --box-shadow-light: #B8B8B8 !important;
+    --text-color-light: #333333;
+
+    --bg-color-dark: #1a1a1a;
+    --text-color-dark: #ffffff;
   }
 }
