@@ -1,0 +1,77 @@
+*{
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body{
+  margin: 0;
+  display: none;
+  
+  background: rgb(238, 174, 202);
+  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  height: 100%;
+}
+
+header{
+  background: rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  text-align: center;
+}
+
+main{
+  display: block;
+  
+}
+main container{
+  display: block;
+  padding: 20px 0;
+}
+
+.card h1{
+  font-weight: normal;
+  margin: auto;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+}
+
+.card{
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 20px;
+  padding: 20px;
+  
+  width: 400px;
+  display: flex;
+  flex-flow: column;
+  margin: auto;
+  max-width: 90%;
+}
+.card input{
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  font-size: 19px;
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button{
+  margin-top: 20px;
+  border-radius: 20px;
+  background: #228CE7;
+  border: none;
+  font-size: 20px;
+  padding: 5px 20px;
+  color: white
+}
+
+.card label{
+  padding-left: 8px;
+  margin-top: 10px;
+}
