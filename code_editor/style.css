@@ -1,0 +1,110 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0 0 0 0;
+  outline: none;
+  transition: .3s;
+}
+body{
+  background: #454545;
+  
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  height: 100dvh;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+textarea{
+  width: 100%;
+  background: #3A3A3A;
+  margin-bottom: 1rem;
+  min-height: 100px;
+  color: #fff;
+}
+section label{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: .5rem;
+  background: black;
+  padding: .5rem;
+  color: #fff;
+}
+section label i.html{
+  color: red;
+}
+section label i.css{
+  color: #0A72FF;
+}
+section label i.js {
+  color: yellow;
+}
+
+iframe{
+  width: 100%;
+  background: #fff;
+  scale: 1 .97;
+}
+.output-section label{
+position: relative;
+color: #090;
+}
+.fullscreen-toggler{
+  position: absolute;
+  right: .5rem;
+  z-index: 99;
+}
+
+
+
+
+.fullscreen{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.fullscreen iframe{
+  transition: all 1s;
+  height: 100%;
+  scale: 1;
+}
+
+@media (min-width: 750px) {
+  section{
+    height: 100%;
+  }
+  textarea{
+    height: 100%;
+  }
+  .container{
+    flex-flow: row;
+  }
+  .output-section{
+    display: flex;
+    height: 100%;
+  }
+  .output-section #output{
+    height: 100%;
+    display: block;
+  }
+}
+
+.tag{
+  color: red;
+}

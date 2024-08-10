@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+  
+  <div class="container">
+    <section class="input-section">
+      <label><i class="fa-brands fa-html5 html"></i>HTML</label>
+      <textarea autocapitalize="none" onkeyup="run()" id="html-code" class="language-html"></textarea>
+      <label> <i class="fa-brands fa-css3-alt css"></i>CSS</label>
+      <textarea autocapitalize="none" onkeyup="run()" id="css-code"></textarea>
+      <label> <i class="fa-brands fa-js js"></i>JS</label>
+      <textarea autocapitalize="none"  onkeyup="run()" id="js-code"></textarea>
+    </section>
+    
+    <section class="output-section">
+      <label>
+        <i class="fa-solid fa-play"> 
+        <i class="fa-solid fa-up-right-and-down-left-from-center fullscreen-toggler" id="fullscreenToggler"></i>
+        </i>
+        </label>
+      <iframe id="output"></iframe>
+    </section>
+    
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <script src="main.js"></script>
+</body>
+</html>
