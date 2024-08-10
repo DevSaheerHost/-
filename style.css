@@ -494,7 +494,7 @@ message-div {
   flex-flow: row-reverse;
   flex-wrap: wrap-reverse;
   padding: 20px;
-  gap: 20px;
+  gap: 2rem;
   justify-content: space-evenly;
   min-height: 200px;
   max-height: 600px;
@@ -503,13 +503,14 @@ message-div {
   border-top: 2px solid #BDBDBD;
   border-bottom: 2px solid #BDBDBD;
   box-shadow: 0 0 5px #BDBDBD inset;
-  width: 90%;
+  width: auto;
   margin: auto;
   margin-bottom: 30px;
   border-radius: 3px;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
 
 }
 
@@ -958,4 +959,11 @@ body.light-theme {
     display: flex;
     flex-direction: row-reverse;
   }
+  msg-container container{
+    width: 100%;
+  }
 }
+
+/* *{
+ border: 1px solid red; 
+} */
