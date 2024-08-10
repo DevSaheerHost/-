@@ -1,10 +1,10 @@
-<b> OpenCoder </b>
+<h1> OpenCoder </h1>
 
 
 ### visit : https://devsaheerhost.github.io/-/
 ### visit : https://devsaheerhost.github.io/-/ToDO
 
-<b> Online code editor <b/>
+<h1> Online code editor </h1>
  •HTML <br>
  •CSS <br>
  •JS
