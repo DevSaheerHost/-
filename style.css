@@ -340,6 +340,8 @@ main container section card img {
   width: 100%;
   max-width: 350px;
   border-radius: .5rem;
+  min-width: 200px;
+  object-fit: cover;
 }
 
 main container section card text-area {
@@ -940,8 +942,16 @@ body.light-theme {
 
 
 @media (max-width: 750px) {
+  main container section card{
+    border: 1px solid gray;
+  }
   main container section card a{
     display: block;
+  }
+
+  main container section card a img{
+    margin: auto;
+    max-width: 100%;
   }
 
   message-div{

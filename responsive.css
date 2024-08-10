@@ -27,8 +27,9 @@
   header container span {
     display: block;
   }
+}/*closing tag of @media*/
   
-  middle-row{
+  /* middle-row{
     display: flex;
     flex-flow: column !important;
     flex-wrap: wrap;
@@ -53,4 +54,4 @@
 }
 
   
-}
+} */
