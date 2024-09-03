@@ -347,7 +347,7 @@ main container section card img {
 main container section card text-area {
   padding: 20px;
   display: block;
-  overflow: scroll;
+  overflow: hidden;
   /* background: #E4E4E4; */
   margin: 3px;
   border-radius: 7px;
@@ -594,7 +594,7 @@ message-div card container div {
 }
 
 message-div card container texts {
-  overflow-y: scroll;
+  overflow-y: hidden;
   height: 100%;
   width: 100%;
   max-height: 150px;

@@ -27,6 +27,11 @@
   header container span {
     display: block;
   }
+  middle-row{
+    display: flex;
+    flex-flow: column !important;
+    flex-wrap: wrap;
+  }
 }/*closing tag of @media*/
   
   /* middle-row{
