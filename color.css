@@ -1,25 +1,26 @@
 /* v 1.0 */
 :root {
-  --bg-color-light: #ffffff;
-  --box-shadow-light: #B8B8B8;
-  --box-shadow-light: #f14242;
-  --text-color-light: #333333;
+  --body-bg: var(--body-bg-light);
+  --body-bg-light: #e1e3e4;
+  --body-bg-dark:  #121212;
 
-  --bg-color-dark: #1a1a1a;
-  --text-color-dark: #ffffff;
+  --card-bg: var(--cadr-bg-light);
+  --cadr-bg-light: #f4f4f4;
+  --cadr-bg-dark: #1e1e1e;
+
+  --special-text: #3bb4b0;
+  --text-color: var(--text-color-light);
+  --text-color-light: #000000;
+  --text-color-dark: #e0e0e0;
 }
 
 @media (prefers-color-scheme: dark) {
 
   /* Your dark theme styles go here */
   body {
-    background-color: var(--bg-color-light);
-    color: var(--bg-color-dark);
-
-    --bg-color-light: #1a1a1a;
-    --text-color-light: #ffffff;
-    --box-shadow-light: rgba(0, 130, 250, .24);
-    --time-color: white;
+    --body-bg: var(--body-bg-dark);
+    --card-bg: var(--cadr-bg-dark);
+    --text-color:var(--text-color-dark);
   }
 }
 
@@ -28,11 +29,23 @@
 
   /* Your dark theme styles go here */
   body {
-    --bg-color-light: #ffffff;
-    --box-shadow-light: #B8B8B8 !important;
-    --text-color-light: #333333;
-
-    --bg-color-dark: #1a1a1a;
-    --text-color-dark: #ffffff;
+    --card-bg: var(--body-bg-light);
+    --body-bg: var(--body-bg-light);
   }
+}
+
+
+
+
+body.dark-theme {
+  --body-bg: var(--body-bg-dark);
+    --card-bg: var(--cadr-bg-dark);
+    --text-color:var(--text-color-dark);
+  
+}
+
+body.light-theme {
+  --body-bg: var(--body-bg-light);
+    --card-bg: var(--cadr-bg-light);
+    --text-color:var(--text-color-light);
 }

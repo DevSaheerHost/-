@@ -42,11 +42,12 @@ database.ref("web/data/").on("child_added", (snapshot) => {
             <a href="` + data.pageurl + `" target="_blank"><img src="` + data.image + `" alt="">
             <text-area>
             
-              <h3 style="color:`+data.color+`;">` + data.title + `</h3>
-              <label for=""> &nbsp &nbsp ` + data.subtitle + `</label>
+              <h5>` + data.title + `</h5>
+              <label for=""> ` + data.subtitle + `</label>
+              <label class="type"> ` + data.type + `</label>
             </text-area>
             <label class="timeLbl">` + data.time + `</label>
-            <a>
+            </a>
           </card>
           
 

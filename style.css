@@ -11,11 +11,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-
-  background-color: var(--bg-color-light);
-  color: var(--text-color-light);
-  --box-shadow-light: #494949;
-  --time-color: black;
+  color: var(--text-color);
+  background-color: var(--body-bg);
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
 }
 
@@ -293,11 +290,12 @@ main container loader {
 main container section {
   width: 100%;
   padding: 1rem;
-  justify-content: start;
-  align-items: start;
-  /* display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-flow: dense; */
+  /* justify-content: start;
+  align-items: start; */
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
 
 }
 
@@ -305,47 +303,43 @@ main container section {
 main container section card {
   /* height: 300px;
   width: 300px; */
+  width: 250px;
+  padding: 1rem;
   display: flex;
-  flex-flow: column;
-
+  flex-flow: row;
   overflow: hidden;
-  margin: 20px;
-  border-radius: .5rem;
-  padding: 2px;
-
-
-
+  border-radius: 0;
   animation-timeline: view(block 120% 0%);
   animation-name: fTopRow;
   animation-fill-mode: both;
   animation-duration: 1ms;
   /* Firefox requires this to apply the animation */
   animation-timing-function: linear;
+  background-color: var(--card-bg);
 }
 
 main container section card:hover {
 
-  box-shadow: -6px -6px 15px var(--box-shadow-light),
-    6px 6px 15px var(--box-shadow-light);
-  width: auto !important;
+  box-shadow: -6px -6px 15px var(--box-shadow),
+    6px 6px 15px var(--box-shadow);
 }
 
 
 main container section card a {
   border-radius: 10px;
-  display: flex;
+  display: block;
+  margin: auto;
+height: 100%;
 }
 
 main container section card img {
   width: 100%;
-  max-width: 350px;
-  border-radius: .5rem;
-  min-width: 200px;
+  height: 250px;
   object-fit: cover;
+  background-position: center;
 }
 
 main container section card text-area {
-  padding: 20px;
   display: block;
   overflow: hidden;
   /* background: #E4E4E4; */
@@ -354,18 +348,26 @@ main container section card text-area {
   height: 100%;
 }
 
-main container section card text-area h3 {
+main container section card text-area h5 {
   margin: 0;
   padding: 0 0 0 0;
-  color: #42445A;
-  padding-bottom: 16px;
+  color: var(--text-color);
   text-align: center;
-  position: relative;
+  line-height: 1.5rem;
+  font-size: 15px;
 }
 
 main container section card text-area label {
-  color: darkgray;
+  color: rgb(100, 99, 99);
   margin: auto;
+  line-height: 1.5rem;
+}
+main container section card text-area label.type{
+  color: var(--special-text);
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.5rem;
 }
 
 main container section card .timeLbl {
@@ -517,7 +519,7 @@ message-div {
 message-div card {
   max-width: 400px;
   width: 300px;
-  background: var(--bg-color-light);
+  background: var(--card-bg);
   padding: 8px;
   border-radius: 7px;
   box-shadow: 0 0 5px #BDBDBD;
@@ -909,26 +911,6 @@ alert container card div #signup {
   padding-left: 20px;
 }
 
-body.dark-theme {
-  /* background-color: var(--bg-color-dark);
-  color: var(--text-color-dark); */
-  color: var(--text-color-light); 
-  --bg-color-light: #1a1a1a;
-  --text-color-light: #ffffff;
-  --box-shadow-light: #16216970;
-  --time-color: white;
-}
-
-body.light-theme {
-  /* background-color: var(--bg-color-dark);*/
-  color: var(--text-color-light); 
-  --bg-color-light: #ffffff !important;
-  --box-shadow-light: #B8B8B8 !important;
-  --text-color-light: #333333 !important;
-
-  --bg-color-dark: #1a1a1a !important;
-  --text-color-dark: #ffffff !important;
-}
 
 .name {
   color: #0fb0b3 !important;
@@ -937,7 +919,7 @@ body.light-theme {
 }
 
 #commandBtn svg{
-  fill: var(--text-color-light);
+  fill: var(--text-color);
 }
 
 

@@ -15,7 +15,7 @@ var database = firebase.database();
 let title = document.querySelector('#title')
 let subtitle = document.querySelector('#subTitle')
 let image = document.querySelector('#image')
-let color = document.querySelector('#color')
+let type = document.querySelector('#type')
 let url = document.querySelector('#url')
 
 let uploadBtn = document.querySelector('.upload')
@@ -33,7 +33,7 @@ $('.upload').click(function () {
   'subtitle': subTitle.value,
   'image': image.value,
   'pageurl': url.value,
-  'color': color.value,
+  'type': type.value,
   'time':date
   })
     .then(res => {
@@ -41,7 +41,7 @@ $('.upload').click(function () {
       setTimeout(clearTitle, 50)
       setTimeout(clearSubTitle, 100)
       setTimeout(clearImage, 200)
-      setTimeout(clearColor, 300)
+      setTimeout(clearType, 300)
       setTimeout(clearUrl, 400)
       
     })
@@ -83,7 +83,7 @@ clearImage=()=>{
   
   image.value = ''
 }
-clearColor=()=>{
+clearType=()=>{
   
-  color.value = ''
+  type.value = ''
 }

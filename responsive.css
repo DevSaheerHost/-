@@ -34,11 +34,17 @@
   }
 }/*closing tag of @media*/
   
-  /* middle-row{
-    display: flex;
-    flex-flow: column !important;
-    flex-wrap: wrap;
+@media (max-width: 600px) {
+  main container section card{
+    margin: auto;
+    width: 100%;
   }
+}
+
+
+
+
+  /*
   
   msg-container container{
     width: 100%;
