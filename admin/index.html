@@ -1,49 +1,63 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" href="style.css">
-  
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-  
-  <title>ADMIN</title>
-</head>
+    <link rel="stylesheet" href="style.css" />
 
-<body>
-  <header>
-    <container>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+    <title>ADMIN</title>
+  </head>
+
+  <body>
+    <header>
       <h1>Admin</h1>
-    </container>
-  </header>
-  
-  <main>
-    <container>
-      <div class="card">
-        <h1>ADD ITEMS TO DATABASE</h1>
-        
-        <label for="title">TITLE</label>
-        <input type="text" name="" id="title">
-        <label for="subTitle">SUB TITLE</label>
-        <input type="text" name="" id="subTitle">
-        <label for="image">IMAGE</label>
-        <input type="text" name="" id="image">
-        <label for="type">TYPE</label>
-        <input type="text" name="" id="type">
-        <label for="url">URL</label>
-        <input type="text" name="" id="url">
-        
-        <button class="upload">UPLOAD</button>
-      </div>
-    </container>
-  </main>
-  
-  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-  
-  <script src="main.js"></script>
-</body>
+    </header>
 
+    <div class="popup">
+      <div class="card">
+        <div class="titleBar">
+          <h5>Warning!!!</h5>
+        </div>
+        <div class="detail">
+          <p><b>></b> Are You Sure To Upload The Data?</p>
+        </div>
+        <div class="button-wraper">
+          <div class="cancel btn">Cancel</div>
+          <div class="continue btn">Continue</div>
+        </div>
+      </div>
+    </div>
+    <main>
+      <container>
+        <div class="card">
+          <h1>Add Items to database</h1>
+
+          <label for="title">TITLE</label>
+          <input type="text" name="" id="title" />
+          <label for="subTitle">SUB TITLE</label>
+          <input type="text" name="" id="subTitle" />
+          <label for="image">IMAGE</label>
+          <input type="text" name="" id="image" />
+          <label for="type">TYPE</label>
+          <input type="text" name="" id="type" />
+          <label for="url">URL</label>
+          <input type="text" name="" id="url" />
+
+          <button class="upload">Upload</button>
+        </div>
+      </container>
+    </main>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="main.js"></script>
+  </body>
 </html>

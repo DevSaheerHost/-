@@ -1,77 +1,157 @@
-*{
+* {
   box-sizing: border-box;
   font-family: sans-serif;
+  transition: 0.3s;
+  user-select: none;
 }
-body{
+
+body {
   margin: 0;
   display: none;
-  
-  background: rgb(238, 174, 202);
-  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
-  
+
+  background: #fff;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   height: 100%;
 }
 
-header{
+header {
   background: rgba(255, 255, 255, 0.3);
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: center;
+  h1{
+    margin: 0;
+    font-weight: 400;
+  }
 }
 
-main{
+main container {
   display: block;
-  
-}
-main container{
-  display: block;
-  padding: 20px 0;
+  padding: 1.3rem 0;
 }
 
-.card h1{
+.card h1 {
   font-weight: normal;
   margin: auto;
   text-align: center;
-  text-shadow: 0 0 10px rgba(0,0,0,0.5);
   margin-bottom: 10px;
 }
 
-.card{
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+.card {
+  /* backdrop-filter: blur(5px); */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   padding: 20px;
-  
   width: 400px;
   display: flex;
   flex-flow: column;
   margin: auto;
   max-width: 90%;
+  background-color: #fff;
 }
-.card input{
+
+.card input {
   padding: 8px 20px;
   border-radius: 20px;
   border: none;
   font-size: 19px;
   background: rgba(255, 255, 255, 0.3);
   outline: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(196, 196, 196);
 }
 
-button{
-  margin-top: 20px;
+.card input:focus {
+  border-color: #228ce7;
+  border-width: 2px;
+}
+
+button {
   border-radius: 20px;
-  background: #228CE7;
+  background-color: rgb(41, 39, 39);
   border: none;
   font-size: 20px;
-  padding: 5px 20px;
-  color: white
+  padding: 0.5rem 2rem;
+  width: max-content;
+  margin: auto;
+  color: white;
+  margin-top: 20px;
 }
 
-.card label{
+button:hover {
+  background-color: #2279c5;
+}
+
+.card label {
   padding-left: 8px;
   margin-top: 10px;
+}
+
+/* popup menu */
+
+.popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  /* background-color: rgba(160, 160, 160, 0.411); */
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup .card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.popup .titleBar {
+  background-color: rgb(41, 39, 39);
+  padding: 1rem;
+  color: #fff;
+
+  h5 {
+    margin: 0;
+  }
+}
+
+.popup .detail {
+  padding: 1rem;
+}
+
+.popup .button-wraper {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-top: 1px solid rgb(196, 196, 196);
+}
+
+.popup .btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(196, 196, 196);
+  border-radius: 5px;
+}
+
+.continue {
+  background-color: rgb(41, 39, 39);
+  color: #fff;
+}
+
+.continue:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.cancel:hover {
+  background-color: #d3d3d3;
+  color: #fff;
+}
+
+.popup-visible {
+  display: flex;
+  backdrop-filter: blur(2px);
 }
