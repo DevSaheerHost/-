@@ -39,6 +39,9 @@
     margin: auto;
     width: 100%;
   }
+  main container section card a{
+    width: 100%;
+  }
 }
 
 

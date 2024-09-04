@@ -926,7 +926,7 @@ alert container card div #signup {
 
 @media (max-width: 750px) {
   main container section card{
-    border: 1px solid gray;
+    border-radius: 5px;
   }
   main container section card a{
     display: block;
