@@ -2,7 +2,7 @@
 :root {
   --body-bg: var(--body-bg-light);
   --body-bg-light: #e1e3e4;
-  --body-bg-dark:  #121212;
+  --body-bg-dark: #121212;
 
   --card-bg: var(--cadr-bg-light);
   --cadr-bg-light: #f4f4f4;
@@ -19,8 +19,8 @@
   /* Your dark theme styles go here */
   body {
     --body-bg: var(--body-bg-dark);
-    --card-bg: var(--cadr-bg-dark);
-    --text-color:var(--text-color-dark);
+    --card-bg: var(--card-bg-dark);
+    --text-color: var(--text-color-dark);
   }
 }
 
@@ -31,6 +31,8 @@
   body {
     --body-bg: var(--body-bg-light);
     --card-bg: var(--card-bg-light);
+    --text-color: var(--text-color-light);
+
   }
 }
 
@@ -39,13 +41,13 @@
 
 body.dark-theme {
   --body-bg: var(--body-bg-dark);
-    --card-bg: var(--cadr-bg-dark);
-    --text-color:var(--text-color-dark);
-  
+  --card-bg: var(--cadr-bg-dark);
+  --text-color: var(--text-color-dark);
+
 }
 
 body.light-theme {
   --body-bg: var(--body-bg-light);
-    --card-bg: var(--cadr-bg-light);
-    --text-color:var(--text-color-light);
+  --card-bg: var(--cadr-bg-light);
+  --text-color: var(--text-color-light);
 }
