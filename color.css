@@ -29,8 +29,8 @@
 
   /* Your dark theme styles go here */
   body {
-    --card-bg: var(--body-bg-light);
     --body-bg: var(--body-bg-light);
+    --card-bg: var(--card-bg-light);
   }
 }
 
