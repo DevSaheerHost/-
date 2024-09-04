@@ -4,9 +4,9 @@
   --body-bg-light: #e1e3e4;
   --body-bg-dark: #121212;
 
-  --card-bg: var(--cadr-bg-light);
-  --cadr-bg-light: #f4f4f4;
-  --cadr-bg-dark: #1e1e1e;
+  --card-bg: var(--card-bg-light);
+  --card-bg-light: #f4f4f4;
+  --card-bg-dark: #1e1e1e;
 
   --special-text: #3bb4b0;
   --text-color: var(--text-color-light);
@@ -41,13 +41,13 @@
 
 body.dark-theme {
   --body-bg: var(--body-bg-dark);
-  --card-bg: var(--cadr-bg-dark);
+  --card-bg: var(--card-bg-dark);
   --text-color: var(--text-color-dark);
 
 }
 
 body.light-theme {
   --body-bg: var(--body-bg-light);
-  --card-bg: var(--cadr-bg-light);
+  --card-bg: var(--card-bg-light);
   --text-color: var(--text-color-light);
 }

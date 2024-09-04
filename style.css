@@ -933,6 +933,7 @@ alert container card div #signup {
   }
 
   main container section card a img{
+    object-position: top;
     margin: auto;
     max-width: 100%;
   }
