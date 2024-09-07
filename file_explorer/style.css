@@ -1,0 +1,117 @@
+*{
+  padding: 0;
+  margin: 0 0 0 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+:root{
+  --bg: #e5ecf4;
+  --card-bg: #f7f9ff;
+  --icon-color: #667981;
+  --text-color: #212529;
+  --placeholder-color: #40484b;
+  --header-icon-color: #54595D;
+  --primary: #16647f;
+}
+body{
+  background: var(--bg);
+  color: var(--text-color);
+}
+.primary-color{
+  color: var(--primary);
+}
+header{
+  padding: 1rem;
+}
+header .search-box{
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .7rem;
+  color: var(--header-icon-color);
+}
+header .search-box p{
+  width: 100%;
+  margin-left: 1rem;
+}
+
+section{
+  margin: 1rem 0;
+}
+
+section .title-bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  margin: 1rem;
+}
+
+section .scroll-box{
+  display: flex;
+  overflow: scroll;
+  gap: .5rem;
+  align-items: center;justify-content: start;
+  padding: 1rem;
+}
+.scroll-box .media-card{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  background: var(--card-bg);
+  width: 160px;
+  height: 200px;
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.media-card span{
+  width: 15px;
+}
+.media-card .box p{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.media-card p.file-name{
+  max-width: 70%;
+}
+.media-card .box .file-path{
+  font-size: 13px;
+}
+
+section .flex-box{
+  display: flex;
+  padding: 1rem;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+section .card{
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 20px;
+    display: flex;
+    width: calc(50% - .5rem);
+    align-items: center;
+    gap: 1rem;
+}
+.card span.icon{
+  color: var(--icon-color);
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 350,
+  'GRAD' 0,
+  'opsz' 24
+  
+}
+section .title{
+  font-weight: 500;
+}
+section .file-size{
+  font-size: 13px;
+  color: var(--icon-color);
+  margin-top: .15rem;
+}
