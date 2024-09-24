@@ -958,7 +958,7 @@ alert container card div #signup {
   position: absolute;
   bottom: -1rem;
   background:var(--card-bg);
-  padding: .2rem;
+  padding: .2rem .5rem;
   height: 30px;
   width: fit-content;
   display: flex;
@@ -968,7 +968,7 @@ alert container card div #signup {
   justify-content: center;
   left: 0;
   border-radius: 1000px;
-  box-shadow: 0 2px 3px rgba(66, 68, 90, 0.25);
+  box-shadow: 0 2px 3px rgba(66, 68, 90, 0.041);
   color: #A3A4AA;
   cursor: pointer;
   border-top: 1px solid var(--body-bg);

@@ -410,14 +410,14 @@ togleTheme=()=>{
   if (a == 0) {
     a = 1
     themeBtn.innerHTML=lightIcon;
-    document.body.classList.toggle('dark-theme')
-    //document.body.classList.remove('light-theme')
+    document.body.classList.remove('dark-theme')
+    document.body.classList.add('light-theme')
 
   } else{
     a = 0
     themeBtn.innerHTML=darckIcon;
-    document.body.classList.toggle('dark-theme')
-    //document.body.classList.add('light-theme')
+    document.body.classList.add('dark-theme')
+    document.body.classList.remove('light-theme')
   }
 }
 
@@ -454,7 +454,7 @@ createCard = (data, snapshotKey) => {
 
   // If 'clicked' is true, update the reaction text with the total reactions
   if (data.clicked && data.totReact) {
-    newCard.querySelector('.addReaction').innerText = `👍🏼${data.totReact}`;
+    newCard.querySelector('.addReaction').innerText = `👍🏼 ${data.totReact}`;
   }
 
   // Add click event listener for reactions
@@ -463,7 +463,7 @@ createCard = (data, snapshotKey) => {
     const currentReactions = data.totReact || 0;  // Set to 0 if undefined
     const newReactionCount = currentReactions + 1;
     
-    newCard.querySelector('.addReaction').innerText = `👍🏼${newReactionCount} `;
+    newCard.querySelector('.addReaction').innerText = `👍🏼 ${newReactionCount} `;
 
     // Update Firebase with the new reaction count and set clicked to true
     database.ref('web/data/' + snapshotKey).update({

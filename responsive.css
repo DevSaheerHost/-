@@ -35,12 +35,19 @@
 }/*closing tag of @media*/
   
 @media (max-width: 600px) {
+  main container section{
+    display: flex;
+    flex-direction: column-reverse;
+  }
   main container section card{
     margin: auto;
     width: 100%;
   }
   main container section card a{
     width: 100%;
+  }
+  main container section card img{
+    border-radius: 5px;
   }
 }
 
