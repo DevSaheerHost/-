@@ -3,7 +3,7 @@
 //const loadingDelay = 3000;
 //const setupUserDelay = 1000;
 //const hideLockscreenDelay = 300;
-let devMode = true;
+let devMode = false;
 if (devMode) {
   var randomDelayMin = 10,
     randomDelayMax = 30,
@@ -181,9 +181,7 @@ setupUser = () => {
       localStorage.setItem("windowsUser", userNameInput.value.trim());
       setUserWindow.remove();
       lockScreen.classList.remove("hidden");
-
-      audio.src = "./asset/audios/creditos-finales.mp3";
-      audio.play();
+      
     } else {
       noUserName();
       //alert('User name required');
@@ -351,8 +349,10 @@ startupAud = () => {
 };
 
 noUserName = () => {
-  audio.src = noUserNameAudPath;
+  if (funMode) {
+    audio.src = noUserNameAudPath;
   audio.play();
+  }
   userNameInput.classList.add("errorInput");
 };
 
@@ -592,3 +592,4 @@ actioncenterToggle = () => {
 
 
 
+      
