@@ -290,13 +290,9 @@ main container loader {
 main container section {
   width: 100%;
   padding: 1rem;
-  /* justify-content: start;
-  align-items: start; */
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-
 }
 
 
@@ -307,15 +303,15 @@ main container section card {
   padding: 1rem;
   display: flex;
   flex-flow: row;
-  overflow: hidden;
+  
   border-radius: 0;
   animation-timeline: view(block 120% 0%);
   animation-name: fTopRow;
   animation-fill-mode: both;
   animation-duration: 1ms;
-  /* Firefox requires this to apply the animation */
   animation-timing-function: linear;
   background-color: var(--card-bg);
+  position: relative;
 }
 
 main container section card:hover {
@@ -957,3 +953,44 @@ alert container card div #signup {
 /* *{
  border: 1px solid red; 
 } */
+
+.addReaction{
+  position: absolute;
+  bottom: -1rem;
+  background:var(--card-bg);
+  padding: .2rem;
+  height: 30px;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  left: 0;
+  border-radius: 1000px;
+  box-shadow: 0 2px 3px rgba(66, 68, 90, 0.25);
+  color: #A3A4AA;
+  cursor: pointer;
+  border-top: 1px solid var(--body-bg);
+  font-size: 16px;
+}
+.reactions{
+  
+  width: 150px;
+  background: #EDEEFF;
+  box-shadow: 0 0 10px rgba(66, 68, 90, 0.25);
+  border-radius: 1000px;
+position: absolute;
+bottom: .5rem;
+left: 1rem;
+padding: .5rem;
+font-size: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: .5rem;
+}
+
+.hidden{
+  display: none;
+}

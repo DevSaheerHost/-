@@ -23,11 +23,9 @@ var database = firebase.database();
 var TotalData=0
 //..........................................//
 database.ref("web/data/").on("child_added", (snapshot) => {
-  //console.log('-----getting data Started--------')
+  
   const data = snapshot.val();
- // console.log('create function')
-  // create(data.title, data.image, data.subtitle, data.pageurl);
-  //console.log('-------getting Stopped------')
+ 
   
   var purl = data.pageurl;
   var img = data.image;
@@ -36,26 +34,11 @@ database.ref("web/data/").on("child_added", (snapshot) => {
   const totellabel = document.querySelector('#totelText')
   const loader = document.querySelector('loader')
   
-  
-  cardSection.innerHTML += `
-  <card onclick="data()">
-            <a href="` + data.pageurl + `" target="_blank"><img src="` + data.image + `" alt="">
-            <text-area>
-            
-              <h5>` + data.title + `</h5>
-              <label for=""> ` + data.subtitle + `</label>
-              <label class="type"> ` + data.type + `</label>
-            </text-area>
-            <label class="timeLbl">` + data.time + `</label>
-            </a>
-          </card>
-          
+  var snapshotKey = snapshot.key; // Get the unique key of the snapshot
+  createCard(data, snapshotKey);
 
-          <style>
-          body.dark-theme.dark-theme {
-            --box-shadow-light:${data.color} !important;
-          </style>
-          `
+  
+  
   
   TotalData++
   totellabel.innerHTML=TotalData +' Projects'
@@ -66,7 +49,6 @@ database.ref("web/data/").on("child_added", (snapshot) => {
 });
 //------------------------------------------//
 
-console.log('Hello World!');
 const cardSection = document.querySelector('#cardSec')
 
 
@@ -144,6 +126,7 @@ function myFunction() {
   }
 }
 
+let name = localStorage.getItem('name') ? localStorage.getItem('name'): 'non Auther'
 
 // command input function------////
 
@@ -421,20 +404,20 @@ function showLog(logTxt) {
   snackbar.innerHTML=logTxt
 }
 
-var a = 0
+var a = 0;
 
 togleTheme=()=>{
   if (a == 0) {
     a = 1
     themeBtn.innerHTML=lightIcon;
-    document.body.classList.add('dark-theme')
-    document.body.classList.remove('light-theme')
+    document.body.classList.toggle('dark-theme')
+    //document.body.classList.remove('light-theme')
 
   } else{
     a = 0
     themeBtn.innerHTML=darckIcon;
-    document.body.classList.remove('dark-theme')
-    document.body.classList.add('light-theme')
+    document.body.classList.toggle('dark-theme')
+    //document.body.classList.add('light-theme')
   }
 }
 
@@ -450,3 +433,44 @@ var darckIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
           </svg>`
           
           
+getCardLayout =(data)=>{return( `
+          <a href="` + data.pageurl + `" target="_blank"><img src="` + data.image + `" alt="">
+                        <text-area>
+                        
+                          <h5>` + data.title + `</h5>
+                          <label for=""> ` + data.subtitle + `</label>
+                          <label class="type"> ` + data.type + `</label>
+                        </text-area>
+                        <label class="timeLbl">` + data.time + `</label>
+                        </a>
+                        <span class="addReaction">🫥</span> <span class="reactions hidden">👍🏼 ♥️ 😁 👎🏼 </span>
+          `)}
+createCard = (data, snapshotKey) => {
+  // Create a new card element
+  
+  var newCard = document.createElement('card');
+  newCard.innerHTML = getCardLayout(data);
+  cardSection.appendChild(newCard);
+
+  // If 'clicked' is true, update the reaction text with the total reactions
+  if (data.clicked && data.totReact) {
+    newCard.querySelector('.addReaction').innerText = `👍🏼${data.totReact}`;
+  }
+
+  // Add click event listener for reactions
+  newCard.querySelector('.addReaction').onclick = () => {
+    // Update the UI to show an immediate reaction change
+    const currentReactions = data.totReact || 0;  // Set to 0 if undefined
+    const newReactionCount = currentReactions + 1;
+    
+    newCard.querySelector('.addReaction').innerText = `👍🏼${newReactionCount} `;
+
+    // Update Firebase with the new reaction count and set clicked to true
+    database.ref('web/data/' + snapshotKey).update({
+      clicked: true,
+      totReact: newReactionCount,
+      reactorName: name
+    });
+  }
+}
+
