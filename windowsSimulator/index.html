@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+  <div class="loading-terminal" id="startupTerminal">
+    <h2>Select an option to continue...</h2>
+    <div class="terminal-btn-wrapper">
+      <!-- Use button elements instead of divs for better semantics and accessibility -->
+      <button class="funny-mode-btn btn" id="funMode">Funny mode</button>
+      <button class="realistic-mode-btn btn" id="realMode">Realistic mode</button>
+    </div>
+  </div>
+
+  <div class="windows-loading hidden" id="win-loader">
+    <img src="./asset/Windows_logo.svg.png" alt="Windows Logo" class="logo">
+    <img src="./asset/loading-windows.gif" alt="Loading Windows" class="loading-gf">
+  </div>
+
+  <div class="set-user fill hidden">
+    <div class="card">
+      <h3>Welcome</h3>
+
+      <div class="input-gp">
+        <input placeholder="User name *" type="text" name="username" id="uname" aria-label="Username" required>
+        <input placeholder="Password" type="password" name="password" id="pwd" aria-label="Password">
+      </div>
+      <button onclick="setupUser()">Setup</button>
+    </div>
+  </div>
+
+  <div class="lock-screen fill hidden">
+    <span>
+      <h1 id="timeText">12:00</h1>
+      <p>September, 21</p>
+      
+    </span>
+    
+    
+
+
+
+
+    <span class="scroller">
+      <input type="range" max="10" id="scrollLevel" value="0" step="0.1" aria-label="Unlock slider">
+    </span>
+  </div>
+
+  <div class="home fill hidden" id="homeScreen">
+    <div class="home-icon-parent">
+      <!-- Home icons go here -->
+    </div>
+    
+    
+    
+    <div class="action-center action-ctrl-hide">
+    <div class="quick-settings">
+        <div class="setting">Wi-Fi</div>
+        <div class="setting">Bluetooth</div>
+    </div>
+    <div class="notifications">
+        <p>No new notifications</p>
+    </div>
+</div>
+
+
+<div class="widget-panel hidden">
+  <div class="widget">Weather Widget</div>
+  <div class="widget">News Widget</div>
+</div>
+
+
+    <div class="startBar fill hidden" id="startBbarBg">
+      <div class="card">
+        <div class="search-bar">
+          <span class="material-symbols-outlined" aria-hidden="true">search</span>
+          <input type="text" placeholder="Type here to search" aria-label="Search">
+        </div>
+        <div class="nav">
+          <p>Pinned</p>
+          <div class="allApps">
+            All apps
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
+          </div>
+        </div>
+
+        <div class="start-bar-icon-parent">
+          <span class="icon"></span>
+          <span class="icon"></span>
+          <span class="icon"></span>
+          <span class="icon"></span>
+          <span class="icon"></span>
+          <span class="icon"></span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="start-menu hidden">
+    <div class="pinned-apps">
+        <div class="app">App 1</div>
+        <div class="app">App 2</div>
+        <div class="app">App 3</div>
+        <!-- Add more apps as needed -->
+    </div>
+    <div class="search-bar">
+        <input type="text" placeholder="Search...">
+    </div>
+</div>
+
+
+
+    <div class="task-bar">
+      <div class="task-bar-icon-parent">
+
+      </div>
+      <span onclick="actioncenterToggle()" class="material-symbols-outlined">
+        chat
+        </span>
+    </div>
+  </div>
+
+  <div class="error hidden">
+    <div class="nav">
+      <p>System 32 error</p>
+    </div>
+    <div class="box">
+      <div class="detail">
+        <span>⚠️</span>
+        <p>Unable to find ms_app.dill!</p>
+      </div>
+      <div class="btn-wrap">
+        <button class="btn" id="close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="application hidden">
+    <div class="nav">
+      <span class="appIcon">♦</span>
+      <span class="appController">
+        <span class="material-symbols-outlined" aria-hidden="true">minimize</span>
+        <span class="material-symbols-outlined" aria-hidden="true">maximize</span>
+        <span class="material-symbols-outlined" id="closeApp">close</span>
+      </span>
+    </div>
+  </div>
+
+  <audio src="./asset/audios/erro.mp3" class=""></audio>
+
+  <script src="./main.js"></script>
+
+</body>
+
+</html>
