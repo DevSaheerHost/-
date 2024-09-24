@@ -1,8 +1,5 @@
 // v 3.4
 
-// "use strict"
-
-
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAthM6oD2dYuAPrrLtqZT3pOWvkb17zRME",
@@ -452,12 +449,12 @@ createCard = (data, snapshotKey) => {
   newCard.innerHTML = getCardLayout(data);
   cardSection.appendChild(newCard);
 
-  // If 'clicked' is true, update the reaction text with the total reactions
+  
   if (data.clicked && data.totReact) {
     newCard.querySelector('.addReaction').innerText = `👍🏼 ${data.totReact}`;
   }
 
-  // Add click event listener for reactions
+  // Click event listener for reactions
   newCard.querySelector('.addReaction').onclick = () => {
     // Update the UI to show an immediate reaction change
     const currentReactions = data.totReact || 0;  // Set to 0 if undefined
