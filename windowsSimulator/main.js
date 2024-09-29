@@ -158,8 +158,6 @@ function addText() {
       } else {
         setUserWindow.classList.remove("hidden");
       }
-
-      // document.body.requestFullscreen();
     }, loadingDelay);
   }
 }
@@ -168,10 +166,12 @@ funModeBtn.onclick = () => {
   funMode = true;
   addText();
   startupAud();
+  document.body.requestFullscreen();
 };
 realModeBtn.onclick = () => {
   addText();
   audio.remove();
+  document.body.requestFullscreen();
 };
 //addText(); // Start the process
 
