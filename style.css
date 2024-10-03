@@ -60,6 +60,12 @@ header container .logo {
 header container nav {
   width: 60%;
   transition: .3s;
+  position: fixed;
+  top: 0px;
+
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
 header container span {
@@ -304,7 +310,7 @@ main container section card {
   display: flex;
   flex-flow: row;
   
-  border-radius: 0;
+  border-radius: 10px;
   animation-timeline: view(block 120% 0%);
   animation-name: fTopRow;
   animation-fill-mode: both;
@@ -330,7 +336,8 @@ height: 100%;
 
 main container section card img {
   width: 100%;
-  height: 250px;
+  height: 180px;
+  border-radius: 10px;
   object-fit: cover;
   background-position: center;
 }

@@ -7,3 +7,14 @@ header container .header-fix{
   right: 20px;
   color: black !important;
 }
+
+@media (min-width: 800px) {
+  .changeBG{
+    padding: 0 1rem;
+    background-color: var(--special-text);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.247);
+    top: 1rem;
+    z-index: 99;
+  }
+}

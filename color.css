@@ -7,8 +7,8 @@
   --card-bg: var(--card-bg-light);
   --card-bg-light: #f4f4f4;
   --card-bg-dark: #1e1e1e;
-
-  --special-text: #3bb4b0;
+  --special-text-light: #3bb4b0;
+  --special-text-dark:#2d6d6b;
   --text-color: var(--text-color-light);
   --text-color-light: #000000;
   --text-color-dark: #e0e0e0;
@@ -21,6 +21,7 @@
     --body-bg: var(--body-bg-dark);
     --card-bg: var(--card-bg-dark);
     --text-color: var(--text-color-dark);
+    --special-text: var(--special-text-dark);
   }
 }
 
@@ -32,7 +33,7 @@
     --body-bg: var(--body-bg-light);
     --card-bg: var(--card-bg-light);
     --text-color: var(--text-color-light);
-
+    --special-text: var(--special-text-light);
   }
 }
 
@@ -43,11 +44,12 @@ body.dark-theme {
   --body-bg: var(--body-bg-dark);
   --card-bg: var(--card-bg-dark);
   --text-color: var(--text-color-dark);
-
+  --special-text: var(--special-text-dark);
 }
 
 body.light-theme {
   --body-bg: var(--body-bg-light);
   --card-bg: var(--card-bg-light);
   --text-color: var(--text-color-light);
+  --special-text: var(--special-text-light);
 }

@@ -403,7 +403,10 @@ function showLog(logTxt) {
 
 var a = 0;
 
+
 togleTheme=()=>{
+  // const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+  
   if (a == 0) {
     a = 1
     themeBtn.innerHTML=lightIcon;
@@ -416,6 +419,11 @@ togleTheme=()=>{
     document.body.classList.add('dark-theme')
     document.body.classList.remove('light-theme')
   }
+
+  
+
+
+  
 }
 
 const themeBtn = document.querySelector('#themeBtn')
@@ -469,5 +477,11 @@ createCard = (data, snapshotKey) => {
       reactorName: name
     });
   }
+}
+
+
+window.onscroll=()=>{
+  let nav = document.querySelector("#nav")
+  document.body.scrollTop > 400 || document.documentElement.scrollTop > 400? nav.classList.add("changeBG"):nav.classList.remove("changeBG")
 }
 
