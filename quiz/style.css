@@ -1,0 +1,206 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    transition: .3s;
+    user-select: none;
+}
+
+:root {
+    --accent: #9684F1;
+    --warning: #FFA10F;
+}
+
+button {
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 6px;
+}
+
+input[type="radio"] {
+    accent-color: var(--accent);
+}
+
+.start-container {
+    background: #42445A;
+    color: #fff;
+    text-align: center;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    padding: 1rem;
+}
+
+.start-container .circle {
+    height: 100px;
+    width: 100px;
+    border-radius: 100000px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border: 1px solid #A9A9A9;
+    box-shadow: 0 0 10px rgba(211, 211, 211, .23);
+    animation: start 2s ease-in-out infinite;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+@keyframes start {
+    0% {
+        border: 1px solid #A9A9A9;
+        height: 100px;
+        width: 100px;
+        box-shadow: 0 0 10px rgba(211, 211, 211, .23);
+    }
+
+    50% {
+        border: 3px solid #A9A9A9;
+        height: 110px;
+        width: 110px;
+        box-shadow: 0 0 15px rgba(211, 211, 211, 1);
+    }
+
+    75% {
+        box-shadow: 0 0 10px rgba(211, 211, 211, .5);
+    }
+
+    100% {
+        border: 1px solid #A9A9A9;
+        height: 100px;
+        width: 100px;
+        box-shadow: 0 0 10px rgba(211, 211, 211, .23);
+    }
+}
+
+.start-container .started {
+    animation: none;
+    transform: scale(10);
+    color: #45416100;
+}
+
+.hide-container {
+    opacity: 0;
+}
+
+header {
+    background: var(--accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 1rem;
+}
+
+body {
+    background: #EEEEEE;
+    color: #635E84;
+}
+
+section {
+    padding: 1rem;
+}
+
+section .q-count {
+    font-weight: 600;
+    color: var(--warning);
+}
+
+.option-wrapper {
+    /* You can add styles here if needed */
+}
+
+.option-wrapper span {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: #fff;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease; /* Transition for background on hover */
+}
+
+.option-wrapper span:hover {
+    background: #f0f0f0; /* Light background on hover */
+}
+
+section .question-text {
+    margin: 1rem 0;
+    color: #625D81;
+}
+
+section .option-text {
+    font-size: 18px;
+    font-weight: 500;
+    width: 100%;
+}
+
+button.next {
+    width: 100%;
+    background: var(--accent);
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+    padding: 1.6rem;
+    transition: background 0.3s ease; /* Transition for button background */
+}
+
+button.next:active {
+    background: #454161;
+}
+
+
+
+
+
+alert{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, .5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+alert card{
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 90%;
+}
+alert card nav{
+  background: #EBEBEB;
+  padding: 1rem;
+}
+alert .text{
+  padding: 1rem;
+}
+alert .button-wrapper{
+  border-top: 1px solid #D0D0D0;
+  padding: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+alert button{
+  background: var(--accent);
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+alert button:active{
+  background: #BDBDBD;
+}
+
+.hidden{
+  display: none !important;
+}

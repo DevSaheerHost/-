@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QnA Quiz</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="start-container">
+    <h1>SUM EXAMINATION</h1>
+    <div class="circle" id="start_btn">
+      <h3>START</h3>
+    </div>
+  </div>
+  
+  <main class="hidden">
+    <header>
+      <h3>Questions</h3>
+      <p id="time">Time - 05 : 00</p>
+    </header>
+    
+    <section class="qna-section">
+      <p class="q-count">Question <span id="question-number">1</span>/10</p>
+      <h3 class="question-text" id="question-text">What is this?</h3>
+      <div id="option-container" class="option-wrapper"></div>
+      <button class="next" id="next-btn" disabled>Next</button>
+    </section>
+  </main>
+  
+  <alert class="hidden">
+    <card>
+      <nav>
+        <h4>Quiz End</h4>
+      </nav>
+      <div class="text" id="score-display">
+        Your Score is : --
+      </div>
+      <div class="button-wrapper">
+        <button id="close">Close</button>
+      </div>
+    </card>
+  </alert>
+  
+  <script src="./main.js"></script>
+</body>
+</html>
