@@ -3,14 +3,14 @@
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  transition: .3s;
+  transition: 0.3s;
   user-select: none;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: var(--text-color);
   background-color: var(--body-bg);
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
@@ -36,30 +36,26 @@ a:actived {
 }
 
 header {
-  background: linear-gradient(#000000A8, #0C18309C), url('5.jpg');
+  /* background: linear-gradient(#000000A8, #0C18309C), url('5.jpg'); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   color: white;
   padding: 20px;
-  height: 75vh;
-}
-
-header container {
+  height: auto;
   display: flex;
-  flex-flow: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
-header container .logo {
+header .logo {
   margin: 0;
   padding: 0;
 }
 
-header container nav {
+header nav {
   width: 60%;
-  transition: .3s;
+  transition: 0.3s;
   position: fixed;
   top: 0px;
 
@@ -68,12 +64,12 @@ header container nav {
   overflow: hidden;
 }
 
-header container span {
+header span {
   display: none;
   z-index: 99;
 }
 
-header container span svg {
+header span svg {
   height: 30px;
   width: 30px;
   cursor: pointer;
@@ -81,7 +77,7 @@ header container span svg {
   color: white;
 }
 
-header container nav ul {
+header nav ul {
   width: 100%;
   display: flex;
   flex-flow: row;
@@ -90,8 +86,12 @@ header container nav ul {
   overflow: hidden;
 }
 
-header container nav li {
+header nav li {
   display: inline;
+  cursor: pointer;
+}
+header li:hover{
+  scale: 0.9;
 }
 
 header div {
@@ -106,75 +106,24 @@ header div {
 
 header div h1 {
   color: white;
-  transform: translateX(-50%)
-}
-
-header div h1:after {
-  content: "";
-  font-weight: 100;
-  animation: text 1.5s infinite ease-in-out;
-  overflow: hidden;
-  display: inline;
-  position: absolute;
-  transition: .4s;
-  margin-left: 7px;
-}
-
-.menuList li {
-  cursor: pointer;
-}
-
-@keyframes text {
-  0% {
-    content: "";
-    opacity: .4;
-  }
-
-  10% {
-    content: " A";
-  }
-
-  20% {
-    content: " Add";
-  }
-
-  30% {
-    content: " Addic";
-  }
-
-  40% {
-    content: " Addictive";
-    opacity: 1;
-  }
-
-  50% {
-    content: " Addic";
-  }
-
-  60% {
-    content: " Add";
-  }
-
-  70% {
-    content: " A";
-  }
-
-  80% {
-    content: "";
-    opacity: .4;
-  }
-
+  transform: translateX(-50%);
 }
 
 
-
-
-
-
-
-
-
-
+section.static{
+  height: 360px;
+  width: 100%;
+  margin: 2rem 0;
+  position: relative;
+}
+section.static img{
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  object-fit: cover;
+  object-position: top;
+  
+}
 
 
 main {
@@ -205,7 +154,6 @@ main container loader {
   /* Firefox requires this to apply the animation */
   animation-timing-function: linear;
 }
-
 
 /* .loader {
     position: relative;
@@ -256,9 +204,6 @@ main container loader {
 }
    */
 
-
-
-
 .loader {
   display: block;
   margin-bottom: 20px;
@@ -266,11 +211,9 @@ main container loader {
   width: 300px;
   height: 220px;
   border-radius: 7px;
-  background:
-    linear-gradient(0.25turn, transparent, #FFF, transparent),
-    linear-gradient(#DDD, #DDD),
-    linear-gradient(#DDD, #DDD),
-    linear-gradient(#DDD, #DDD);
+  background: linear-gradient(0.25turn, transparent, #fff, transparent),
+    linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd),
+    linear-gradient(#ddd, #ddd);
   background-color: #fff;
   background-repeat: no-repeat;
   background-size: 300px 220px, 300px 130px, 100px 15px, 150px 15px;
@@ -284,15 +227,6 @@ main container loader {
   }
 }
 
-
-
-
-
-
-
-
-
-
 main container section {
   width: 100%;
   padding: 1rem;
@@ -301,7 +235,6 @@ main container section {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-
 main container section card {
   /* height: 300px;
   width: 300px; */
@@ -309,7 +242,7 @@ main container section card {
   padding: 1rem;
   display: flex;
   flex-flow: row;
-  
+
   border-radius: 10px;
   animation-timeline: view(block 120% 0%);
   animation-name: fTopRow;
@@ -321,17 +254,14 @@ main container section card {
 }
 
 main container section card:hover {
-
-  box-shadow: -6px -6px 15px var(--box-shadow),
-    6px 6px 15px var(--box-shadow);
+  box-shadow: -6px -6px 15px var(--box-shadow), 6px 6px 15px var(--box-shadow);
 }
-
 
 main container section card a {
   border-radius: 10px;
   display: block;
   margin: auto;
-height: 100%;
+  height: 100%;
 }
 
 main container section card img {
@@ -365,7 +295,7 @@ main container section card text-area label {
   margin: auto;
   line-height: 1.5rem;
 }
-main container section card text-area label.type{
+main container section card text-area label.type {
   color: var(--special-text);
   display: block;
   font-size: 12px;
@@ -393,7 +323,7 @@ iframe {
 
 #back {
   display: none;
-  background: #5A5A5A21;
+  background: #5a5a5a21;
   padding: 6px 8px;
   border-radius: 7px;
   font-size: 20px;
@@ -411,15 +341,9 @@ card h3 {
   color: black;
 }
 
-
-
-
-
-
-
 msg-container {
   padding: 20px;
-  border-bottom: 2px solid #BDBDBD;
+  border-bottom: 2px solid #bdbdbd;
   display: block;
 }
 
@@ -441,18 +365,16 @@ msg-container container input-group {
 msg-container container input {
   border-radius: 100px;
   padding: 6px;
-  border: 5px solid #42445A57;
+  border: 5px solid #42445a57;
   outline: none;
   font-weight: bold;
-  color: #42445A57;
-
-
+  color: #42445a57;
 }
 
 msg-container container input:focus {
-  transition: .3s;
-  border: 5px solid #42445A;
-  color: #42445A;
+  transition: 0.3s;
+  border: 5px solid #42445a;
+  color: #42445a;
 }
 
 msg-container container button {
@@ -470,29 +392,22 @@ msg-container container button {
 
 @keyframes sndBtn {
   from {
-    transform: translateX(100%)
+    transform: translateX(100%);
   }
 
   to {
-    transform: translateX(0px)
+    transform: translateX(0px);
   }
 }
 
-
 msg-container container button svg {
-  transition: .2s !important;
+  transition: 0.2s !important;
   width: 30px;
   height: 30px;
-  color: #42445A57;
+  color: #42445a57;
   font-weight: bold;
-  transform: rotateZ(45deg)
+  transform: rotateZ(45deg);
 }
-
-
-
-
-
-
 
 message-div {
   display: flex;
@@ -505,9 +420,9 @@ message-div {
   max-height: 600px;
   overflow: auto;
   margin-bottom: 20px;
-  border-top: 2px solid #BDBDBD;
-  border-bottom: 2px solid #BDBDBD;
-  box-shadow: 0 0 5px #BDBDBD inset;
+  border-top: 2px solid #bdbdbd;
+  border-bottom: 2px solid #bdbdbd;
+  box-shadow: 0 0 5px #bdbdbd inset;
   width: auto;
   margin: auto;
   margin-bottom: 30px;
@@ -515,8 +430,7 @@ message-div {
 
   display: grid;
   /* grid-template-columns: repeat(3, 1fr); */
-  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 message-div card {
@@ -525,14 +439,15 @@ message-div card {
   background: var(--card-bg);
   padding: 8px;
   border-radius: 7px;
-  box-shadow: 0 0 5px #BDBDBD;
+  box-shadow: 0 0 5px #bdbdbd;
   height: max-content;
   max-height: 200px;
   color: #797979;
   overflow: hidden;
 }
-message-div .user-name-box{
-  display: flex;align-items: center;
+message-div .user-name-box {
+  display: flex;
+  align-items: center;
 }
 
 message-div card h3 {
@@ -549,28 +464,34 @@ message-div loader2 {
   justify-content: center;
 }
 
-
-
-
 message-div .loader2 {
   width: 300px;
   height: 150px;
   display: block;
   margin: auto;
   position: relative;
-  background: #FFF;
+  background: #fff;
   box-sizing: border-box;
 }
 
 .loader2::after {
   border-radius: 7px;
-  content: '';
+  content: "";
   width: calc(100% - 30px);
   height: calc(100% - 30px);
   top: 15px;
   left: 15px;
   position: absolute;
-  background-image: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.5) 50%, transparent 80%), radial-gradient(circle 28px at 28px 28px, #DDD 99%, transparent 0), linear-gradient(#DDD 24px, transparent 0), linear-gradient(#DDD 18px, transparent 0), linear-gradient(#DDD 66px, transparent 0);
+  background-image: linear-gradient(
+      100deg,
+      transparent,
+      rgba(255, 255, 255, 0.5) 50%,
+      transparent 80%
+    ),
+    radial-gradient(circle 28px at 28px 28px, #ddd 99%, transparent 0),
+    linear-gradient(#ddd 24px, transparent 0),
+    linear-gradient(#ddd 18px, transparent 0),
+    linear-gradient(#ddd 66px, transparent 0);
   background-repeat: no-repeat;
   background-size: 75px 130px, 55px 56px, 160px 30px, 260px 20px, 290px 56px;
   background-position: 0% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
@@ -587,9 +508,6 @@ message-div .loader2 {
     background-position: 150% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
   }
 }
-
-
-
 
 message-div card container div {
   display: flex;
@@ -618,26 +536,17 @@ message-div card svg {
 }
 
 message-div card container p {
-  color: #BDBDBD;
+  color: #bdbdbd;
 }
 
 message-div card .timelabel {
   font-size: 10px;
-  color: #BDBDBD;
+  color: #bdbdbd;
   float: right;
 }
 
-
-
-
-
-
-
-
-
-
 footer {
-  background: #383C4F;
+  background: #383c4f;
   padding: 20px;
   color: white;
 }
@@ -670,13 +579,10 @@ footer top-row {
   }
 }
 
-
-
-
 footer top-row svg {
   width: 30px;
   height: 30px;
-  color: #B1B1B1C7;
+  color: #b1b1b1c7;
 }
 
 footer .div {
@@ -693,9 +599,7 @@ footer middle-row {
   justify-content: space-around;
   text-align: center;
   margin: auto;
-
 }
-
 
 footer middle-row h3 {
   border: 3px solid white;
@@ -711,7 +615,7 @@ footer .div2 {
 }
 
 .dim {
-  color: #B1B1B1C7;
+  color: #b1b1b1c7;
   font-size: 13px;
 }
 
@@ -725,15 +629,6 @@ footer .div3 {
   color: darkgray;
 }
 
-
-
-
-
-
-
-
-
-
 alert {
   width: 100%;
   position: fixed;
@@ -741,12 +636,11 @@ alert {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #0000003D;
+  background: #0000003d;
 
   display: flex;
   align-items: center;
   justify-content: center;
-
 
   display: none;
 }
@@ -796,7 +690,7 @@ alert container card div button {
 }
 
 alert container card div #signup {
-  background: #3D89C7;
+  background: #3d89c7;
   color: white;
 }
 
@@ -821,15 +715,7 @@ alert container card div #signup {
   to {
     color: white;
   }
-
-
 }
-
-
-
-
-
-
 
 #snackbar {
   visibility: hidden;
@@ -914,41 +800,38 @@ alert container card div #signup {
   padding-left: 20px;
 }
 
-
 .name {
   color: #0fb0b3 !important;
   font-weight: bold;
   cursor: pointer;
 }
 
-#commandBtn svg{
+#commandBtn svg {
   fill: var(--text-color);
 }
 
-
-
 @media (max-width: 750px) {
-  main container section card{
+  main container section card {
     border-radius: 5px;
   }
-  main container section card a{
+  main container section card a {
     display: block;
   }
 
-  main container section card a img{
+  main container section card a img {
     object-position: top;
     margin: auto;
     max-width: 100%;
   }
 
-  message-div{
+  message-div {
     display: flex;
     flex-direction: row-reverse;
   }
-  msg-container container{
+  msg-container container {
     width: 100%;
   }
-  message-div card{
+  message-div card {
     width: 100%;
     margin: 0;
     max-height: auto;
@@ -961,11 +844,11 @@ alert container card div #signup {
  border: 1px solid red; 
 } */
 
-.addReaction{
+.addReaction {
   position: absolute;
   bottom: -1rem;
-  background:var(--card-bg);
-  padding: .2rem .5rem;
+  background: var(--card-bg);
+  padding: 0.2rem 0.5rem;
   height: 30px;
   width: fit-content;
   display: flex;
@@ -976,28 +859,27 @@ alert container card div #signup {
   left: 0;
   border-radius: 1000px;
   box-shadow: 0 2px 3px rgba(66, 68, 90, 0.041);
-  color: #A3A4AA;
+  color: #a3a4aa;
   cursor: pointer;
   border-top: 1px solid var(--body-bg);
   font-size: 16px;
 }
-.reactions{
-  
+.reactions {
   width: 150px;
-  background: #EDEEFF;
+  background: #edeeff;
   box-shadow: 0 0 10px rgba(66, 68, 90, 0.25);
   border-radius: 1000px;
-position: absolute;
-bottom: .5rem;
-left: 1rem;
-padding: .5rem;
-font-size: 20px;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: .5rem;
+  position: absolute;
+  bottom: 0.5rem;
+  left: 1rem;
+  padding: 0.5rem;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-.hidden{
+.hidden {
   display: none;
 }

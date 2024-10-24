@@ -1,7 +1,7 @@
 .openMenu{
   width: 75%;
 }
-header container .header-fix{
+header .header-fix{
   position: fixed;
   top: 20px;
   right: 20px;

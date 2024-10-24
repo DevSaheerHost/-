@@ -50,11 +50,11 @@ const cardSection = document.querySelector('#cardSec')
 
 
 function create(image, title, subtitle, pageurl) {
-  console.log('Function Started')
+  // console.log('Function Started')
   
-        console.log('image '+image)
-        console.log('datas '+title+' '+subtitle)
-        console.log('Function Ented')
+  //       console.log('image '+image)
+  //       console.log('datas '+title+' '+subtitle)
+  //       console.log('Function Ented')
 }
 
 
@@ -240,7 +240,7 @@ const day = String(currentDate.getDate()).padStart(2, '0');
 
 const formattedDate = `${year}-${month}-${day}`;
 const tm = String(currentDate.getTime())
-console.log(formattedDate);
+// console.log(formattedDate);
 
 
 
@@ -298,10 +298,10 @@ database.ref("web/messages/").on("child_added", (snapshot) => {
       //console.log(time)
       
       
-      console.log(document.title);
+      // console.log(document.title);
       
       commendId++
-      console.log("cmd Id "+commendId)
+      // console.log("cmd Id "+commendId)
       
       
       
@@ -354,7 +354,7 @@ setTimeout(scroll, 2000)
 function scroll() {
   var messageDiv = document.querySelector('message-div')
   messageDiv.scrollTop= -999999999;
-  console.log(messageDiv.scrollTop)
+  // console.log(messageDiv.scrollTop)
 }
 
 
@@ -485,3 +485,13 @@ window.onscroll=()=>{
   document.body.scrollTop > 400 || document.documentElement.scrollTop > 400? nav.classList.add("changeBG"):nav.classList.remove("changeBG")
 }
 
+
+const slidImages=['./banner_images/banner_1.png','./banner_images/banner-2.png']
+const heroImg = document.querySelector('#hero-image-card')
+let correntImageIndex = 0
+const changeImage = ()=>{
+  correntImageIndex = (correntImageIndex +1)% slidImages.length
+  heroImg.src=slidImages[correntImageIndex]
+  setTimeout(changeImage, 3000);
+}
+changeImage()
