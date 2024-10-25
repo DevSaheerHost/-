@@ -342,6 +342,7 @@ card h3 {
 }
 
 msg-container {
+  margin-top: 2rem;
   padding: 20px;
   border-bottom: 2px solid #bdbdbd;
   display: block;
