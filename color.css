@@ -1,55 +1,47 @@
 /* v 1.0 */
 :root {
-  --body-bg: var(--body-bg-light);
-  --body-bg-light: #e1e3e4;
-  --body-bg-dark: #121212;
-
-  --card-bg: var(--card-bg-light);
-  --card-bg-light: #f4f4f4;
-  --card-bg-dark: #1e1e1e;
-  --special-text-light: #3bb4b0;
-  --special-text-dark:#2d6d6b;
-  --text-color: var(--text-color-light);
-  --text-color-light: #000000;
-  --text-color-dark: #e0e0e0;
+  --black: #000;
+  --white: #fff;
+  --dim: #b3b3b3;
+  --card-black: #131313;
+  --card-white: #eeeeee;
+  --special-text: #09a0ff;
+  --placeholder: gray;
+  --border-dim: rgb(202, 202, 202);
 }
 
 @media (prefers-color-scheme: dark) {
-
   /* Your dark theme styles go here */
   body {
-    --body-bg: var(--body-bg-dark);
-    --card-bg: var(--card-bg-dark);
-    --text-color: var(--text-color-dark);
-    --special-text: var(--special-text-dark);
+    --bg: var(--black);
+    --text: var(--white);
+    --card-bg: var(--card-black);
+    --border-dim: rgb(65, 65, 65);
   }
 }
-
 
 @media (prefers-color-scheme: light) {
-
   /* Your dark theme styles go here */
   body {
-    --body-bg: var(--body-bg-light);
-    --card-bg: var(--card-bg-light);
-    --text-color: var(--text-color-light);
-    --special-text: var(--special-text-light);
+    --bg: var(--white);
+    --text: var(--black);
+    --card-bg: var(--card-white);
+    --dim: #5f5f5f;
+    --border-dim: rgb(202, 202, 202);
   }
 }
 
-
-
-
 body.dark-theme {
-  --body-bg: var(--body-bg-dark);
-  --card-bg: var(--card-bg-dark);
-  --text-color: var(--text-color-dark);
-  --special-text: var(--special-text-dark);
+  --bg: var(--black);
+  --text: var(--white);
+  --card-bg: var(--card-black);
+  --border-dim: rgb(65, 65, 65);
 }
 
 body.light-theme {
-  --body-bg: var(--body-bg-light);
-  --card-bg: var(--card-bg-light);
-  --text-color: var(--text-color-light);
-  --special-text: var(--special-text-light);
+  --bg: var(--white);
+  --text: var(--black);
+  --card-bg: var(--card-white);
+  --dim: #5e5e5e;
+  --border-dim: rgb(202, 202, 202);
 }

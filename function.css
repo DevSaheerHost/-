@@ -1,7 +1,7 @@
-.openMenu{
+.openMenu {
   width: 75%;
 }
-header .header-fix{
+header .header-fix {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -9,7 +9,7 @@ header .header-fix{
 }
 
 @media (min-width: 800px) {
-  .changeBG{
+  .changeBG {
     padding: 0 1rem;
     background-color: var(--special-text);
     border-radius: 10px;

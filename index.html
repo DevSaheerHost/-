@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <link
       rel="icon"
       href="https://res.cloudinary.com/saheerbabu/image/upload/v1703949052/Picsart_23-12-30_20-38-26-395_ak1tic.png"
@@ -39,13 +39,11 @@
         <h1 class="logo"><a href="?id=footer"> Coder</a></h1>
         <ul class="menuList">
           <li><a href="#">Home</a></li>
-          <li><a href="#footer">About</a></li>
           <li><a href="#">Services</a></li>
+          <li><a href="#footer">About</a></li>
           <li><a href="#totelText">Works</a></li>
           <li><a href="#">Clients</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contact</a></li>
-          <li onclick="logout()"><a>Log out</a></li>
+
           <li id="themeBtn" onclick="togleTheme()">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -65,6 +63,11 @@
           </li>
         </ul>
       </nav>
+      <span class="auth-btn-wrapper">
+        <button class="login authIn" onclick="showSignupPage()">Log in</button>
+        <button class="signup authIn2" onclick="showSignupPage()">Sign up</button>
+        <button class="logout authOut" onclick="logout()">Log out</button>
+      </span>
       <span id="menu-btn" onclick="togleMenu()">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -84,22 +87,45 @@
       <span class="hidden">
         <p>#coder</p>
         <p>#saheer babu</p>
-        <p>DevSaheerHost</p>
-        <p>saheer</p>
+        <p>#DevSaheerHost</p>
+        <p>#saheer</p>
+        <p>#coder babu</p>
       </span>
     </header>
 
     <section class="static">
-      
-        <img src="" id="hero-image-card" alt="" srcset="">
-        
+      <img src="" id="hero-image-card" alt="" srcset="" />
     </section>
 
     <main>
       <container>
-        <info>
-          <b><label id="totelText" for=""> -- Projects</label></b>
-        </info>
+        <ul id="sectionSwitcher" class="section-switcher">
+          <li class="active" id="view-all">View All</li>
+          <li id="projects">Projects</li>
+          <li id="designs">Designs</li>
+          <li id="posts">Posts</li>
+        </ul>
+
+        <section id="viewAllSec">
+          <section class="project-section">
+            <info>
+              <b><label id="totelText" for=""> -- Projects</label></b>
+            </info>
+            <section class="cardSec" id="cardSec">
+              <!-- project datas apear here-->
+            </section>
+          </section>
+        </section>
+        <section id="projectSection">
+          <b><label id="totelText2" for=""> -- Projects</label></b>
+        </section>
+
+        <section id="designSection">
+          <p>No designs have been added.</p>
+        </section>
+        <section id="postSection">
+          <p>No posts have been added.</p>
+        </section>
 
         <loader>
           <span class="loader"></span>
@@ -109,9 +135,6 @@
           <span class="loader"></span>
           <span class="loader"></span>
         </loader>
-        <section id="cardSec">
-          <!-- project datas apear here-->
-        </section>
 
         <section>
           <span id="back" onclick="Back()">
@@ -134,13 +157,11 @@
             frameborder="0"
           ></iframe>
         </section>
-
-        
       </container>
     </main>
 
     <msg-container>
-      <label class="hind">Write youre Review or Somthing else</label> 
+      <label class="hind">Write youre Review or Somthing else</label>
       <container>
         <input-group>
           <input
@@ -301,12 +322,12 @@
     <alert>
       <container>
         <card>
-          <h3>Alert</h3>
-          <label>You not singned in. please SingUp first</label>
-          <input-group>
+          <h3>Sign up</h3>
+          <label>Fill the form</label>
+          <input-group style="width: 100%;">
             <input type="name" placeholder="User Name" id="name" />
           </input-group>
-          <input-group>
+          <input-group style="width: 100%;">
             <input type="email" placeholder="Enter E-mail" id="email" />
           </input-group>
           <div>
