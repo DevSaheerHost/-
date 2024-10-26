@@ -45,18 +45,21 @@ const themeBtn = document.querySelector("#themeBtn");
 let name = localStorage.getItem("name")
   ? localStorage.getItem("name")
   : "non Auther";
-  const messageDiv = document.querySelector("message-div");
+const messageDiv = document.querySelector("message-div");
 var TotalData = 0;
 
 if (localStorage.getItem("name") !== null) {
   document.title = localStorage.getItem("name");
 }
 
-database.ref("web/data/").on("child_added", (snapshot) => {
-  const data = snapshot.val();
-  var snapshotKey = snapshot.key; // Get the unique key of the snapshot
-  createCard(data, snapshotKey);
-});
+const FetchAndCreateCard = (cardSection) => {
+  database.ref("web/data/").on("child_added", (snapshot) => {
+    const data = snapshot.val();
+    var snapshotKey = snapshot.key; // Get the unique key of the snapshot
+    createCard(data, snapshotKey, cardSection);
+  });
+};
+FetchAndCreateCard(cardSection);
 
 togleMenu = () => {
   nav.classList.toggle("openMenu");
@@ -65,8 +68,6 @@ togleMenu = () => {
 document.querySelector(".menuList").onclick = () => {
   togleMenu();
 };
-
-
 
 // -------------command input function------//
 
@@ -86,13 +87,13 @@ commandInput.oninput = () => {
   }
 };
 
-const createCard = (data, snapshotKey) => {
+const createCard = (data, snapshotKey, parant) => {
   TotalData++;
   totellabel.innerHTML = TotalData + " Projects";
   loader.style.display = "none";
   const newCard = document.createElement("card");
   newCard.innerHTML = getCardLayout(data);
-  cardSection.appendChild(newCard);
+  parant.appendChild(newCard);
 
   addReactionToDataCard(data, newCard);
   newCard.querySelector(".addReaction").onclick = () => {
@@ -168,7 +169,16 @@ const signup = () => {
       userAgent: userAgent,
       userDp: UserIcon,
       // timestamp: firebase.database.ServerValue.TIMESTAMP
-    });
+    })
+    .then(() => {
+      showLog("Login Success")
+      // Reload the page once data is successfully saved
+      location.reload();
+  })
+  .catch((error) => {
+      console.error("Error adding user:", error);
+      showLog("Error adding user:", error)
+  });
 
     if (commandInput.value.length !== 0) {
       commandBtn.onclick();
@@ -226,11 +236,10 @@ commandBtn.onclick = () => {
     }
   }
 };
+const showSignupPage = () => (Alert.style.display = "flex");
 
 // Comment Getting
 const loadCmd = () => {
-  
-
   var commendId = 0;
   database.ref("web/messages/").on("child_added", (snapshot) => {
     const Messages = snapshot.val();
@@ -314,29 +323,30 @@ const scroll = () => {
 
 // logout
 
-const logout = ()=> {
+const logout = () => {
   if (localStorage.getItem("login") == "true") {
     localStorage.removeItem("login");
     localStorage.removeItem("name");
     var logTxt = "Logout success";
     showLog(logTxt);
     document.title = "CODER";
+    document.location='/'
   } else {
     var logTxt = "Login Info not Exists";
     showLog(logTxt);
   }
   //
-}
+};
 
 // snackbar
-const showLog=(logTxt)=> {
+const showLog = (logTxt) => {
   var snackbar = document.getElementById("snackbar");
   snackbar.className = "show";
   setTimeout(function () {
     snackbar.className = snackbar.className.replace("show", "");
   }, 3000);
   snackbar.innerHTML = logTxt;
-}
+};
 
 var themeState = false;
 
@@ -375,3 +385,74 @@ const changeImage = () => {
   setTimeout(changeImage, 3000);
 };
 changeImage();
+
+// Section switcher 4 li , when click this.borderBottom= 1px solid
+document.querySelectorAll("#sectionSwitcher li").forEach((li) => {
+  li.onclick = () => {
+    document
+      .querySelectorAll("#sectionSwitcher li")
+      .forEach((li) => li.classList.remove("active"));
+    li.classList.add("active");
+    switchTHeSection(li);
+  };
+});
+const viewAllSec = document.querySelector("#viewAllSec");
+const projectSection = document.querySelector("#projectSection");
+const designSection = document.querySelector("#designSection");
+const postSection = document.querySelector("#postSection");
+const switchTHeSection = (li) => {
+  TotalData = 0;
+
+  hideAllSections(viewAllSec, designSection, postSection, projectSection);
+  switch (li.id) {
+    case "view-all":
+      viewAllSec.classList.remove("hidden");
+      break;
+    case "projects":
+      addDataToTheSection(projectSection);
+      break;
+    case "designs":
+      hideAllSections(viewAllSec, designSection, postSection, projectSection);
+      designSection.classList.remove("hidden");
+      break;
+    case "posts":
+      hideAllSections(viewAllSec, designSection, postSection, projectSection);
+      postSection.classList.remove("hidden");
+
+    default:
+      break;
+  }
+};
+
+const hideAllSections = (
+  viewAllSec,
+  designSection,
+  postSection,
+  projectSection
+) => {
+  viewAllSec.classList.add("hidden");
+  designSection.classList.add("hidden");
+  postSection.classList.add("hidden");
+  projectSection.classList.add("hidden");
+};
+hideAllSections(viewAllSec, designSection, postSection, projectSection);
+viewAllSec.classList.remove("hidden");
+const addDataToTheSection = (projectSection) => {
+  projectSection.classList.remove("hidden");
+
+  const proSec = document.createElement("section");
+  proSec.classList.add("cardSec");
+  proSec.style.padding = "1rem";
+  projectSection.innerHTML = "";
+  FetchAndCreateCard(proSec);
+  projectSection.appendChild(proSec);
+};
+
+
+if(localStorage.getItem("login")){
+  document.querySelector(".authIn").classList.add("hidden")
+  document.querySelector(".authIn2").classList.add("hidden")
+}else{
+  document.querySelector(".authOut").classList.add("hidden")
+
+}

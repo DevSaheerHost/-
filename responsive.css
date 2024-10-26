@@ -27,7 +27,7 @@
   header{
     justify-content: space-between;
   }
-  header span {
+  header span#menu-btn {
     display: block;
   }
   middle-row{

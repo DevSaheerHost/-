@@ -5,21 +5,22 @@
   scroll-behavior: smooth;
   transition: 0.3s;
   user-select: none;
+  /* border: 1px solid red; */
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  color: var(--text-color);
-  background-color: var(--body-bg);
+  color: var(--text);
+  background-color: var(--bg);
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
 }
 
 /*  */
 
 a {
-  color: white;
+  color: var(--text);
   text-decoration: none;
 }
 
@@ -35,36 +36,60 @@ a:actived {
   background: none;
 }
 
+li {
+  display: inline;
+  margin: 0 0.6rem;
+  padding: 0.2rem;
+  cursor: pointer;
+  text-align: center;
+}
+span.auth-btn-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1000px;
+  font-weight: 600;
+  width: fit-content;
+  text-wrap: nowrap;
+  cursor: pointer;
+}
+
 header {
   /* background: linear-gradient(#000000A8, #0C18309C), url('5.jpg'); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: white;
-  padding: 20px;
+  color: var(--text);
+  padding: 0.4rem 4rem;
   height: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
-
+header button.login, header button.logout {
+  background-color: var(--bg);
+  color: var(--text);
+}
+header span button.signup {
+  background-color: var(--text);
+  color: var(--bg);
+}
 header .logo {
   margin: 0;
   padding: 0;
 }
 
 header nav {
-  width: 60%;
-  transition: 0.3s;
-  position: fixed;
-  top: 0px;
-
   display: flex;
   align-items: center;
   overflow: hidden;
 }
 
-header span {
+header span#menu-btn {
   display: none;
   z-index: 99;
 }
@@ -74,7 +99,7 @@ header span svg {
   width: 30px;
   cursor: pointer;
   z-index: 62;
-  color: white;
+  color: var(--text);
 }
 
 header nav ul {
@@ -82,16 +107,18 @@ header nav ul {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-
+  gap: 1rem;
+  font-weight: 600;
   overflow: hidden;
 }
 
 header nav li {
   display: inline;
   cursor: pointer;
+  padding: 0.3rem;
 }
-header li:hover{
-  scale: 0.9;
+header li:hover {
+  scale: 1.1;
 }
 
 header div {
@@ -104,39 +131,50 @@ header div {
   justify-content: center;
 }
 
-header div h1 {
-  color: white;
-  transform: translateX(-50%);
-}
-
-
-section.static{
+section.static {
   height: 360px;
   width: 100%;
   margin: 2rem 0;
   position: relative;
+  padding: 0 4rem;
 }
-section.static img{
+section.static img {
   height: 100%;
   width: 100%;
   padding: 1rem;
   object-fit: cover;
   object-position: top;
-  
 }
-
 
 main {
   width: 100%;
+  padding: 4rem;
 }
 
 main container {
-  padding: 20px;
   display: flex;
   flex-flow: column;
   width: 100%;
 }
 
+main ul.section-switcher {
+  border-bottom: 2px solid var(--border-dim);
+  color: var(--dim);
+  padding: 1rem 0;
+}
+main ul.section-switcher li {
+  padding-bottom: 1rem;
+}
+
+main ul.section-switcher li.active {
+  border-bottom: 2px solid var(--text);
+  color: var(--text);
+}
+
+main label#totelText {
+  margin: 2rem 0;
+  display: block;
+}
 main container loader {
   width: 100%;
   height: 100%;
@@ -154,55 +192,6 @@ main container loader {
   /* Firefox requires this to apply the animation */
   animation-timing-function: linear;
 }
-
-/* .loader {
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .loader:before{
-    content: '';
-    position: absolute;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    top: 50%;
-    left: 0;
-    transform: translate(-5px, -50%);
-    background: linear-gradient(to right, #B1B1B1C7 50%, #42445A 50%) no-repeat;
-    background-size: 200% auto;
-    background-position: 100% 0;
-    animation: colorBallMoveX 1.5s linear infinite alternate;
-  }
- .loader:after{
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 100%;
-    background: #de3500;
- }
-@keyframes colorBallMoveX {
-  0%  {
-    background-position: 0% 0;
-    transform: translate(-15px, -50%);
-  }
-  15%  , 25% {
-    background-position: 0% 0;
-    transform: translate(0px, -50%);
-  }
-  75% , 85% {
-    background-position: 100% 0;
-    transform: translate(50px, -50%);
-  }
-  100% {
-    background-position: 100% 0;
-    transform: translate(65px, -50%);
-  }
-}
-   */
 
 .loader {
   display: block;
@@ -227,15 +216,14 @@ main container loader {
   }
 }
 
-main container section {
+main container section.cardSec {
   width: 100%;
-  padding: 1rem;
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-main container section card {
+main container section.cardSec card {
   /* height: 300px;
   width: 300px; */
   width: 250px;
@@ -253,9 +241,9 @@ main container section card {
   position: relative;
 }
 
-main container section card:hover {
+/* main container section card:hover {
   box-shadow: -6px -6px 15px var(--box-shadow), 6px 6px 15px var(--box-shadow);
-}
+} */
 
 main container section card a {
   border-radius: 10px;
@@ -278,13 +266,12 @@ main container section card text-area {
   /* background: #E4E4E4; */
   margin: 3px;
   border-radius: 7px;
-  height: 100%;
 }
 
 main container section card text-area h5 {
   margin: 0;
   padding: 0 0 0 0;
-  color: var(--text-color);
+  color: var(--text);
   text-align: center;
   line-height: 1.5rem;
   font-size: 15px;
@@ -304,8 +291,7 @@ main container section card text-area label.type {
 }
 
 main container section card .timeLbl {
-  color: var(--time-color);
-  color: gray;
+  color: var(--dim);
   float: right;
   padding: 8px;
   font-size: 10px;
@@ -338,7 +324,7 @@ iframe {
 }
 
 card h3 {
-  color: black;
+  color: var(--text);
 }
 
 msg-container {
@@ -405,7 +391,6 @@ msg-container container button svg {
   transition: 0.2s !important;
   width: 30px;
   height: 30px;
-  color: #42445a57;
   font-weight: bold;
   transform: rotateZ(45deg);
 }
@@ -537,12 +522,12 @@ message-div card svg {
 }
 
 message-div card container p {
-  color: #bdbdbd;
+  color: var(--dim);
 }
 
 message-div card .timelabel {
   font-size: 10px;
-  color: #bdbdbd;
+  color: var(--dim);
   float: right;
 }
 
@@ -616,7 +601,7 @@ footer .div2 {
 }
 
 .dim {
-  color: #b1b1b1c7;
+  color: var(--dim);
   font-size: 13px;
 }
 
@@ -627,17 +612,18 @@ footer .div3 {
 }
 
 ::placeholder {
-  color: darkgray;
+  color: var(--placeholder);
 }
 
 alert {
   width: 100%;
   position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: #0000003d;
+  background: rgba(0, 0, 0, 0.4);
 
   display: flex;
   align-items: center;
@@ -647,7 +633,7 @@ alert {
 }
 
 alert container card {
-  background: white;
+  background: var(--card-bg);
   display: flex;
   flex-flow: column;
   padding: 10px;
@@ -655,18 +641,26 @@ alert container card {
   align-items: center;
   gap: 8px;
   border-radius: 7px;
+  width: 350px;
+  max-width: 90%;
 }
 
 alert container card input {
+  width: 90%;
+  margin: auto;
+  display: block;
   padding: 6px;
   border-radius: 0px;
   border: none;
   border-bottom: 2px solid #00000080;
   outline: none;
+  background-color: hsla(0, 0%, 0%, 0.137);
+  border-radius: 5px;
+  color: var(--text);
 }
 
 alert container card input:focus {
-  border: 2px solid #00000080;
+  border: 2px solid var(--text);
   border-radius: 30px;
 }
 
@@ -808,7 +802,7 @@ alert container card div #signup {
 }
 
 #commandBtn svg {
-  fill: var(--text-color);
+  fill: var(--text);
 }
 
 @media (max-width: 750px) {
@@ -862,7 +856,7 @@ alert container card div #signup {
   box-shadow: 0 2px 3px rgba(66, 68, 90, 0.041);
   color: #a3a4aa;
   cursor: pointer;
-  border-top: 1px solid var(--body-bg);
+  border-top: 1px solid var(--bg);
   font-size: 16px;
 }
 .reactions {
@@ -882,5 +876,5 @@ alert container card div #signup {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
