@@ -1,6 +1,3 @@
-.openMenu {
-  width: 75%;
-}
 header .header-fix {
   position: fixed;
   top: 20px;
@@ -16,5 +13,10 @@ header .header-fix {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.247);
     top: 1rem;
     z-index: 99;
+  }
+}
+@media (max-width: 800px) {
+  .openMenu {
+    width: 75%;
   }
 }

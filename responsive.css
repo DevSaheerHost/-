@@ -1,18 +1,35 @@
 /* v 3.2 */
 
 @media (max-width: 800px) {
-  header nav{
+  header nav {
     position: fixed;
     right: 0;
     top: 0;
     bottom: 0;
     width: 0%;
-    background: #000000A8;
+    background: #000000a8;
     z-index: 1;
     flex-flow: column;
     justify-content: center;
-
   }
+  section.static {
+    height: auto;
+    width: 90%;
+    margin: auto;
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+    
+  }
+
+  section.static img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: top;
+    border-radius: 10px;
+  }
+
   header nav ul {
     display: flex;
     flex-flow: column;
@@ -22,42 +39,48 @@
   header nav li {
     padding: 6px;
   }
-  
-  
-  header{
+  main {
+    padding: 2rem;
+  }
+
+  header {
     justify-content: space-between;
   }
   header span#menu-btn {
     display: block;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
   }
-  middle-row{
+  middle-row {
     display: flex;
     flex-flow: column !important;
     flex-wrap: wrap;
   }
-}/*closing tag of @media*/
-  
+} /*closing tag of @media*/
+
 @media (max-width: 600px) {
-  main container section{
+  main container section {
     display: flex;
     flex-direction: column-reverse;
   }
-  main container section card{
+  main container section card {
     margin: auto;
     width: 100%;
   }
-  main container section card a{
+  main container section card a {
     width: 100%;
   }
-  main container section card img{
+  main container section card img {
     border-radius: 5px;
+  }
+
+  span.auth-btn-wrapper {
+    display: none;
   }
 }
 
-
-
-
-  /*
+/*
   
   msg-container container{
     width: 100%;

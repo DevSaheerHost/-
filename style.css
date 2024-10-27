@@ -6,12 +6,12 @@
   transition: 0.3s;
   user-select: none;
   /* border: 1px solid red; */
+  font-family: "Poppins", sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
   color: var(--text);
   background-color: var(--bg);
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
@@ -42,6 +42,7 @@ li {
   padding: 0.2rem;
   cursor: pointer;
   text-align: center;
+  white-space: nowrap;
 }
 span.auth-btn-wrapper {
   display: flex;
@@ -70,7 +71,8 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-header button.login, header button.logout {
+header button.login,
+header button.logout {
   background-color: var(--bg);
   color: var(--text);
 }
@@ -132,18 +134,18 @@ header div {
 }
 
 section.static {
-  height: 360px;
-  width: 100%;
-  margin: 2rem 0;
+  height: 70vh;
+  width: 90%;
+  margin: 2rem auto;
   position: relative;
-  padding: 0 4rem;
+  overflow: hidden;
 }
 section.static img {
   height: 100%;
   width: 100%;
-  padding: 1rem;
   object-fit: cover;
   object-position: top;
+  border-radius: 10px;
 }
 
 main {
@@ -161,14 +163,33 @@ main ul.section-switcher {
   border-bottom: 2px solid var(--border-dim);
   color: var(--dim);
   padding: 1rem 0;
+  width: 100%;
+  overflow-x: scroll;
+  position: relative;
+  display: flex;
 }
-main ul.section-switcher li {
+/* main ul.section-switcher li {
   padding-bottom: 1rem;
+  white-space: nowrap;
+} */
+
+main ul.section-switcher li.active:after {
+  content: "";
+  width: 6rem;
+  height: 2px;
+  background-color: var(--text);
+  display: block;
+  position: absolute;
+  bottom: -0.01rem;
+  margin-left: -1rem;
 }
 
-main ul.section-switcher li.active {
-  border-bottom: 2px solid var(--text);
-  color: var(--text);
+.section-switcher::-webkit-scrollbar {
+  display: none;
+}
+.section-switcher {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 main label#totelText {
@@ -221,6 +242,8 @@ main container section.cardSec {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-flow: dense;
+  direction: rtl;
 }
 
 main container section.cardSec card {
@@ -239,6 +262,19 @@ main container section.cardSec card {
   animation-timing-function: linear;
   background-color: var(--card-bg);
   position: relative;
+
+  animation-timeline: view(block 90% 0%);
+  animation-name: sndBtn;
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  /* Firefox requires this to apply the animation */
+  animation-timing-function: linear;
+}
+
+@keyframes sndBtn {
+  from {
+    transform: translateX(30%) translateY(30%) scale(0.5);
+  }
 }
 
 /* main container section card:hover {
@@ -369,15 +405,15 @@ msg-container container button {
   background: none;
   border: none;
 
-  animation-timeline: view(block 90% 0%);
+  /* animation-timeline: view(block 90% 0%);
   animation-name: sndBtn;
   animation-fill-mode: both;
-  animation-duration: 1ms;
+  animation-duration: 1ms; */
   /* Firefox requires this to apply the animation */
-  animation-timing-function: linear;
+  /* animation-timing-function: linear; */
 }
 
-@keyframes sndBtn {
+/* @keyframes sndBtn {
   from {
     transform: translateX(100%);
   }
@@ -385,7 +421,7 @@ msg-container container button {
   to {
     transform: translateX(0px);
   }
-}
+} */
 
 msg-container container button svg {
   transition: 0.2s !important;

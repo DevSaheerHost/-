@@ -65,9 +65,8 @@ togleMenu = () => {
   nav.classList.toggle("openMenu");
 };
 
-document.querySelector(".menuList").onclick = () => {
-  togleMenu();
-};
+document.querySelector("main").onclick = () =>nav.classList.remove("openMenu");
+document.querySelector(".menuList").onclick = () =>togleMenu();
 
 // -------------command input function------//
 
@@ -366,12 +365,7 @@ togleTheme = () => {
   }
 };
 
-window.onscroll = () => {
-  let nav = document.querySelector("#nav");
-  document.body.scrollTop > 400 || document.documentElement.scrollTop > 400
-    ? nav.classList.add("changeBG")
-    : nav.classList.remove("changeBG");
-};
+
 
 const slidImages = [
   "./banner_images/banner_1.png",
