@@ -16,7 +16,12 @@ header .header-fix {
   }
 }
 @media (max-width: 800px) {
-  .openMenu {
+  header nav.openMenu {
     width: 75%;
+    padding: 1rem;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.25);
+    li a{
+      color: var(--special-text) !important;
+    }
   }
 }

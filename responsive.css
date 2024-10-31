@@ -7,10 +7,24 @@
     top: 0;
     bottom: 0;
     width: 0%;
-    background: #000000a8;
+    background: var(--bg);
     z-index: 1;
     flex-flow: column;
-    justify-content: center;
+    justify-content: start;
+    align-items: start;
+  }
+  nav .logo{
+    padding: 1rem;
+  }
+  header nav ul{
+    padding: 0 !important;
+    gap: 0;
+  }
+  nav li{
+    margin: 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.308);
+    text-align: left;
+    padding: 0;
   }
   section.static {
     height: auto;
@@ -52,7 +66,7 @@
     top: 2rem;
     left: 2rem;
   }
-  middle-row {
+  middle-row { /*in footer elemrnt*/
     display: flex;
     flex-flow: column !important;
     flex-wrap: wrap;
@@ -60,9 +74,9 @@
 } /*closing tag of @media*/
 
 @media (max-width: 600px) {
-  main container section {
+  main container section.cardSec {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column-reverse !important; 
   }
   main container section card {
     margin: auto;
@@ -77,6 +91,10 @@
 
   span.auth-btn-wrapper {
     display: none;
+  }
+
+  msg-container container input{
+    width: 100%;
   }
 }
 

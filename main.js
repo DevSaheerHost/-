@@ -130,13 +130,13 @@ const getCardLayout = (data) => {
     `" alt="">
                         <text-area>
                         
-                          <h5>` +
+                          <h5 class='m-1-0'>` +
     data.title +
     `</h5>
                           <label for=""> ` +
     data.subtitle +
     `</label>
-                          <label class="type"> ` +
+                          <label class="type m-1-0"> ` +
     data.type +
     `</label>
                         </text-area>
