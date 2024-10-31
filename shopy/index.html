@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Shopy</title>
+  <meta name="description" content="The shoping app.
+  Christmas special ✴️✴️✴️ offers 🫴🏼">
+  <meta name="author" content="Saheer Babu">
+  <meta name="copyright" content="none">
+  <meta name="robots" content="noindex, nofollow">
+  
+ 
+  
+
+  <!-- Custom Styles -->
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <!-- Position Fixed components or pages -->
+  
+  <!-- subscribe to get offer with card -->
+  
+  <div class="fixed-page bg-dim" id="subPage">
+    
+    <div class="card">
+      <div class="detail">
+        <h3>Why hello there, enjoy</h3>
+        <h1 class="m-1-0">15% OFF</h1>
+        
+        <p>Subscribe to get up to 15% off! Limited time only.</p>
+        <div class="inputs">
+<input type="email" name="" id="email" placeholder="Enter Your Email">
+        <button class="accent-bg">GET</button>
+        </div>
+        
+        
+        <a onclick="closeSubPage()">No, thanks</a>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- End of the fixed position components -->
+  
+  <!-- Main pages and components -->
+  <header>
+    <span>
+      <i class="fa-solid fa-bars"></i>
+      
+      <h3 class="logo">Shopy</h3>
+    </span>
+    
+    <span>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      
+      <i class="fa-solid fa-bag-shopping"></i>
+      
+      <span class="cart-count">
+        0
+      </span>
+    </span>
+  </header>
+  <main>
+    <ul class="dim">
+      <li>Free shipping on orders over ₹2399</li>
+      <li>Free Click & Collect to US stores*</li>
+      <li>
+        Free and easily domenstic returns
+      </li>
+    </ul>
+    
+    
+    <div class="tile">
+      <h3>MORE THAN JUST CHRISTMAS</h3>
+      <h1>
+        Bring a little Christmas magic to your home
+      </h1>
+      <p class="dim">Extra 20% OFF</p>
+      
+      <button class="accent-bg m-1-A">SHOP THIS COLLECTION</button>
+    </div>
+    
+    <div class="tile tile-dim">
+      <h3>GIVE YOUR HOME A RICH FESTIVAL GLOW</h3>
+      <h1>
+        Majestic & traditional baubles
+      </h1>
+      <p class="dim">Celebrate Christmas in style</p>
+      
+      <button class="accent-bg m-1-A">SHOP THIS COLLECTION</button>
+    </div>
+    
+    <div class="tile">
+      <h3>BRING OUT THE STYLE</h3>
+      <h1>
+        Trendy Christmas Wreaths
+      </h1>
+      <p class="dim">Extra 20% OFF!</p>
+      
+      <button class="accent-bg m-1-A">SHOP THIS COLLECTION</button>
+    </div>
+    
+    
+    
+    
+    <!-- On sale -->
+    
+    <div class="on-sale bg-w">
+      <h3>On sale</h3>
+      
+      <ul class="selector dim">
+        <li class="active">ORNAMENTS</li>
+        <li>CHRISTMAS TREE</li>
+        <li>WREATH AND GARLAND</li>
+      </ul>
+    </div>
+    
+    <div class="hori-scroll bg-w" id="scrollContainer">
+      
+     
+    </div>
+    
+    
+    <div class="tile tile-dim">
+      <h3>don’t forget- Christmas jumpers</h3>
+      <h1>
+        Best Christmas
+        
+        jumpers
+      </h1>
+      <p>Perfect Christmas looks</p>
+      
+      <button class="accent-bg m-1-A">SHOP THIS COLLECTION</button>
+    </div>
+    
+    
+    <div class="tile">
+      <h3>find the perfect Christmas tree</h3>
+      <h1>
+        Pre lit artificial
+        
+        Christmas trees
+      </h1>
+      <p class="dim">Extra 20% OFF!</p>
+      
+      <button class="accent-bg m-1-A">SHOP THIS COLLECTION</button>
+    </div>
+    
+    
+    <div class="fresh-news bg-w">
+      <h2 class="m-1-0">Fresh news
+      
+      from our blog</h2>
+      
+      <div class="hori-scroll" id="scrollContainer2">
+        
+      </div>
+    </div>
+    
+    
+    <div class="new-seller bg-w">
+      <h3 class="m-1-A dim">OUR NEW SELLER</h3>
+      
+      <h1 class="">Enjoy 10% off your first order when you join our mailing list.</h1>
+      
+    </div>
+    <div class="inputs bg-w sub">
+        <input type="email" placeholder="Email Address">
+        <button class="accent-bg">SUBSCRIBE</button>
+      </div>
+  </main>
+  
+  <footer class="accent-bg">
+    <div>
+      <h2 id="ulToggler">COMPANY</h2>
+    <ul class="ul">
+      <li>About Us</li>
+      <li>Contact Us</li>
+      <li>Blog</li>
+      <li>Privacy Policy</li>
+    </ul>
+    </div>
+    
+  </footer>
+  
+  <!-- Project -->
+  <script src="./script.js"></script>
+</body>

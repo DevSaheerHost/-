@@ -1,0 +1,305 @@
+* 
+{
+  padding: 0;
+  margin: 0 0 0 0;
+  font-family: "c_ursive", sans-serif;
+  box-sizing: border-box;
+  border: none;
+  
+  transition: .2s;
+}
+:root{
+  --accent: #196B38;
+  --white: #FFFFFF;
+}
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
+.accent-bg{
+  background: var(--accent);
+  color: #fff;
+}
+.mt-1{
+  margin-top: 1rem;
+}
+.m-1{
+  margin: 1rem;
+}
+.m-1-0{
+  margin: 1rem 0;
+}
+.m-1-A{
+  margin: 1rem auto;
+}
+.bg-w{
+  background: var(--white);
+}
+.cart-count{
+  height: 30px;
+  width: 30px;
+  border-radius: 100px;
+  background: var(--accent);
+  color: #fff;
+}
+.fixed-page{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  
+  
+  display: none;/* Development */
+}
+.bg-dim{
+  background: rgba(0, 0, 0, 0.7);
+}
+body{
+  color: #000;
+  font-size: 15px;
+  letter-spacing: .5px;
+  background: #E7E7E7;
+  max-width: 1000px;
+}
+
+.card{
+  background: #fff;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.inputs{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+input{
+  border: .5px solid #9F9F9F;
+  margin-top: 1rem;
+}
+input, button{
+  text-align: center;
+  border-radius: 5px;
+  padding: .5rem;
+  width: 100%;
+  display: block;
+  font-size: 11px
+}
+button{
+  transition: .2s;
+  font-weight: 500;
+}
+button:hover{
+  background: #04B44C;
+}
+.fixed-page p,.fixed-page a{
+  display: block;
+  margin-top: 1rem;
+}
+.fixed-page a {
+  font-weight: 500;
+  color: #666666;
+  text-decoration: underline;
+}
+.dim{
+  color: #666666;
+}
+
+
+
+/*-----------------*/
+
+header  
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background: var(--white);
+  font-size: 18px;
+}
+header span{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  gap: 1rem
+}
+
+ul{
+  list-style: none;
+  padding: .2rem 2rem;
+  background: var(--white);
+  margin: 1rem 0;
+}
+
+.tile{
+  padding: 3rem;
+  text-align: center;
+  background: var(--white);
+}
+.tile.tile-dim{
+  background: transparent;
+}
+.tile h3{
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+.tile p{
+  font-size: 18px;
+  margin-top: 1rem;
+}
+.tile button{
+  padding: 1rem 1.5rem;
+  width: fit-content;
+}
+
+ul.selector{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+li.active{
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+}
+
+.on-sale h3{
+  text-align: center;
+}
+.hori-scroll{
+  overflow-x: scroll;
+  min-height: 250px;
+  background: var(--white);
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+.hori-scroll .item{
+  height: 100%;
+  min-width: 80%;
+  position: relative;
+}
+.hori-scroll p{
+  padding: .5rem 1rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.hori-scroll img{
+  height: 100%;
+  width: 100%;
+}
+.hori-scroll .info{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: start;
+  flex-flow: column;
+  justify-content: start;
+  gap: 1rem;
+}
+.hori-scroll .info span{
+  font-size: 13px;
+  padding: .2rem .6rem;
+  color: #fff;
+}
+span.black-bg{
+  background: #000;
+}
+span.red-bg 
+{
+  background: red;
+}
+span.dim-bg{
+  background: #7F7F7F;
+}
+.fresh-news{
+  padding: 2rem;
+}
+.fresh-news >h2{
+  width: 70%;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+.fresh-news .hori-scroll{
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+.fresh-news .hori-scroll .item{
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  min-width: 100%;
+  height: 100%;
+}
+.fresh-news .date{
+  text-transform: uppercase;
+  padding: 1rem 0;
+}
+.fresh-news a{
+  font-weight: 500;
+  color: var(--accent);
+  display: block;
+  padding: 1rem 0;
+}
+
+.new-seller{
+  border-top: 1px solid #AEAEAE;
+  padding: 2rem;
+}
+.new-seller h3{
+  text-align: center;
+}
+.inputs.sub{
+  padding: 2rem;
+}
+.sub input{
+  padding: .7rem;
+  text-align: left;
+}
+.sub button{
+  padding: .8rem;
+}
+
+footer{
+  padding: 2rem 0;
+}
+footer div{
+  padding: 2rem;
+  border: 1px solid #AEAEAE;
+  border-left: 0;
+  border-right: 0;
+}
+footer ul{
+  background: transparent;
+  padding: 0;
+  height: 150px;
+}
+footer li{
+  padding: .5rem;
+  
+}
+
+ul.collapse{
+  height: 0;
+  overflow: hidden;
+}
