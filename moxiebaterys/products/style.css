@@ -1,0 +1,90 @@
+#productSec{
+  padding: 2rem;
+}
+
+img{
+  border-radius: 5px;
+}
+section{
+  padding: 2rem;
+}
+.btn_wrapper button{
+  background: #1B7E3C;
+  color: #fff;
+  width: 90%;
+  padding: 1rem;
+  display: block;
+  margin: 1rem auto;
+  position: sticky;
+  bottom: 100px;
+}
+
+.horiScrollReview{
+  display: flex;
+  overflow-x: auto;
+  margin-top: 2rem;
+  gap: 2rem
+}
+.horiScrollReview .card{
+  display: block;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px rgba(146, 146, 146, 0.49);
+  padding: 1rem;
+  min-width: 100%;
+  border: 1px solid var(--accent);
+}
+
+.detail{
+  margin-top: 2rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.profile_wrapper{
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.profile_wrapper .dp{
+  height: 40px;
+  width: 40px;
+  border-radius: 500px;
+  background: #9E9E9E;
+}
+.username{
+  color: var(--accent);
+  font-weight: 500;
+}
+i{
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.title, .desc, .price{
+  margin-top: 1rem;
+}
+
+.date
+{
+  color: #9E9E9E;
+  font-size: 13px;
+}
+
+
+@media (min-width: 760px) {
+  #productSec{
+    display: flex;
+    gap: 2rem;
+  }
+  #productSec img{
+    width: 250px;
+  }
+  .horiScrollReview .card{
+    min-width: unset;
+    width: 270px;
+  }
+}
