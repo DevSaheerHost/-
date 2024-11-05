@@ -1,0 +1,272 @@
+{
+  
+  "battery": [
+    {
+      "title": "Samsung Galaxy S22 Battery",
+      "description": "Reliable lithium-ion battery with quick charge support.",
+      "image": "https://mobisparehub.com/cdn/shop/files/11_8c702f99-8bca-4b89-bc03-68cc6bac9768_800x.jpg",
+      "model": "EB-BS901ABY",
+      "price": 999.99
+    },
+    {
+      "title": "Apple iPhone 13 Battery",
+      "description": "Original battery for iPhone 13, ensuring optimal performance.",
+      "image": "https://rukminim2.flixcart.com/image/1100/1300/xif0q/mobile-battery/m/e/p/apl-a2655-sf92-3227-original-imagh9ktjtxrybyg.jpeg",
+      "model": "A2471",
+      "price": 79.99
+    },
+    {
+      "title": "OnePlus 9 Pro Battery",
+      "description": "High-capacity battery designed for OnePlus 9 Pro for extended usage.",
+      "image": "https://rukminim2.flixcart.com/image/1100/1300/xif0q/mobile-battery/c/d/v/one-blp-903-sf92-4500-original-imaghbuxzzhghjth.jpeg",
+      "model": "BLP903",
+      "price": 69.99
+    },
+    {
+      "title": "Xiaomi Mi 11 Battery",
+      "description": "Durable lithium polymer battery for Xiaomi Mi 11.",
+      "image": "https://www.cellspare.com/image/cache/catalog/data/Accessories%20Villa/Product%20image/xiaomi-mi-11-battery-module-1_1_-500x500h.jpg",
+      "model": "BM4A",
+      "price": 54.99
+    },
+    {
+      "title": "Huawei P40 Pro Battery",
+      "description": "High-performance battery for Huawei P40 Pro, supporting fast charging.",
+      "image": "https://www.cellspare.com/image/cache/catalog/data/Accessories%20Villa/Product%20image/huawei-p40-pro-battery-module-1-500x500h.jpg",
+      "model": "HB436486ECW",
+      "price": 49.99
+    },
+    {
+      "title": "Google Pixel 6 Battery",
+      "description": "Genuine battery for Google Pixel 6, designed for reliable performance.",
+      "image": "https://www.xparts.in/wp-content/uploads/2022/08/Google-Pixel-6-Battery.jpg",
+      "model": "G020I",
+      "price": 59.99
+    },
+    {
+      "title": "Oppo Reno 6 Battery",
+      "description": "Long-lasting battery for Oppo Reno 6, ensuring extended usage.",
+      "image": "https://rukminim2.flixcart.com/image/1100/1300/xif0q/mobile-battery/d/b/i/blp863-safa-4300-original-imagn22zwfykjzny.jpeg",
+      "model": "BPEE5A",
+      "price": 44.99
+    },
+    {
+      "title": "Sony Xperia XZ2 Battery",
+      "description": "Original lithium-ion battery designed for Sony Xperia XZ2, providing long-lasting performance.",
+      "image": "https://www.zeposhop.com/images/thumbnails/550/550/product/41/LIP1656ERPC.jpg",
+      "model": "LIP1653ERPC",
+      "price": 39.99
+    },
+    {
+      "title": "Realme GT Battery",
+      "description": "High-quality battery for Realme GT, optimized for maximum endurance.",
+      "image": "https://www.realmeservicecenterinchennai.co.in/wp-content/uploads/2024/06/Original-Realme-GT-Master-Edition-Battery-Replacement-Price-in-Chennai-India-BLP809.jpg",
+      "model": "BLP809",
+      "price": 1599
+    },
+    {
+      "title": "Motorola Edge 20 5G 4020MAh Battery",
+      "description": "Durable lithium-polymer battery for Motorola Edge 20 with fast charge support.",
+      "image": "https://www.zeposhop.com/images/thumbnails/550/550/product/45/battery-mb40-for-motorola-1-1694676321_hiad-cu.jpg",
+      "model": "MB40",
+      "price": 1299
+    },
+    {
+      "title": "Nokia 8.3 5G (TA-1243 TA-1251) Battery HQ480 4500mAh HQ3160AM99000",
+      "description": "Reliable and long-lasting battery for Nokia 8.3 with quick charging support.",
+      "image": "https://rounded.com/images/thumbnails/250/250/detailed/159/nokia-8.3-5g-ta-1243-ta-1251-battery-hq480-4500mah.png",
+      "model": "HQ480",
+      "price": 938
+    },
+    {
+      "title": "ASUS ROG Phone 5 5s Pro ZS673KS I005DA I005DB Battery",
+      "description": "High-capacity battery designed for gaming on Asus ROG Phone 5.",
+      "image": "https://ispares.in/wp-content/uploads/2023/08/412LBK0AKHL.jpg",
+      "model": "ZS673KS",
+      "price": 1899
+    },
+    {
+      "title": "Samsung Galaxy S22 Ultra 5G 5000 mAh Battery",
+      "description": "High-performance lithium-ion battery for Galaxy S22 Ultra, supports fast charging.",
+      "image": "https://www.zeposhop.com/images/thumbnails/550/550/product/40/samsung-battery-eb-bs908aby-for-1-1684756345.jpg",
+      "model": "EB-BS908ABY",
+      "price": 1099.99
+    },
+    {
+      "title": "Samsung Galaxy Note 20 4300mAh Battery",
+      "description": "Original battery for Samsung Galaxy Note 20, ensuring long-lasting power.",
+      "image": "https://www.zeposhop.com/images/thumbnails/550/550/product/40/samsung-battery-eb-bn980aby-for-1-1680268335.jpg",
+      "model": "EB-BN980ABY",
+      "price": 1290
+    },
+    {
+      "title": "iPhone 12 2815mAh Battery",
+      "description": "Original battery for iPhone 12, ensuring optimal performance.",
+      "image": "https://m.media-amazon.com/images/I/51LTlnGjueL._AC_UF1000,1000_QL80_FMwebp_.jpg",
+      "model": "A2471",
+      "price": 4499
+    },
+    {
+      "title": "Apple iPhone 14 3279mAh Battery",
+      "description": "High-quality battery for iPhone 14, designed for peak performance.",
+      "image": "https://metazon.in/wp-content/uploads/2024/01/iPhone-14-Original-Battery.png",
+      "model": "A2651",
+      "price": 2499
+    },
+    {
+      "title": "OnePlus 8T Battery",
+      "description": "High-capacity battery designed for OnePlus 8T for extended usage.",
+      "image": "https://www.zeposhop.com/images/thumbnails/550/550/product/35/BLP801-2024.jpg",
+      "model": "BLP801",
+      "price": 1599
+    },
+    {
+      "title": "OnePlus Nord 4115mAh Battery",
+      "description": "Reliable battery for OnePlus Nord, providing extended performance.",
+      "image": "https://moborocks.com/images/thumbnails/550/550/product/122/1-11.jpg",
+      "model": "BLP785",
+      "price": 1199
+    },
+    {
+      "title": "Xiaomi Mi 10 5G M2001J2G, M2001J2I (BM4N)",
+      "description": "Original Mobile Battery for Xiaomi Mi 10 5G M2001J2G, M2001J2I (BM4N) With 1 Year Replacement Warranty",
+      "image": "https://m.media-amazon.com/images/I/51A326EehfL._AC_UF1000,1000_QL80_FMwebp_.jpg",
+      "model": "BM4N",
+      "price": 1999
+    },
+    {
+      "title": "Xiaomi Redmi Note 10 Battery",
+      "description": "Original Battery For Xiaomi Redmi Note 10 5G (BN59) 5000mAh",
+      "image": "https://www.zeposhop.com/images/thumbnails/550/550/product/24/1_ao4r-l1.png",
+      "model": "BN59",
+      "price": 1299
+    },
+    {
+      "title": "Huawei Mate 40 Pro Battery",
+      "description": "Durable battery for Huawei Mate 40 Pro, designed for high performance.",
+      "image": "https://www.cellspare.com/image/cache/catalog/data/Accessories%20Villa/Product%20image/huawei-mate-40-pro-battery-module-1-500x500h.jpg",
+      "model": "HB396284ECW",
+      "price": 2899
+    },
+    {
+      "title": "Huawei P30 Pro Battery",
+      "description": "Original battery for Huawei P30 Pro, supporting fast charging.",
+      "image": "https://example.com/images/huawei-p30-pro-battery.jpg",
+      "model": "HB386281ECW",
+      "price": 49.99
+    },
+    {
+      "title": "Google Pixel 5 Battery",
+      "description": "Genuine battery for Google Pixel 5, designed for reliable performance.",
+      "image": "https://example.com/images/google-pixel-5-battery.jpg",
+      "model": "G020J",
+      "price": 54.99
+    },
+    {
+      "title": "Google Pixel 7 Battery",
+      "description": "Original battery for Google Pixel 7, ensuring optimal performance.",
+      "image": "https://example.com/images/google-pixel-7-battery.jpg",
+      "model": "G004E",
+      "price": 59.99
+    },
+    {
+      "title": "Oppo Find X3 Battery",
+      "description": "High-capacity battery for Oppo Find X3, optimized for performance.",
+      "image": "https://example.com/images/oppo-find-x3-battery.jpg",
+      "model": "BPEM00",
+      "price": 49.99
+    },
+    {
+      "title": "Oppo A53 Battery",
+      "description": "Reliable battery for Oppo A53, ensuring long-lasting power.",
+      "image": "https://example.com/images/oppo-a53-battery.jpg",
+      "model": "BPEA00",
+      "price": 34.99
+    },
+    {
+      "title": "Sony Xperia 1 II Battery",
+      "description": "Original lithium-ion battery for Sony Xperia 1 II, designed for durability.",
+      "image": "https://example.com/images/sony-xperia-1ii-battery.jpg",
+      "model": "LIP1654ERPC",
+      "price": 49.99
+    },
+    {
+      "title": "Sony Xperia 5 Battery",
+      "description": "High-performance battery for Sony Xperia 5, supporting fast charging.",
+      "image": "https://example.com/images/sony-xperia-5-battery.jpg",
+      "model": "LIP1655ERPC",
+      "price": 39.99
+    },
+    {
+      "title": "Realme 8 Battery",
+      "description": "High-quality battery for Realme 8, optimized for performance.",
+      "image": "https://example.com/images/realme-8-battery.jpg",
+      "model": "BLP703",
+      "price": 34.99
+    },
+    {
+      "title": "Realme Narzo 30 Battery",
+      "description": "Reliable battery for Realme Narzo 30, ensuring long-lasting usage.",
+      "image": "https://example.com/images/realme-narzo30-battery.jpg",
+      "model": "BLP755",
+      "price": 29.99
+    },
+    {
+      "title": "Motorola Moto G Power Battery",
+      "description": "Durable battery for Moto G Power, designed for extended usage.",
+      "image": "https://example.com/images/motorola-moto-g-power-battery.jpg",
+      "model": "NBN6503B",
+      "price": 42.99
+    },
+    {
+      "title": "Motorola Moto E Battery",
+      "description": "Original battery for Moto E, providing reliable performance.",
+      "image": "https://example.com/images/motorola-moto-e-battery.jpg",
+      "model": "NBN6563A",
+      "price": 29.99
+    },
+    {
+      "title": "Nokia 5.4 Battery",
+      "description": "Reliable battery for Nokia 5.4, ensuring long-lasting power.",
+      "image": "https://example.com/images/nokia-5.4-battery.jpg",
+      "model": "HE344",
+      "price": 34.99
+    },
+    {
+      "title": "Nokia 7.2 Battery",
+      "description": "High-performance battery for Nokia 7.2, supporting quick charging.",
+      "image": "https://example.com/images/nokia-7.2-battery.jpg",
+      "model": "HE341",
+      "price": 29.99
+    },
+    {
+      "title": "Asus ROG Phone 6 Battery",
+      "description": "High-capacity battery for gaming on Asus ROG Phone 6.",
+      "image": "https://example.com/images/asus-rog-phone6-battery.jpg",
+      "model": "C11P1908",
+      "price": 89.99
+    },
+    {
+      "title": "Asus Zenfone 8 Battery",
+      "description": "Reliable battery for Asus Zenfone 8, ensuring optimal performance.",
+      "image": "https://example.com/images/asus-zenfone8-battery.jpg",
+      "model": "C11P1902",
+      "price": 74.99
+    },
+    {
+      "title": "Original Battery For Xiaomi Redmi 8A (BN51) 5000mAh",
+      "description": "Reliable lithium-ion battery with 1 year warranty.",
+      "image": "https://www.zeposhop.com/images/thumbnails/550/550/product/42/1-419.jpg",
+      "model": "BN51",
+      "price": 456
+    }
+  ],
+
+  
+  
+  "popular_brands":["All", "Samsung", "Apple", "Realme"," Google"]
+}
+
+
+
+  

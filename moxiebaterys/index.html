@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Moxie Batters</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <header class="flex-between pd-2">
+    <img class="logo" src="./images/moxie-logo.png" alt="logo">
+    
+    <div class="auth-btn-wrapper flex-between">
+      <button class="bg-acc">LogIn</button>
+    </div>
+  </header>
+  <div class="search_container">
+    <input type="search" placeholder="Search products" name="" id="searchInput">
+    <button id="search">Search</button>
+    
+    <div id="search_out">
+      
+    </div>
+  </div>
+  
+  <div class="sort_wrapper">
+    <div class="drop_down_elem" id="dropDownElem">
+      Sort by default
+    </div>
+    <div class="drop_down_selector hidden" id="dropDownList">
+      <span>
+        High to low price
+      </span>
+      <span>
+        Low to high price
+      </span>
+    </div>
+  </div>
+  <main>  
+  <h3 class="pd-05-2">Popular brands</h3>
+    <div class="hori-list-view" id="listView">
+      
+    </div>
+    
+    <section class="product" id="productSec">
+      <div class="card" hidden>
+        <img class="br-5" src="https://empetel.net/57385-large_default/original-battery-galaxy-s23-ultra.jpg" alt="product">
+        
+        <div>
+          <p class="title">S23 Ultra battery</p>
+          <p class="desc">Here the description about the battery</p>
+          <p class="price">₹399.99</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="./main.js"></script>
+</body>
+</html>
