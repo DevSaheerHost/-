@@ -43,20 +43,41 @@ var darckIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
 const loader2 = document.querySelector("loader2");
 const themeBtn = document.querySelector("#themeBtn");
 let name = localStorage.getItem("name")
-  ? localStorage.getItem("name")
-  : "non Auther";
+    ? localStorage.getItem("name")
+    : "non Auther";
 const messageDiv = document.querySelector("message-div");
 var TotalData = 0;
 
 if (localStorage.getItem("name") !== null) {
   document.title = localStorage.getItem("name");
 }
+let dataStore=[]
+database.ref('web/data/').on('child_added', (snapshot)=>
+    dataStore.push({...snapshot.val(), key: snapshot.key}))
+setTimeout(()=>{
+  dataStore.reverse()
+  console.log(dataStore)
+
+}, 5000)
 
 const FetchAndCreateCard = (cardSection) => {
-  database.ref("web/data/").on("child_added", (snapshot) => {
-    const data = snapshot.val();
-    var snapshotKey = snapshot.key; // Get the unique key of the snapshot
-    createCard(data, snapshotKey, cardSection);
+  const dataArr = [];
+
+  // Fetch all data once
+  database.ref("web/data/").once("value", (snapshot) => {
+    snapshot.forEach((childSnapshot) => {
+      const snapshotKey = childSnapshot.key;
+      const data = childSnapshot.val();
+      dataArr.push({ data, snapshotKey });
+    });
+
+    // Reverse the data array
+    const reversedData = dataArr.reverse();
+
+    // Now call createCard once for each reversed item
+    reversedData.forEach((item) => {
+      createCard(item.data, item.snapshotKey, cardSection);
+    });
   });
 };
 FetchAndCreateCard(cardSection);
@@ -72,9 +93,9 @@ document.querySelector(".menuList").onclick = () =>togleMenu();
 
 commandInput.oninput = () => {
   if (commandInput.value.length !== 0) {
-    sendSvg.style.color = "#42445A";
+    sendSvg.style.fill = "#42445A";
   } else {
-    sendSvg.style.color = "#42445A57";
+    sendSvg.style.fill = "#42445A57";
   }
 
   if (commandInput.value.length >= 100) {
@@ -122,27 +143,27 @@ const addNewReactionToDataCard = (data, snapshotKey, newCard) => {
 };
 const getCardLayout = (data) => {
   return (
-    `
+      `
           <a href="` +
-    data.pageurl +
-    `" target="_blank"><img src="` +
-    data.image +
-    `" alt="">
+      data.pageurl +
+      `" target="_blank"><img src="` +
+      data.image +
+      `" alt="">
                         <text-area>
                         
                           <h5 class='m-1-0'>` +
-    data.title +
-    `</h5>
+      data.title +
+      `</h5>
                           <label for=""> ` +
-    data.subtitle +
-    `</label>
+      data.subtitle +
+      `</label>
                           <label class="type m-1-0"> ` +
-    data.type +
-    `</label>
+      data.type +
+      `</label>
                         </text-area>
                         <label class="timeLbl">` +
-    data.time +
-    `</label>
+      data.time +
+      `</label>
                         </a>
                         <span class="addReaction">🫥</span> <span class="reactions hidden">👍🏼 ♥️ 😁 👎🏼 </span>
           `
@@ -169,15 +190,15 @@ const signup = () => {
       userDp: UserIcon,
       // timestamp: firebase.database.ServerValue.TIMESTAMP
     })
-    .then(() => {
-      showLog("Login Success")
-      // Reload the page once data is successfully saved
-      location.reload();
-  })
-  .catch((error) => {
-      console.error("Error adding user:", error);
-      showLog("Error adding user:", error)
-  });
+        .then(() => {
+          showLog("Login Success")
+          // Reload the page once data is successfully saved
+          location.reload();
+        })
+        .catch((error) => {
+          console.error("Error adding user:", error);
+          showLog("Error adding user:", error)
+        });
 
     if (commandInput.value.length !== 0) {
       commandBtn.onclick();
@@ -260,7 +281,7 @@ const loadCmd = () => {
 
   const messageByDeveloper = (msg, time, uname, adminDP) => {
     messageDiv.innerHTML +=
-      `
+        `
             <card class="msgdiv" id="myid message-card">
                     <container>
                       <div class="user-name-box>
@@ -268,24 +289,24 @@ const loadCmd = () => {
                       ${adminDP}
                       </span>
                         <h3>` +
-      uname +
-      `</h3>
+        uname +
+        `</h3>
                       </div>
                       <texts>
                       <p>` +
-      msg +
-      `</p>
+        msg +
+        `</p>
                       </texts>
                     </container>
                     <label class="timelabel">` +
-      time +
-      `</label>
+        time +
+        `</label>
                   </card>
                   `;
   };
   const messageByUser = (msg, time, uname, Udp) => {
     messageDiv.innerHTML +=
-      `
+        `
       <card class="msgdiv" id="myid message-card">
               <container>
                 <div class="user-name-box>
@@ -293,18 +314,18 @@ const loadCmd = () => {
                 ${Udp}
                 </span>
                   <h3>` +
-      uname +
-      `</h3>
+        uname +
+        `</h3>
                 </div>
                 <texts>
                 <p>` +
-      msg +
-      `</p>
+        msg +
+        `</p>
                 </texts>
               </container>
               <label class="timelabel">` +
-      time +
-      `</label>
+        time +
+        `</label>
             </card>
             `;
   };
@@ -384,8 +405,8 @@ changeImage();
 document.querySelectorAll("#sectionSwitcher li").forEach((li) => {
   li.onclick = () => {
     document
-      .querySelectorAll("#sectionSwitcher li")
-      .forEach((li) => li.classList.remove("active"));
+        .querySelectorAll("#sectionSwitcher li")
+        .forEach((li) => li.classList.remove("active"));
     li.classList.add("active");
     switchTHeSection(li);
   };
@@ -419,10 +440,10 @@ const switchTHeSection = (li) => {
 };
 
 const hideAllSections = (
-  viewAllSec,
-  designSection,
-  postSection,
-  projectSection
+    viewAllSec,
+    designSection,
+    postSection,
+    projectSection
 ) => {
   viewAllSec.classList.add("hidden");
   designSection.classList.add("hidden");
