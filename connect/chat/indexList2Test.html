@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User List</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    #usersList { list-style-type: none; padding: 0; }
+    #usersList li { cursor: pointer; padding: 10px; background: #f1f1f1; margin: 5px 0; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>User List</h1>
+</header>
+
+<main>
+  <h2>Select a User to Chat</h2>
+  <ul id="usersList">
+    <!-- User list will populate here -->
+  </ul>
+</main>
+
+<!-- Firebase SDKs loaded asynchronously -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js" async></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js" async></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js" async></script>
+
+<script>
+  window.addEventListener("load", function() {
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDiXOyYgEwZKb0nLgVyDgi_zMlScS8pknY",
+      authDomain: "abcd-23e67.firebaseapp.com",
+      databaseURL: "https://abcd-23e67-default-rtdb.firebaseio.com",
+      projectId: "abcd-23e67",
+      storageBucket: "abcd-23e67.firebasestorage.app",
+      messagingSenderId: "17831104016",
+      appId: "1:17831104016:web:6e7f58609291c2181c4495"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // Sign in user and load user list, excluding the logged-in user
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        loadUserList(user.uid);
+      } else {
+        // Redirect to login if not authenticated
+        window.location.href = 'login.html';
+      }
+    });
+
+    function loadUserList(loggedInUid) {
+      db.collection("users").onSnapshot(snapshot => {
+        const usersList = document.getElementById("usersList");
+        usersList.innerHTML = "";
+        
+        snapshot.forEach(doc => {
+          const user = doc.data();
+          if (user.uid !== loggedInUid) {
+            usersList.innerHTML += `<li onclick="startChat('${user.uid}', '${user.name}')">${user.name}</li>`;
+          }
+        });
+      });
+    }
+
+    // Start chat with selected user
+    window.startChat = function(selectedUid, partnerName) {
+      // Store partner UID and name in localStorage
+      localStorage.setItem('partnerUid', selectedUid);
+      localStorage.setItem('partnerName', partnerName);
+      
+      // Navigate to chat page
+      window.location.href = 'chat.html';
+    }
+  });
+</script>
+
+</body>
+</html>

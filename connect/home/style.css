@@ -1,0 +1,114 @@
+*{
+  transition: .4s;
+}
+header li.account_circle{
+  height: 30px;
+  width: 30px;
+  background: var(--gray);
+  border-radius: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+a{
+  color: var(--black);
+}
+main{
+  padding: 0 !important;
+}
+
+.card{
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+.card:active{
+  background: var(--gray);
+}
+
+.card .profile{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+}
+.dp img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+span.dp-big{
+  height: 130px;
+  width: 130px;
+}
+
+  p.small{
+  font-size: 10px;
+  margin-top: .3rem;
+}
+p.gray{
+  color: var(--gray-dark);
+}
+i.loading{
+  text-align: center;
+  display: block;
+}
+
+
+
+.closeElem{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  transform: translateX(100%);
+}
+.openElem{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  transform: translateX(0);
+}
+
+
+.profile_page{
+  padding: 1rem;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  background: #F3F3F3;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+}
+
+.description{
+  margin-top: 2rem;
+  font-weight: 500;
+}
+.btn_wrapper{
+  margin-top: 2rem;
+}
+button.message{
+  border: 1px solid var(--accent);
+  background: var(--bg);
+  color: var(--accent);
+  font-weight: 700;
+  padding: .5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.message:active{
+  color: #fff;
+}

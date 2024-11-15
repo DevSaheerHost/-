@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONNECT</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js" async></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js" async></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js" async></script>
+  
+
+</head>
+<body>
+  <header>
+    <img class="logo" src="https://cdn.dribbble.com/users/2515239/screenshots/8086733/connect_logo_4x.jpg" alt="Logo">
+    
+    <ul>
+      <li><input placeholder="Search by job" type="search"></li>
+      <li class="login btn" hidden >Login</li>
+      <li class="signup btn" hidden>Signup</li>
+      <li id="account_circle" class="account_circle"></li>
+    </ul>
+  </header>
+
+
+<main class="home_page" id="home_page">
+  <section id="usersList">
+    <p class="gray"><i class="loading">Loading...</i></p>
+  </section>
+</main>
+
+<main class="profile_page closeElem" id="profile_page">
+  <nav class="bg-w pd-1">
+    <a href="#">
+    <i class="fa-solid fa-arrow-left" onclick="hideElem(profile_page)"></i></a>
+    <div>
+      <h3 id="user_name">Loading...</h3>
+    <p class="gray small" id="user_career"></p>
+    </div>
+    
+  </nav>
+  
+  <div class="bg-w pd-1">
+    
+  
+  <div class="center">
+    <span class="dp dp-big">
+      <img src="" alt="" id="user_dp">
+    </span>
+  </div>
+  <p class="description">Frondent at (some place) | Next.js react.js Expert | Nodejs | MERN | Full stack developer| Building SaaS Products</p>
+  
+  <div class="btn_wrapper" id="button_wrap">
+    <button class="message">
+      Lets chat
+       <i class="fa-solid fa-arrow-right"></i> </button>
+  </div>
+  </div>
+  
+  <section class="about bg-w pd-1">
+    <h4>About</h4>
+    <p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+  </section>
+</main>
+
+<script src="./script.js"></script>
+
+</body>
+</html>

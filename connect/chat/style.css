@@ -1,0 +1,71 @@
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+}
+
+.inp_chat_wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 85vh;
+  background: var(--gray);
+}
+.input_wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  background: var(--bg);
+}
+.input_wrap button{
+  margin: 0;
+  padding: .8rem;
+  border-radius: 100px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  color: var(--accent);
+  box-shadow: none;
+  
+}
+.input_wrap button i{
+  scale: 1;
+  margin: 0 0 0 0;
+  width: auto;
+}
+
+
+.message{
+  padding: 1rem;
+  border-radius: 20px 20px 0 20px;
+  background: var(--accent);
+  color: #fff;
+  display: block;
+  margin: auto;
+  margin-right: 1rem;
+  margin-top: 2rem;
+}
+.sent{
+  border-radius: 20px 20px 20px 0;
+  background: #fff;
+  box-shadow: var(--shadow);
+  color: var(--black);
+  margin-right: auto;
+  margin-left: 1rem;
+}
+
+#chatBox{
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+a{
+  color: var(--accent);
+}

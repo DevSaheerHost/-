@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="./style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<nav class="pd-1">
+         <a href="../home"><i class="fa-solid fa-arrow-left"></i></a>
+  <span class="dp">
+    <img src="" alt="">
+  </span>
+  <h3 id="user_name"></h3>
+</nav>
+
+<main>
+  <div class="inp_chat_wrap">
+    
+ 
+  <div id="chatBox">
+    <!-- Chat messages will appear here -->
+    
+  </div>
+  <div class="input_wrap">
+  <input type="text" id="messageInput" placeholder="Type a message...">
+  <button onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+   </div>
+    </div>
+</main>
+
+<!-- Firebase SDKs loaded asynchronously -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js" async></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js" async></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js" async></script>
+
+<script src="./script.js"></script>
+
+</body>
+</html>

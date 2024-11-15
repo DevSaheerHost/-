@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+:root{
+  --black:#161e35;
+  --accent:#ff1663;
+  --bg: #fff;
+  --shadow: 0 0 5px rgba(0, 0, 0, .23);
+  --gray:#D0D0D0;
+  --gray-dark: #8B8B8B;
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  font-family: "Open Sans", sans-serif;
+}
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pd-1{
+  padding: 1rem;
+}
+.pd-2{
+  padding: 2rem;
+}
+img{
+  max-width: 100%;
+}
+body{
+  background: var(--bg);
+  color: var(--black);
+}
+body:after{
+  content: "Dev mode";
+  position: fixed;
+  top: .5rem;
+  right: -2.3rem;
+  background: red;
+  color: #fff;
+  font-weight: 500;
+  padding: .2rem 2rem;
+  transform: rotate(45deg);
+  font-size: 10px;
+}
+button, .btn{
+  padding: .3rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  width: fit-content;
+}
+input, select{
+  border: 1px solid #CACACA;
+  border-radius: 6px;
+  padding: .35rem;
+  margin-right: 1rem;
+}
+.logo{
+  width: 100px;
+  margin-left: -15px;
+}
+
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+header ul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+header .btn{
+  color: var(--accent);
+  border:1px solid var(--accent);
+  box-shadow: none;
+}
+
+h1{
+  padding: 2rem;
+  text-align: center;
+}
+h1 span{
+  color: var(--accent);
+}
+p.pera{
+  padding: 2rem;
+}
+main button{
+  background: var(--accent);
+  color: #fff;
+  padding: .7rem 2rem;
+  margin: auto;
+  display: block;
+  font-size: 15px;
+}
+main button i{
+  transition: .2s;
+  width: 0;
+  overflow: hidden;
+  margin-left: 0px;
+  scale: 0
+}
+main button:active{
+  background: #FF558D;
+}
+main button.start:hover i{
+  margin-left: 10px;
+  width: 17px;
+  scale: 1;
+}
+
+.hidden{
+  display: none;
+}
+
+.bg-w{
+  background: #fff;
+}
+
+section{
+  margin-top: 2rem;
+}
+span.dp{
+  display: block;
+  height: 40px;
+  width: 40px;
+  border-radius: 400px;
+  background: var(--gray);
+  overflow: hidden;
+}
