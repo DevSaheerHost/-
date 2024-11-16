@@ -33,10 +33,10 @@ body{
   color: var(--black);
 }
 body:after{
-  content: "Dev mode";
+  content: "Beta";
   position: fixed;
-  top: .5rem;
-  right: -2.3rem;
+  top: 0;
+  right: -2rem;
   background: red;
   color: #fff;
   font-weight: 500;
