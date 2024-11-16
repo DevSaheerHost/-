@@ -31,6 +31,8 @@ img{
 body{
   background: var(--bg);
   color: var(--black);
+  max-width: 600px;
+  margin: auto;
 }
 body:after{
   content: "Beta";
@@ -133,4 +135,8 @@ span.dp{
   border-radius: 400px;
   background: var(--gray);
   overflow: hidden;
+}
+
+i, button{
+  cursor: pointer;
 }

@@ -1,9 +1,12 @@
-
+*{
+  transition: all .2s;
+}
 nav{
   display: flex;
   align-items: center;
   justify-content: start;
   gap: 1rem;
+  height: 70px;
 }
 
 .inp_chat_wrap{
@@ -12,6 +15,7 @@ nav{
   justify-content: space-between;
   flex-direction: column;
   height: 85vh;
+  height: calc(100vh - 150px);
   background: var(--gray);
 }
 .input_wrap{
@@ -21,6 +25,10 @@ nav{
   width: 100%;
   padding: 1rem;
   background: var(--bg);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
 }
 .input_wrap button{
   margin: 0;
@@ -31,9 +39,18 @@ nav{
   align-items: center;
   justify-content: center;
   background: none;
-  color: var(--accent);
+  color: var(--bg);
+  background: var(--accent);
   box-shadow: none;
-  
+}
+
+input{
+  border: none;
+  background: var(--gray);
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  padding: .4rem 1rem;
 }
 .input_wrap button i{
   scale: 1;
@@ -65,6 +82,7 @@ nav{
   display: flex;
   flex-flow: column;
   width: 100%;
+  overflow-y: auto;
 }
 a{
   color: var(--accent);

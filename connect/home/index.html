@@ -22,7 +22,7 @@
       <li><input placeholder="Search by job" type="search"></li>
       <li class="login btn" hidden >Login</li>
       <li class="signup btn" hidden>Signup</li>
-      <li id="account_circle" class="account_circle"></li>
+      <li id="my_ac_circle" class="account_circle"></li>
     </ul>
   </header>
 
@@ -31,15 +31,51 @@
   <section id="usersList">
     <p class="gray"><i class="loading">Loading...</i></p>
   </section>
+  
+  <section class="myProfile closeElemDown" id="my_profile">
+    <div class="profCard">
+      <nav>
+        <i class="fa-solid fa-up-right-from-square z180"></i>
+        <i class="fa-solid fa-close" id="closeProfle"></i>
+      </nav>
+      
+      <div class="center">
+    <span class="dp dp-big">
+      <img src="" alt="" id="my_dp">
+    </span>
+    
+    <div class="name_wrap">
+<input type="name" class="my_name" id="new_name_input">
+    <p class="small" id="my_career_p"></p>
+    </div>
+    
+    <textarea name="description" id="new_desc_input" placeholder="description" class="description" cols="30" rows="5" maxlength="100" ></textarea>
+    
+    <div class="w-100">
+      <span class="add">
+         <i class="fa-solid fa-add" hi></i>
+         Description
+      </span>
+      <div class="tag_inp_wrap">
+        <input placeholder="Tag" type="text" id="new_tag_input">
+      </div>
+      <p class="error_text" id="error_text"></p>
+      <button disabled id="updateBtn" class="update">Update</button>
+      
+    </div>
+  </div>
+
+    </div>
+  </section>
 </main>
 
 <main class="profile_page closeElem" id="profile_page">
   <nav class="bg-w pd-1">
     <a href="#">
-    <i class="fa-solid fa-arrow-left" onclick="hideElem(profile_page)"></i></a>
+    <i class="fa-solid fa-arrow-left" id="hide_profile"></i></a>
     <div>
       <h3 id="user_name">Loading...</h3>
-    <p class="gray small" id="user_career"></p>
+    <p class="gray small careerP" id="user_career"></p>
     </div>
     
   </nav>
@@ -52,7 +88,9 @@
       <img src="" alt="" id="user_dp">
     </span>
   </div>
-  <p class="description">Frondent at (some place) | Next.js react.js Expert | Nodejs | MERN | Full stack developer| Building SaaS Products</p>
+  <p class="description" id="desc_text_p">
+    
+  </p>
   
   <div class="btn_wrapper" id="button_wrap">
     <button class="message">
@@ -63,7 +101,9 @@
   
   <section class="about bg-w pd-1">
     <h4>About</h4>
-    <p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+    <p id="about_text_p">
+      
+    </p>
   </section>
 </main>
 

@@ -18,12 +18,26 @@ main{
   padding: 0 !important;
 }
 
-.card{
-  box-shadow: var(--shadow);
-  padding: 1rem;
+.profile_wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card button.chat{
+  margin: 0 0 0 0;
+  padding: .3rem .7rem;
+  font-weight: 500;
 }
 .card:active{
   background: var(--gray);
+}
+.card{
+  border: 1px solid var(--gray);
+  padding: 1rem;
+}
+p.user_desc{
+  margin-top: 1rem;
+  font-size: 16px;
 }
 
 .card .profile{
@@ -45,6 +59,8 @@ span.dp-big{
 
   p.small{
   font-size: 10px;
+}
+.careerP{
   margin-top: .3rem;
 }
 p.gray{
@@ -76,6 +92,22 @@ i.loading{
   transform: translateX(0);
 }
 
+.openElemUp{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow);
+}
+.closeElemDown{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  transform: translateY(100%);
+}
 
 .profile_page{
   padding: 1rem;
@@ -111,4 +143,93 @@ button.message{
 
 button.message:active{
   color: #fff;
+}
+
+section.myProfile{
+  margin: 0 0 0 0;
+}
+section#usersList{
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  
+}
+section.myProfile .profCard{
+  transition: all .4s ease-out;
+  overflow: hidden;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--bg);
+  width: 70%;
+  margin: auto;
+  margin-top: 3rem;
+  box-shadow: var(--shadow);
+  height: 0%;
+}
+section.myProfile.openElemUp .profCard{
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.24);
+  width: 90%;
+  height: 86%;
+}
+.profCard nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+i.z180{
+  transform: rotateY(180deg);
+}
+.profCard .center{
+  flex-direction: column;
+  gap: .7rem;
+}
+.profCard input.my_name{
+  border: none;
+  padding: none;
+  margin: 0 0 0 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+.profCard .name_wrap{
+  text-align: center;
+}
+.profCard p.small{
+  color: var(--gray);
+  margin-top: 0;
+}
+.profCard .description{
+  border: 1px solid var(--gray);
+  padding: 1rem;
+  border-radius: 10px;
+}
+.profCard span.add{
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 500px;
+  color: var(--accent);
+  display: block;
+  margin-top: 2rem;
+}
+
+.tag_inp_wrap *{
+  margin-top: 1rem;
+}
+/*flex start*/
+.w-100{
+  width: 100%;
+}
+button.update{
+  margin-right: 0;
+}
+
+button:disabled {
+  background: #FFB2B2;
+}
+
+.error_text{
+  margin-top: 2rem;
+  color: var(--accent);
+  font-size: 13px;
+  text-align: right;
 }
