@@ -29,7 +29,7 @@ window.addEventListener("load", function() {
 
         if (!partnerUid || !partnerName) {
           alert("No user selected for chat. Please go back to the user list.");
-          window.location.href = '../home.html';
+          window.location.href = '../home/';
         } else {
           user_name.textContent = partnerName;
 
