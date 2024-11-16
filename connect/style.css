@@ -70,6 +70,7 @@ header{
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  height: 70px;
 }
 header ul{
   display: flex;
@@ -135,8 +136,4 @@ span.dp{
   border-radius: 400px;
   background: var(--gray);
   overflow: hidden;
-}
-
-i, button{
-  cursor: pointer;
 }
