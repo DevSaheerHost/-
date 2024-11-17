@@ -54,6 +54,8 @@ const validateForm = (event) => {
           name: name,
           email: email,
           career: career,
+          description:'add a value',
+          tad: 'add a value'
         })
         .then(() => {
           // Store user data in localStorage for later use

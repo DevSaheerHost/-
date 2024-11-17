@@ -116,10 +116,10 @@ window.addEventListener("load", function () {
   )}" data-career="${user.career.replace(
     /^"+|"+$/g,
     ""
-  )}" data-desc="${user.description.replace(
+  )}" data-desc="${user.description?user.description.replace(
     /^"+|"+$/g,
     ""
-  )}" data-tag="${user.tag.replace(/^"+|"+$/g, "")}" data-dp=${
+  ):null}" data-tag="${user.tag?user.tag.replace(/^"+|"+$/g, ""):null}" data-dp=${
     user.dp
   } onclick="window.location.hash='profile'">
     <div class='profile_wrapper'>
