@@ -23,6 +23,8 @@ window.addEventListener("load", function () {
   const my_profile = document.querySelector("#my_profile");
   const updateBtn = document.querySelector("#updateBtn");
   const sign_out_btn = document.querySelector("#sign_out");
+  const no_dp =
+    "https://as2.ftcdn.net/v2/jpg/02/29/75/83/1000_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg";
   let firstName;
 
   // functions ___________
@@ -75,10 +77,11 @@ window.addEventListener("load", function () {
           new_desc_input.value = user.description;
           new_tag_input.value = user.tag;
           my_ac_circle.innerHTML = `<img src="${
-            user.dp
-              ? user.dp
-              : "https://as2.ftcdn.net/v2/jpg/02/29/75/83/1000_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
+            user.dp ? user.dp : no_dp
           }" alt="User Profile Picture">`;
+          user.dp
+            ? (my_dp_input.value = user.dp)
+            : (my_dp_input.value = no_dp);
         }
       });
     });
@@ -86,7 +89,7 @@ window.addEventListener("load", function () {
 
   // Start chat with selected user
   window.startChat = function (selectedUid, partnerName, dp) {
-    chaneHash('') // remove in furure/////////!!!!!!!!!----------
+    chaneHash(""); // remove in furure/////////!!!!!!!!!----------
     // Store partner UID and name in localStorage
     localStorage.setItem("partnerUid", selectedUid);
     localStorage.setItem("partnerName", partnerName);
@@ -275,7 +278,7 @@ window.addEventListener("load", function () {
       );
       hideElem(profile_page);
     } else if (hash == "#profile") {
-      user_name.innerText=='Loading...' ? chaneHash("") : null;
+      user_name.innerText == "Loading..." ? chaneHash("") : null;
       showElem(profile_page);
     } else {
       console.log("Other section loaded", hash);
