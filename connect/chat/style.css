@@ -15,7 +15,7 @@ nav{
   justify-content: space-between;
   flex-direction: column;
   height: 85vh;
-  height: calc(100vh - 150px);
+  height: calc(100dvh - 150px);
   background: var(--gray);
 }
 .input_wrap{
