@@ -70,6 +70,9 @@ input{
   margin-top: 2rem;
   max-width: 90%;
 }
+.message img{
+  border-radius: 10px;
+}
 .sent{
   border-radius: 20px 20px 20px 0;
   background: #fff;
