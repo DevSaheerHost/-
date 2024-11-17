@@ -94,7 +94,7 @@ window.addEventListener("load", function () {
   };
 
   const getUserCard = (user) => `
-    <div class="card" data-uid="${user.uid}" data-name="${user.name}" data-career="${user.career}" data-desc="${user.description}" data-tag="${user.tag}" onclick="window.location.hash='profile'">
+    <div class="card" data-uid="${user.uid}" data-name="${user.name.replace(/^"+|"+$/g, "")}" data-career="${user.career.replace(/^"+|"+$/g, "")}" data-desc="${user.description.replace(/^"+|"+$/g, "")}" data-tag="${user.tag.replace(/^"+|"+$/g, "")}" onclick="window.location.hash='profile'">
     <div class='profile_wrapper'>
       <div class="profile">
         <span class="dp">
