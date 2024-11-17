@@ -131,6 +131,14 @@ main button i {
 main button:active {
   background: #ff558d;
 }
+main button.start a{
+  color: var(--bg);
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 main button.start:hover i {
   margin-left: 10px;
