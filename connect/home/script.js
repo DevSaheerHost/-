@@ -94,7 +94,19 @@ window.addEventListener("load", function () {
   };
 
   const getUserCard = (user) => `
-    <div class="card" data-uid="${user.uid}" data-name="${user.name.replace(/^"+|"+$/g, "")}" data-career="${user.career.replace(/^"+|"+$/g, "")}" data-desc="${user.description.replace(/^"+|"+$/g, "")}" data-tag="${user.tag.replace(/^"+|"+$/g, "")}" onclick="window.location.hash='profile'">
+    <div class="card" data-uid="${user.uid}" data-name="${user.name.replace(
+    /^"+|"+$/g,
+    ""
+  )}" data-career="${user.career.replace(
+    /^"+|"+$/g,
+    ""
+  )}" data-desc="${user.description.replace(
+    /^"+|"+$/g,
+    ""
+  )}" data-tag="${user.tag.replace(
+    /^"+|"+$/g,
+    ""
+  )}" onclick="window.location.hash='profile'">
     <div class='profile_wrapper'>
       <div class="profile">
         <span class="dp">
@@ -233,14 +245,19 @@ window.addEventListener("load", function () {
     //const currentUrl = window.location.href;
     //if currentUrl.endsWith('') then
     const hash = window.location.hash;
+
     if (hash == "" || hash == "#") {
-      console.log("Home section loaded");
+      history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search
+      );
       hideElem(profile_page);
     } else if (hash == "#profile") {
       showElem(profile_page);
-      console.log("Profile section loaded");
     } else {
       console.log("Other section loaded", hash);
+      window.location.hash = "";
     }
   };
   const chaneHash = (hash) => {
