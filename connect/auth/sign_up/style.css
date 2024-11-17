@@ -1,5 +1,5 @@
-
-form, .already {
+form,
+.already {
   display: flex;
   flex-direction: column;
   max-width: 300px;
@@ -9,33 +9,32 @@ form, .already {
   color: var(--black);
   margin: auto;
 }
-form div{
-  
+form div {
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem
+  gap: 2rem;
 }
 
 label {
   margin: 10px 0 5px;
 }
 
-input , select{
-  background: #E7E7E7;
+input,
+select {
+  background: #e7e7e7;
   width: 100%;
   margin: auto;
-  padding: .6rem 1rem;
+  padding: 0.6rem 1rem;
   border: none;
-  border-bottom: 1px solid var(--gray) ;
+  border-bottom: 1px solid var(--gray);
   border-radius: 4px;
 }
 
-
 main form button {
   margin-top: 2rem;
-  padding: .6rem 2rem;
+  padding: 0.6rem 2rem;
   background-color: var(--accent);
   color: var(--bg);
   border: none;
@@ -54,7 +53,7 @@ button:hover {
   margin-top: 10px;
 }
 
-.already{
+.already {
   background: transparent;
   margin-top: 2px;
   display: flex;
@@ -66,6 +65,6 @@ button:hover {
   text-align: center;
   transform: translateY(2rem);
 }
-a{
+a {
   font-weight: 600;
 }

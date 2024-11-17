@@ -1,113 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CONNECT</title>
-  <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js" async></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js" async></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js" async></script>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CONNECT</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-</head>
-<body>
-  <header>
-    <img class="logo" src="https://cdn.dribbble.com/users/2515239/screenshots/8086733/connect_logo_4x.jpg" alt="Logo">
-    
-    <ul>
-      <li><input placeholder="Search by job" type="search"></li>
-      <li class="login btn" hidden >Login</li>
-      <li class="signup btn" hidden>Signup</li>
-      <li id="my_ac_circle" class="account_circle"></li>
-    </ul>
-  </header>
+    <script
+      src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"
+      async
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"
+      async
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"
+      async
+    ></script>
+  </head>
 
+  <body>
+    <header>
+      <img
+        class="logo"
+        src="https://cdn.dribbble.com/users/2515239/screenshots/8086733/connect_logo_4x.jpg"
+        alt="Logo"
+      />
 
-<main class="home_page" id="home_page">
-  <section id="usersList">
-    <p class="gray"><i class="loading">Loading...</i></p>
-  </section>
-  
-  <section class="myProfile closeElemDown" id="my_profile">
-    <div class="profCard">
-      <nav>
-        <i class="fa-solid fa-up-right-from-square z180"></i>
-        <i class="fa-solid fa-close" id="closeProfle"></i>
+      <ul>
+        <li><input placeholder="Search by job" type="search" /></li>
+        <li class="login btn" hidden>Login</li>
+        <li class="signup btn" hidden>Signup</li>
+        <li id="my_ac_circle" class="account_circle"></li>
+      </ul>
+    </header>
+
+    <main class="home_page" id="home_page">
+      <section id="usersList">
+        <p class="gray"><i class="loading">Loading...</i></p>
+      </section>
+
+      <section class="myProfile closeElemDown" id="my_profile">
+        <div class="profCard">
+          <nav>
+            <i class="fa-solid fa-up-right-from-square z180"></i>
+            <i class="fa-solid fa-close" id="closeProfle"></i>
+          </nav>
+
+          <div class="center">
+            <span class="dp dp-big">
+              <img src="" alt="" id="my_dp" />
+            </span>
+
+            <div class="name_wrap">
+              <input type="name" class="my_name" id="new_name_input" />
+              <p class="small" id="my_career_p"></p>
+            </div>
+
+            <textarea
+              name="description"
+              id="new_desc_input"
+              placeholder="description"
+              class="description"
+              cols="30"
+              rows="5"
+              maxlength="100"
+            ></textarea>
+
+            <div class="w-100">
+              <span class="add">
+                <i class="fa-solid fa-add" hi></i>
+                Description
+              </span>
+              <div class="tag_inp_wrap">
+                <input placeholder="Tag" type="text" id="new_tag_input" />
+              </div>
+              <p class="error_text" id="error_text"></p>
+              <div class="btn_wrap">
+                <button class="sign_out" id="sign_out">Sing out</button>
+                <button disabled id="updateBtn" class="update">Update</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main class="profile_page closeElem" id="profile_page">
+      <nav class="bg-w pd-1">
+        <i class="fa-solid fa-arrow-left" id="hide_profile"></i>
+        <div>
+          <h3 id="user_name">Loading...</h3>
+          <p class="gray small careerP" id="user_career"></p>
+        </div>
       </nav>
-      
-      <div class="center">
-    <span class="dp dp-big">
-      <img src="" alt="" id="my_dp">
-    </span>
-    
-    <div class="name_wrap">
-<input type="name" class="my_name" id="new_name_input">
-    <p class="small" id="my_career_p"></p>
-    </div>
-    
-    <textarea name="description" id="new_desc_input" placeholder="description" class="description" cols="30" rows="5" maxlength="100" ></textarea>
-    
-    <div class="w-100">
-      <span class="add">
-         <i class="fa-solid fa-add" hi></i>
-         Description
-      </span>
-      <div class="tag_inp_wrap">
-        <input placeholder="Tag" type="text" id="new_tag_input">
+
+      <div class="bg-w pd-1">
+        <div class="center">
+          <span class="dp dp-big">
+            <img src="" alt="" id="user_dp" />
+          </span>
+        </div>
+        <p class="description" id="desc_text_p"></p>
+
+        <div class="btn_wrapper" id="button_wrap">
+          <button class="message">Let's chat (auto update with script)</button>
+        </div>
       </div>
-      <p class="error_text" id="error_text"></p>
-      <button disabled id="updateBtn" class="update">Update</button>
-      
-    </div>
-  </div>
 
-    </div>
-  </section>
-</main>
+      <section class="about bg-w pd-1">
+        <h4>About</h4>
+        <p id="about_text_p"></p>
+      </section>
+    </main>
 
-<main class="profile_page closeElem" id="profile_page">
-  <nav class="bg-w pd-1">
-    <a href="#">
-    <i class="fa-solid fa-arrow-left" id="hide_profile"></i></a>
-    <div>
-      <h3 id="user_name">Loading...</h3>
-    <p class="gray small careerP" id="user_career"></p>
-    </div>
-    
-  </nav>
-  
-  <div class="bg-w pd-1">
-    
-  
-  <div class="center">
-    <span class="dp dp-big">
-      <img src="" alt="" id="user_dp">
-    </span>
-  </div>
-  <p class="description" id="desc_text_p">
-    
-  </p>
-  
-  <div class="btn_wrapper" id="button_wrap">
-    <button class="message">
-      Lets chat
-       <i class="fa-solid fa-arrow-right"></i> </button>
-  </div>
-  </div>
-  
-  <section class="about bg-w pd-1">
-    <h4>About</h4>
-    <p id="about_text_p">
-      
-    </p>
-  </section>
-</main>
-
-<script src="./script.js"></script>
-
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>

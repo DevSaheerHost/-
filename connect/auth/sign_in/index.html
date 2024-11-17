@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../sign_up/style.css" />
+    <title>SIGN-IN</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../../style.css">
-  <link rel="stylesheet" href="../sign_up/style.css">
-  <title>SIGN-IN</title>
-</head>
+  <body>
+    <header>
+      <img
+        class="logo"
+        src="https://cdn.dribbble.com/users/2515239/screenshots/8086733/connect_logo_4x.jpg"
+        onclick="window.location='../../home'"
+        alt="icon"
+      />
+    </header>
 
-<body>
-  <header>
-    <img class="logo" src="https://cdn.dribbble.com/users/2515239/screenshots/8086733/connect_logo_4x.jpg" alt="">
-  </header>
+    <main>
+      <form id="myForm" onsubmit="return validateForm(event)">
+        <h1>Sign In</h1>
+        <div>
+          <input
+            type="email"
+            placeholder="Email"
+            id="email"
+            name="email"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
 
-  <main>
-    <form id="myForm" onsubmit="return validateForm(event)">
-      <h1>Sign In</h1>
-      <div>
-        <input type="email" placeholder="Email" id="email" name="email" required>
-        <input type="password" placeholder="Password" id="password" name="password" required>
+        <button type="submit">Submit</button>
+        <p id="error-message"></p>
+      </form>
+
+      <div class="already">
+        <p>Don't have an account? <a href="../sign_up">Sign Up</a></p>
       </div>
+    </main>
 
-      <button type="submit">Submit</button>
-      <p id="error-message"></p>
-    </form>
-
-    <div class="already">
-      <p>Don't have an account? <a href="../sign_up">Sign Up</a></p>
-    </div>
-  </main>
-
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="./script.js"></script>
-</body>
-
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="./script.js"></script>
+  </body>
 </html>

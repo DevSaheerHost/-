@@ -1,40 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-:root{
-  --black:#161e35;
-  --accent:#ff1663;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --black: #161e35;
+  --accent: #ff1663;
   --bg: #fff;
-  --shadow: 0 0 5px rgba(0, 0, 0, .23);
-  --gray:#D0D0D0;
-  --gray-dark: #8B8B8B;
+  --shadow: 0 0 5px rgba(0, 0, 0, 0.23);
+  --gray: #d0d0d0;
+  --gray-dark: #8b8b8b;
 }
-*{
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   border: none;
   font-family: "Open Sans", sans-serif;
 }
-.center{
+
+.center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.pd-1{
+
+.pd-1 {
   padding: 1rem;
 }
-.pd-2{
+
+.pd-2 {
   padding: 2rem;
 }
-img{
+
+img {
   max-width: 100%;
 }
-body{
+
+body {
   background: var(--bg);
   color: var(--black);
   max-width: 600px;
   margin: auto;
 }
-body:after{
+
+body:after {
   content: "Beta";
   position: fixed;
   top: 0;
@@ -42,94 +50,107 @@ body:after{
   background: red;
   color: #fff;
   font-weight: 500;
-  padding: .2rem 2rem;
+  padding: 0.2rem 2rem;
   transform: rotate(45deg);
   font-size: 10px;
 }
-button, .btn{
-  padding: .3rem 1rem;
+
+button,
+.btn {
+  padding: 0.3rem 1rem;
   border-radius: 6px;
   font-weight: 500;
   box-shadow: var(--shadow);
   width: fit-content;
 }
-input, select{
-  border: 1px solid #CACACA;
+
+input,
+select {
+  border: 1px solid #cacaca;
   border-radius: 6px;
-  padding: .35rem;
+  padding: 0.35rem;
   margin-right: 1rem;
 }
-.logo{
+
+.logo {
   width: 100px;
   margin-left: -15px;
 }
 
-
-header{
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
   height: 70px;
 }
-header ul{
+
+header ul {
   display: flex;
   align-items: center;
   justify-content: center;
   list-style: none;
 }
-header .btn{
+
+header .btn {
   color: var(--accent);
-  border:1px solid var(--accent);
+  border: 1px solid var(--accent);
   box-shadow: none;
 }
 
-h1{
+h1 {
   padding: 2rem;
   text-align: center;
 }
-h1 span{
+
+h1 span {
   color: var(--accent);
 }
-p.pera{
+
+p.pera {
   padding: 2rem;
 }
-main button{
+
+main button {
   background: var(--accent);
   color: #fff;
-  padding: .7rem 2rem;
+  padding: 0.7rem 2rem;
   margin: auto;
   display: block;
   font-size: 15px;
 }
-main button i{
-  transition: .2s;
+
+main button i {
+  transition: 0.2s;
   width: 0;
   overflow: hidden;
   margin-left: 0px;
-  scale: 0
+  scale: 0;
 }
-main button:active{
-  background: #FF558D;
+
+main button:active {
+  background: #ff558d;
 }
-main button.start:hover i{
+
+main button.start:hover i {
   margin-left: 10px;
   width: 17px;
   scale: 1;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
-.bg-w{
+.bg-w {
   background: #fff;
 }
 
-section{
+section {
   margin-top: 2rem;
 }
-span.dp{
+
+span.dp {
   display: block;
   height: 40px;
   width: 40px;
