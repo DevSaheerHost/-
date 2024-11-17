@@ -266,9 +266,4 @@ window.addEventListener("load", function () {
   handleUrlChange();
   window.addEventListener("hashchange", handleUrlChange);
 
-  try {
-    const action = someObject.action; // Example
-  } catch (error) {
-    console.error("Error accessing property:", error);
-  }
 });
