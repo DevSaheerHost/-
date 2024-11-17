@@ -86,6 +86,7 @@ window.addEventListener("load", function () {
 
   // Start chat with selected user
   window.startChat = function (selectedUid, partnerName, dp) {
+    chaneHash('') // remove in furure/////////!!!!!!!!!----------
     // Store partner UID and name in localStorage
     localStorage.setItem("partnerUid", selectedUid);
     localStorage.setItem("partnerName", partnerName);
