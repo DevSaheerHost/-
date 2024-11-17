@@ -1,6 +1,6 @@
 window.addEventListener("load", function () {
   const user_name = document.querySelector("#user_name");
-
+const user_dp = this.document.querySelector("#user_dp")
   const firebaseConfig = {
     apiKey: "AIzaSyDiXOyYgEwZKb0nLgVyDgi_zMlScS8pknY",
     authDomain: "abcd-23e67.firebaseapp.com",
@@ -23,13 +23,15 @@ window.addEventListener("load", function () {
     } else {
       const partnerUid = localStorage.getItem("partnerUid");
       const partnerName = localStorage.getItem("partnerName");
-
+      const partnerDp = this.localStorage.getItem("partnerDp")
       if (!partnerUid || !partnerName) {
         alert("No user selected for chat. Please go back to the user list.");
         window.location.href = "../home/";
       } else {
+        console.log(partnerDp);
+        
         user_name.textContent = partnerName;
-
+        user_dp.src =partnerDp;
         // Real-time chat listener
         db.collection("chats")
           .where("participants", "array-contains", user.uid)

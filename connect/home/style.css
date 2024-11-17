@@ -2,7 +2,7 @@
   transition: 0.4s;
 }
 
-header li.account_circle {
+header li#my_ac_circle {
   height: 30px;
   width: 30px;
   background: var(--gray);
@@ -11,6 +11,13 @@ header li.account_circle {
   align-items: center;
   justify-content: center;
   font-weight: 600;
+  overflow: hidden;
+}
+#my_ac_circle img{
+  height: 100%;
+  width: 100%;
+  border-radius: 400px;
+  object-fit: cover;
 }
 
 a {

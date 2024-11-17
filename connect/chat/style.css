@@ -107,3 +107,10 @@ a {
 .message.sent .message_time{
   text-align: left;
 }
+
+.dp img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
