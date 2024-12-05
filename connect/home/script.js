@@ -169,6 +169,7 @@ window.addEventListener("load", function () {
   const hideElemDown = (elem) => {
     elem.classList.add("closeElemDown");
     elem.classList.remove("openElemUp");
+    my_profile.querySelector('.profCard').classList.remove('fullScreen')
   };
 
   const showElemUp = (elem) => {
@@ -320,3 +321,6 @@ const validateImageURL = (url) => {
     return false;
   }
 };
+const fullScreenMyProfile = () => {
+  my_profile.querySelector('.profCard').classList.toggle('fullScreen')
+}

@@ -172,14 +172,21 @@ section.myProfile {
 section#usersList {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 0rem;
   overflow-y: auto;
   height: calc(100vh - 100px);
+  cursor: pointer;
+  max-width: 700px;
+  margin: auto;
+}
+#usersList .card:hover{
+  background-color: #f3f3f3;
+  
 }
 
 section.myProfile .profCard {
   transition: all 0.4s ease-out;
-  overflow: hidden;
+  overflow: auto;
   padding: 1rem;
   border-radius: 10px;
   background: var(--bg);
@@ -189,7 +196,14 @@ section.myProfile .profCard {
   box-shadow: var(--shadow);
   height: 0%;
 }
-
+#my_profile .fullScreen{
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+.fullScreen .fuToggler{
+  display: none;
+}
 section.myProfile.openElemUp .profCard {
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.24);
   width: 90%;

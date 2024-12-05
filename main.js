@@ -43,22 +43,24 @@ var darckIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
 const loader2 = document.querySelector("loader2");
 const themeBtn = document.querySelector("#themeBtn");
 let name = localStorage.getItem("name")
-    ? localStorage.getItem("name")
-    : "non Auther";
+  ? localStorage.getItem("name")
+  : "non Auther";
 const messageDiv = document.querySelector("message-div");
 var TotalData = 0;
 
 if (localStorage.getItem("name") !== null) {
   document.title = localStorage.getItem("name");
 }
-let dataStore=[]
-database.ref('web/data/').on('child_added', (snapshot)=>
-    dataStore.push({...snapshot.val(), key: snapshot.key}))
-setTimeout(()=>{
-  dataStore.reverse()
-  console.log(dataStore)
-
-}, 5000)
+let dataStore = [];
+database
+  .ref("web/data/")
+  .on("child_added", (snapshot) =>
+    dataStore.push({ ...snapshot.val(), key: snapshot.key })
+  );
+setTimeout(() => {
+  dataStore.reverse();
+  console.log(dataStore);
+}, 5000);
 
 const FetchAndCreateCard = (cardSection) => {
   const dataArr = [];
@@ -86,8 +88,8 @@ togleMenu = () => {
   nav.classList.toggle("openMenu");
 };
 
-document.querySelector("main").onclick = () =>nav.classList.remove("openMenu");
-document.querySelector(".menuList").onclick = () =>togleMenu();
+document.querySelector("main").onclick = () => nav.classList.remove("openMenu");
+document.querySelector(".menuList").onclick = () => togleMenu();
 
 // -------------command input function------//
 
@@ -143,29 +145,28 @@ const addNewReactionToDataCard = (data, snapshotKey, newCard) => {
 };
 const getCardLayout = (data) => {
   return (
-      `
+    `
           <a href="` +
-      data.pageurl +
-      `" target="_blank"><img src="` +
-      data.image +
-      `" alt="">
-                        <text-area>
-                        
-                          <h5 class='m-1-0'>` +
-      data.title +
-      `</h5>
-                          <label for=""> ` +
-      data.subtitle +
-      `</label>
-                          <label class="type m-1-0"> ` +
-      data.type +
-      `</label>
-                        </text-area>
-                        <label class="timeLbl">` +
-      data.time +
-      `</label>
-                        </a>
-                        <span class="addReaction">🫥</span> <span class="reactions hidden">👍🏼 ♥️ 😁 👎🏼 </span>
+    data.pageurl +
+    `" target="_blank"><img src="` +
+    data.image +
+    `" alt="">
+ <text-area>
+<h5 class='m-1-0'>` +
+    data.title +
+    `</h5>
+ <label for=""> ` +
+    data.subtitle +
+    `</label>
+ <label class="type m-1-0"> ` +
+    data.type +
+    `</label>
+  </text-area>
+  <label class="timeLbl">` +
+    data.time +
+    `</label>
+ </a>
+  <span class="addReaction">🫥</span> <span class="reactions hidden">👍🏼 ♥️ 😁 👎🏼 </span>
           `
   );
 };
@@ -183,22 +184,24 @@ const signup = () => {
   if (usernameInput.value.length !== 0 && emailInput.value.length !== 0) {
     cancel();
 
-    database.ref("web/users/").push({
-      name: usernameInput.value,
-      email: emailInput.value,
-      userAgent: userAgent,
-      userDp: UserIcon,
-      // timestamp: firebase.database.ServerValue.TIMESTAMP
-    })
-        .then(() => {
-          showLog("Login Success")
-          // Reload the page once data is successfully saved
-          location.reload();
-        })
-        .catch((error) => {
-          console.error("Error adding user:", error);
-          showLog("Error adding user:", error)
-        });
+    database
+      .ref("web/users/")
+      .push({
+        name: usernameInput.value,
+        email: emailInput.value,
+        userAgent: userAgent,
+        userDp: UserIcon,
+        // timestamp: firebase.database.ServerValue.TIMESTAMP
+      })
+      .then(() => {
+        showLog("Login Success");
+        // Reload the page once data is successfully saved
+        location.reload();
+      })
+      .catch((error) => {
+        console.error("Error adding user:", error);
+        showLog("Error adding user:", error);
+      });
 
     if (commandInput.value.length !== 0) {
       commandBtn.onclick();
@@ -281,53 +284,56 @@ const loadCmd = () => {
 
   const messageByDeveloper = (msg, time, uname, adminDP) => {
     messageDiv.innerHTML +=
-        `
-            <card class="msgdiv" id="myid message-card">
-                    <container>
-                      <div class="user-name-box>
-                      <span class="dp">
-                      ${adminDP}
-                      </span>
-                        <h3>` +
-        uname +
-        `</h3>
-                      </div>
-                      <texts>
-                      <p>` +
-        msg +
-        `</p>
-                      </texts>
-                    </container>
-                    <label class="timelabel">` +
-        time +
-        `</label>
-                  </card>
-                  `;
+      `
+ <card class="msgdiv" id="myid message-card">
+ <container>
+ <div class="user-name-box>
+ <span class="dp">
+ ${adminDP}
+ </span>
+  <h3>` +
+      uname +
+      `</h3>
+ </div>
+   <texts>
+ <p>` +
+      msg +
+      `</p>
+</texts>
+ </container>
+<label class="timelabel">` +
+      time +
+      `</label>
+</card>
+ `;
   };
+  
   const messageByUser = (msg, time, uname, Udp) => {
+
     messageDiv.innerHTML +=
-        `
+      `
       <card class="msgdiv" id="myid message-card">
-              <container>
-                <div class="user-name-box>
-                <span class="dp">
-                ${Udp}
-                </span>
-                  <h3>` +
-        uname +
-        `</h3>
+ <container>
+ <div class="user-name-box>
+ <span class="dp">
+ ${Udp}
+</span>
+<h3>` +
+      uname +
+      `</h3>
                 </div>
                 <texts>
                 <p>` +
-        msg +
-        `</p>
+      msg +
+      `</p>
                 </texts>
               </container>
               <label class="timelabel">` +
-        time +
-        `</label>
+      time +
+      `</label>
             </card>
             `;
+          
   };
 
   loader2.style.display = "none";
@@ -350,7 +356,7 @@ const logout = () => {
     var logTxt = "Logout success";
     showLog(logTxt);
     document.title = "CODER";
-    document.location='/'
+    document.location = "/";
   } else {
     var logTxt = "Login Info not Exists";
     showLog(logTxt);
@@ -386,8 +392,6 @@ togleTheme = () => {
   }
 };
 
-
-
 const slidImages = [
   "./banner_images/banner_1.png",
   "./banner_images/banner-2.png",
@@ -405,8 +409,8 @@ changeImage();
 document.querySelectorAll("#sectionSwitcher li").forEach((li) => {
   li.onclick = () => {
     document
-        .querySelectorAll("#sectionSwitcher li")
-        .forEach((li) => li.classList.remove("active"));
+      .querySelectorAll("#sectionSwitcher li")
+      .forEach((li) => li.classList.remove("active"));
     li.classList.add("active");
     switchTHeSection(li);
   };
@@ -440,10 +444,10 @@ const switchTHeSection = (li) => {
 };
 
 const hideAllSections = (
-    viewAllSec,
-    designSection,
-    postSection,
-    projectSection
+  viewAllSec,
+  designSection,
+  postSection,
+  projectSection
 ) => {
   viewAllSec.classList.add("hidden");
   designSection.classList.add("hidden");
@@ -463,11 +467,9 @@ const addDataToTheSection = (projectSection) => {
   projectSection.appendChild(proSec);
 };
 
-
-if(localStorage.getItem("login")){
-  document.querySelector(".authIn").classList.add("hidden")
-  document.querySelector(".authIn2").classList.add("hidden")
-}else{
-  document.querySelector(".authOut").classList.add("hidden")
-
+if (localStorage.getItem("login")) {
+  document.querySelector(".authIn").classList.add("hidden");
+  document.querySelector(".authIn2").classList.add("hidden");
+} else {
+  document.querySelector(".authOut").classList.add("hidden");
 }
