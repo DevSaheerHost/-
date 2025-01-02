@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Service Status</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="header_wrapper">
+  <header>
+    <h3>Service Status</h3>
+  </header>
+  <div class="sub-header">
+    <span class="active">All</span>
+    <span>
+      Pending
+    </span> 
+    <span>
+      Failed
+    </span>
+    <span>
+      Finished
+    </span>
+  </div>
+  <div class="filter">
+    <p>Filter by date</p>
+    <input type="date" name="" id="filterDate">
+    <span>Clear</span>
+  </div>
+  </div>
+  <main>
+   <div class="list_view">
+     <div class="list" hidden>
+       <div class="nav">
+         <h4>Not charging</h4>
+         <h4 class="status">• Pending</h4>
+       </div>
+       <p>Realme | C3 | TT | 250</p>
+       <p>Name: Anil</p>
+       <p>Number: 91 0123 456 789</p>
+       
+       <div class="button_wrapper">
+         <button class="pending status_btn">Pending</button>
+         <button class="failed status_btn">Failed</button>
+         <button class="finishid status_btn">Finished</button>
+       </div>
+       <div>
+         <p class="date">31/12/2024</p>
+         <button class="call">Call</button>
+       </div>
+       
+     </div>
+      <div class="list" hidden>
+       <div class="nav">
+         <h4>Auto Restart</h4>
+         <h4 class="status success">• Success</h4>
+       </div>
+       <p>Redmi 9A | CL | 300</p>
+       <p>Name: Varun</p>
+       <p>Number: 91 9539 684 24</p>
+       
+       <div class="button_wrapper">
+         <button class="call">Call</button>
+         <button class="pending status_btn">Pending</button>
+         <button class="failed status_btn">Failed</button>
+         <button class="finishid status_btn">Finished</button>
+       </div>
+     </div>
+     <div class="list" hidden>
+       <div class="nav">
+         <h4>Dead</h4>
+         <h4 class="status failed">• Failed</h4>
+       </div>
+       <p>Samsung S23 | BCT | 1300</p>
+       <p>Name: Alif</p>
+       <p>Number: 91 7510 653 64</p>
+       
+       <div class="button_wrapper">
+         <button class="call">Call</button>
+         <button class="pending status_btn">Pending</button>
+         <button class="failed status_btn">Failed</button>
+         <button class="finishid status_btn">Finished</button>
+       </div>
+     </div>
+   </div>
+  </main>
+  
+  <div class="floating_btn">
+    +
+  </div>
+  
+  <div class="creation_page hidden">
+    <h3 class="head_text">Add Service</h3>
+    <div class="card">
+      <input type="text" placeholder="Customer name" required id="name">
+      <input type="number" required name="" id="number" placeholder="Customer number">
+      <input type="text" required name="" id="complaint" placeholder="Customer complaint">
+      <input type="number" required name="" id="amount" placeholder="Ammount">
+      <input type="text" required name="" id="code" placeholder="CODE">
+      <input type="date" required name="" id="dateInput">
+      <select name="" id="status">
+        <option value="New">NEW</option>
+        <option value="Pending">PENDING</option>
+        <option value="Finished">FINISHED</option>
+      </select>
+      <button class="create" id="create">Add Service</button>
+      <button class="close">Close</button>
+    </div>
+  </div>
+  
+  <div class="loginpage">
+    
+  </div>
+  <!-- Project -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
