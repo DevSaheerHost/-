@@ -188,7 +188,7 @@ const listLayout=(data, key)=>`
        </div>
        <div>
          <p class="date">${data.date}</p>
-         <button class="call"><a href='tel:7592949476'>Call</a></button>
+         <button class="call"><a href='tel:${data.number}'>Call</a></button>
          <button class="delete_btn">Delete</button>
 
        </div>
