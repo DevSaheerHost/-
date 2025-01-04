@@ -5,6 +5,7 @@
   box-sizing: border-box;
   border: none;
   transition: .2s;
+  font-family: "sans-serif"
 }
 :root{
   --accent:#FFAA1D;
