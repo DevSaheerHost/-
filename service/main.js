@@ -1,7 +1,16 @@
-const username = localStorage.getItem('name')
-console.log(username)
-username=='null'?$('.loginpage').classList.remove('hidden'):''
 const $=selector=>document.querySelector(selector)
+// Keep it up/Top
+
+const username = localStorage.getItem('name')?
+localStorage.getItem('name'):
+'';
+console.log(username)
+!username?
+$('.loginpage').classList.remove('hidden'):
+$('.loginpage').classList.add('hidden');
+
+
+
 // Date
   const today = new Date().toISOString().split('T')[0];
   document.getElementById('dateInput').value = today;
@@ -26,7 +35,7 @@ const calculateData=()=>{
   newData.status = $('#status').value
   
 ref.push(newData);
-
+$('.creation_page').classList.add('hidden')
 }
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -44,23 +53,26 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
-var ref = firebase.database().ref('metro');
+var ref = firebase.database().ref(username);
 
 
 // Assuming you want to access an item with the key 'itemId'
-ref.child('metro').once('value', (snapshot) => {
+ref.child(username).once('value', (snapshot) => {
   const item = snapshot.val();
   console.log(item);
 });
 
 //const serviceRef = database.ref(); // Root reference
 
-database.ref("metro").on("child_added", (snapshot) => {
+database.ref(username).on("child_added", (snapshot) => {
 
   const data = snapshot.val();
   console.log('added')
   showAllData(data)
-  $('#filterDate').onchange=()=>filterByDate(data, $('#filterDate').value)
+  $('#filterDate').onchange=()=>{
+    $('.list_view').innerHTML=''
+    filterByDate(data, $('#filterDate').value)
+  }
 })
 
 const filterByDate=(data, Customdate)=>
@@ -73,9 +85,10 @@ const [year, month, day]=data.date.split('-')
   console.log('cust date ',Customdate)
   console.log('formtedDate',formatedDate)
   console.log(month)
+  console.log(data)
   if (dat==month) {
     $('.list_view').innerHTML+=listLayout(data)
-    alert('helo')
+    console.log(data)
   }
   
 }
@@ -115,3 +128,27 @@ const listLayout=data=>`
     ref.child(dataKey).update({ status: newStatus });
   };
 });
+
+let dataArr
+database.ref(username+"/").once("value", (snapshot) => {
+    snapshot.forEach((childSnapshot) => {
+      const snapshotKey = childSnapshot.key;
+      const datas = childSnapshot.val();
+     // dataArr.push({ data, snapshotKey });
+     console.log(datas)
+    });
+    
+    })
+    
+    
+   function login() {
+     const admin_name = $('#admin_name').value
+if (admin_name.length > 3) {
+  console.log(admin_name)
+  localStorage.setItem('name', admin_name)
+
+  location.reload()
+} else {
+  console.log('Minimum 3 length')
+}
+   }
