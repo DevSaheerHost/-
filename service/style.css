@@ -5,7 +5,10 @@
   box-sizing: border-box;
   border: none;
   transition: .2s;
-  font-family: sans-serif
+  font-family: sans-serif;
+}
+a{
+  text-decoration: none;
 }
 :root{
   --accent:#FFAA1D;
@@ -28,6 +31,9 @@ button{
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.10);
   border-radius: 200px;
+}
+button a{
+  color: #fff;
 }
 input:focus{
   border: 1px solid black;
@@ -104,8 +110,9 @@ header{
 }
 .list h4.status{
   color: #FFAA1D;
+  text-transform: capitalize;
 }
-.list h4.status.success{
+.list h4.status.finished{
   color: var(--success);
 }
 .list h4.status.failed{
@@ -125,6 +132,10 @@ header{
   margin-top: .5rem;
   margin-right: .5rem;
 }
+.list .delete_btn{
+  background: var(--error);
+  color: #fff;
+}
 .list button.call{
   background: #18AE5C;
   font-weight: 600;
@@ -135,6 +146,10 @@ header{
   border: 1px solid rgba(0, 0, 0, 0.10);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0);
   font-weight: 600;
+}
+.list button.status_btn:active{
+  background: black;
+  color: #fff;
 }
 .list .date{
   margin-top: 1rem;
