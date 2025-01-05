@@ -30,9 +30,10 @@ const calculateData=()=>{
   newData.number = $('#number').value
   newData.complaint = $('#complaint').value
   newData.amount = $('#amount').value
-  newData.code = $('#code').value
+  newData.code = $('#code').value.toUpperCase()
   newData.date = $('#dateInput').value
   newData.status = $('#status').value
+  newData.model = $('#model').value
   
   
   if (!newData.name || !newData.number || !newData.amount) {
@@ -177,7 +178,7 @@ const listLayout=(data, key)=>`
          <h4>${data.complaint}</h4>
          <h4 class="status ${data.status}">• ${data.status}</h4>
        </div>
-       <p>Realme | ${data.code} | ${data.amount}</p>
+       <p>${data.model?data.model:''} | ${data.code} | ${data.amount}</p>
        <p>Name: ${data.name}</p>
        <p>Number: ${data.number}</p>
        

@@ -111,6 +111,7 @@ header{
 .list h4.status{
   color: #FFAA1D;
   text-transform: capitalize;
+  text-wrap: nowrap;
 }
 .list h4.status.finished{
   color: var(--success);

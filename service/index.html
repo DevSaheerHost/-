@@ -104,13 +104,16 @@
       <input type="text" placeholder="Customer name" required id="name">
       <input type="number" required name="" id="number" placeholder="Customer number">
       <input type="text" required name="" id="complaint" placeholder="Customer complaint">
+      <input required type="text" name="" id="model" placeholder="Model">
       <input type="number" required name="" id="amount" placeholder="Ammount">
       <input type="text" required name="" id="code" placeholder="CODE">
       <input type="date" required name="" id="dateInput">
       <select name="" id="status">
-        <option value="New">NEW</option>
-        <option value="Pending">PENDING</option>
-        <option value="Finished">FINISHED</option>
+        <option value="New">New</option>
+        <option value="Pending">Pending</option>
+        <option value="Finished">Finished</option>
+        <option value="Failed">Failed</option>
+        <option disabled value="Other">Other</option>
       </select>
       <button class="create" id="create">Add Service</button>
       <button class="close">Close</button>
