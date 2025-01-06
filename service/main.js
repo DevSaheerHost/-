@@ -1,4 +1,6 @@
 const $=selector=>document.querySelector(selector)
+let DeleteThis = null
+let Confirm =false
 // Keep it up/Top
 
 const username = localStorage.getItem('name')?
@@ -26,18 +28,19 @@ $('#create').onclick=()=>calculateData()
 
 const calculateData=()=>{
   let newData={}
-  newData.name = $('#name').value
-  newData.number = $('#number').value
+  newData.name = $('#name').value || 'N/A'
+  newData.number = $('#number').value || 'N/A'
   newData.complaint = $('#complaint').value
-  newData.amount = $('#amount').value
-  newData.code = $('#code').value.toUpperCase()
+  newData.amount = $('#amount').value || 'N/A'
+  newData.code = $('#code').value.toUpperCase() || 'N/A'
   newData.date = $('#dateInput').value
   newData.status = $('#status').value
-  newData.model = $('#model').value
+  newData.model = $('#model').value || 'N/A'
   
   
   if (!newData.name || !newData.number || !newData.amount) {
-  alert("All fields must be filled out");
+  openWarningPage()
+  $('.warning_page').classList.removehidden()
   return;
 }
 
@@ -70,10 +73,10 @@ var ref = firebase.database().ref(username);
 
 
 // Assuming you want to access an item with the key 'itemId'
-ref.child(username).once('value', (snapshot) => {
-  const item = snapshot.val();
-  console.warn(item);
-});
+// ref.child(username).once('value', (snapshot) => {
+//   const item = snapshot.val();
+//   console.warn(item);
+// });
 
 //const serviceRef = database.ref(); // Root reference
 
@@ -128,6 +131,7 @@ const [year, month, day]=data.date.split('-')
   }
   
 }
+let deleteKey =null
 const showAllData=(data, key)=>{
   $('.list_view').innerHTML+=listLayout(data, key);
   
@@ -136,28 +140,24 @@ $('.list_view').addEventListener('click', (event) => {
   const dataKey = listElement?.dataset.key;
 
   if (event.target.classList.contains('delete_btn')) {
-    
-    //
-//     if (confirm("Are you sure you want to delete this record?")) {
-//   ref.child(dataKey).remove()
-//     .then(() => {
-//       console.log('Data deleted successfully');
-//       listElement.remove();
-//     })
-//     .catch((error) => {
-//       console.error('Error deleting data:', error);
-//     });
-// }
+    DeleteThis = dataKey;
+    console.log(dataKey)
+    openWarningPage()
+//this way to delete
 
-    //
-    ref.child(dataKey).remove()
-      .then(() => {
-        console.log('Data deleted successfully');
-        listElement.remove(); // Remove from DOM
-      })
-      .catch((error) => {
-        console.error('Error deleting data:', error);
-      });
+    
+    //openWarningPage()
+    //DeleteThis=dataKey;
+    // old delete quick 
+    
+  //   ref.child(dataKey).remove()
+  // .then(() => {
+  //   console.log('Data deleted successfully');
+  //   listElement.remove(); // Remove from DOM
+  // })
+  // .catch((error) => {
+  //   console.error('Error deleting data:', error);
+  // });
   }
 
   if (event.target.classList.contains('status_btn')) {
@@ -207,7 +207,7 @@ database.ref(username+"/").once("value", (snapshot) => {
     })
     
     
-   function login() {
+   const login=()=> {
      const admin_name = $('#admin_name').value
 if (admin_name.length > 3) {
   console.log(admin_name)
@@ -216,6 +216,43 @@ if (admin_name.length > 3) {
 } else {
   alert('Name must be at least 3 characters long.')
 }
+   }
+   
+   const toggleMenu=()=>{
+     console.log('comming soon')
+   }
+   
+   const closeWarningPage=()=>{
+       $('.warning_page').classList.add('hidden')
+       DeleteThis=null
+   }
+   
+  
+   deleteData=()=>{
+     if (DeleteThis) {
+  ref.child(DeleteThis).remove()
+    .then(() => {
+      console.log('Data deleted successfully');
+      const listElement = document.querySelector(`.list[data-key="${DeleteThis}"]`);
+        if (listElement) listElement.remove();
+      DeleteThis=null
+      closeWarningPage()
+    })
+    .catch((error) => {
+      console.error('Error deleting data:', error);
+      alert('Error deleting data : ', error)
+    });
+
+}
+   }
+   
+   const openWarningPage=()=>{
+    if (DeleteThis) {
+      $('.warning_page').classList.remove('hidden')
+     $('.warning_page').querySelector('h5').innerHTML=`Are you sure to delete? ${DeleteThis}`
+    } else {
+      return
+    }
    }
    
    database.ref(username).on("child_changed", (snapshot) => {
@@ -269,8 +306,8 @@ database.ref(username).on("child_added", (snapshot) => {
   const key = snapshot.key;
 
   // Initially display all items
-  if ($("#filter-all").classList.contains("active")) {
-    $(".list_view").innerHTML += listLayout(data, key);
+  if ($("#filter_all").classList.contains("active")) {
+    //$(".list_view").innerHTML += listLayout(data, key);
   }
 });
 

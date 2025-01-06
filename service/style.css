@@ -59,6 +59,12 @@ body{
 header{
   padding: 1rem 1.5rem;
   border-bottom: 1px solid #C8C8C8;
+  display: flex;
+  align-content: center;
+  gap: 2rem;
+}
+header i{
+  font-size: 20px;
 }
 .sub-header{
   text-align: center;
@@ -174,7 +180,7 @@ header{
 .floating_btn:active{
   background: rgba(216, 171, 29, 1);
 }
-.creation_page, .loginpage{
+.creation_page, .loginpage, .warning_page{
   position: fixed;
   top: 0;
   bottom: 0;
@@ -229,13 +235,13 @@ header{
   margin: 0 5px;
 }
 
-.loginpage{
+.loginpage, .warning_page{
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.loginpage .card{
+.loginpage .card, .warning_page .card{
   background: white;
   padding: 2rem;
   border-radius: 7px;
@@ -262,4 +268,18 @@ header{
 
 .hidden{
   display: none;
+}
+.warning_page h5{
+  text-align: center;
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.warning_page .btn_wrapper{
+  margin-top: 2.1rem;
+}
+.warning_page .btn_wrapper button.delete{
+  color: #fff;
+  background: var(--error);
+  margin-left: 2rem;
 }

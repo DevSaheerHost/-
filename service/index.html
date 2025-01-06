@@ -9,14 +9,14 @@
   
   <!-- HTML -->
   
-
-  <!-- Custom Styles -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
   <div class="header_wrapper">
   <header>
+   <i class="fa-solid fa-bars" onclick="toggleMenu()"></i> 
     <h3>Service Status</h3>
   </header>
   <div class="sub-header filters">
@@ -109,11 +109,11 @@
       <input type="text" required name="" id="code" placeholder="CODE">
       <input type="date" required name="" id="dateInput">
       <select name="" id="status">
-        <option value="New">New</option>
-        <option value="Pending">Pending</option>
-        <option value="Finished">Finished</option>
-        <option value="Failed">Failed</option>
-        <option disabled value="Other">Other</option>
+        <option value="new">New</option>
+        <option value="pending">Pending</option>
+        <option value="finished">Finished</option>
+        <option value="failed">Failed</option>
+        <option disabled value="other">Other</option>
       </select>
       <button class="create" id="create">Add Service</button>
       <button class="close">Close</button>
@@ -125,6 +125,16 @@
       <h3>Admin Login</h3>
       <input type="text" placeholder="Admin/Shop name" name="" id="admin_name">
       <button onclick="login()">LogIn</button>
+    </div>
+  </div>
+  
+  <div class="warning_page hidden">
+    <div class="card">
+      <h5>Are you sure to delete?</h5>
+      <div class="btn_wrapper">
+        <button onclick="closeWarningPage()" class="cancel">Cancel</button>
+        <button onclick="deleteData()" class="delete">Delete</button>
+      </div>
     </div>
   </div>
   <!-- Project -->
