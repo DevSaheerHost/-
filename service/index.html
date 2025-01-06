@@ -16,8 +16,8 @@
 <body>
   <div class="header_wrapper">
   <header>
-   <i class="fa-solid fa-bars" onclick="toggleMenu()"></i> 
-    <h3>Service Status</h3>
+   <i id="menu_bar" class="fa-solid fa-bars" onclick="toggleMenu()"></i> 
+    <h3 id="headText">Service Status</h3>
   </header>
   <div class="sub-header filters">
     <span class="active" id="filter_all" data-status="all">All</span>
@@ -37,7 +37,12 @@
     <span>Clear</span>
   </div>
   </div>
-  <main>
+  
+  <main class="mode_pages purchase_mode hidden">
+     <img src="https://media.istockphoto.com/id/1090952638/vector/electric-socket-unplugged-page-not-found-vector.jpg?s=612x612&w=0&k=20&c=4LCR2Vb-NYcRrokpv4buZZ4IjdPiQTrY98E8DjZiwhI=" alt="Err">
+    </main>
+    
+  <main class="mode_pages service_mode">
    <div class="list_view">
      <div class="list" hidden>
        <div class="nav">
@@ -92,12 +97,17 @@
        </div>
      </div>
    </div>
-  </main>
   
+   </main>
+   
+    
+   
+   
+   
+  <!-- Fixed components and pages -->
   <div class="floating_btn">
     +
   </div>
-  
   <div class="creation_page hidden">
     <h3 class="head_text">Add Service</h3>
     <div class="card">
@@ -119,12 +129,12 @@
       <button class="close">Close</button>
     </div>
   </div>
-  
+ 
   <div class="loginpage">
     <div class="card">
       <h3>Admin Login</h3>
       <input type="text" placeholder="Admin/Shop name" name="" id="admin_name">
-      <button onclick="login()">LogIn</button>
+      <button id="login_btn">LogIn</button>
     </div>
   </div>
   
@@ -136,6 +146,23 @@
         <button onclick="deleteData()" class="delete">Delete</button>
       </div>
     </div>
+  </div>
+  
+  
+  <div class="side_menu sidemenu_close">
+    <div id="menu" class="menu">
+      <header>
+        <h3 id="shop_name">Metro</h3>
+      </header>
+      
+      <ul class="mode_selector">
+        <li class="mode_selector service_mode active" data-modename="Service Status">Service</li>
+        <li class="mode_selector purchase_mode" data-modename="Purchase Dashboard">Purchase</li>
+      </ul>
+    </div>
+  </div>
+  <div class="hint hidden">
+    <p>Somthing went wrong. Please try again later...</p>
   </div>
   <!-- Project -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>

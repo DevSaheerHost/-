@@ -14,6 +14,7 @@ a{
   --accent:#FFAA1D;
   --error: #FF0505;
   --success: #18AE5C;
+  --gray: #C8C8C8;
 }
 input, select{
   outline: none;
@@ -58,7 +59,7 @@ body{
 }
 header{
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid #C8C8C8;
+  border-bottom: 1px solid var(--gray);
   display: flex;
   align-content: center;
   gap: 2rem;
@@ -180,7 +181,7 @@ header i{
 .floating_btn:active{
   background: rgba(216, 171, 29, 1);
 }
-.creation_page, .loginpage, .warning_page{
+.creation_page, .loginpage, .warning_page, .side_menu{
   position: fixed;
   top: 0;
   bottom: 0;
@@ -266,9 +267,7 @@ header i{
   margin: auto;
 }
 
-.hidden{
-  display: none;
-}
+
 .warning_page h5{
   text-align: center;
   font-size: 19px;
@@ -282,4 +281,90 @@ header i{
   color: #fff;
   background: var(--error);
   margin-left: 2rem;
+}
+
+.side_menu{
+  padding: 0;
+  transition: transform .10s 0 ease-in-out, background .10s 1s;
+  background: rgba(0, 0, 0, 0.18);
+}
+.side_menu .menu{
+  width: 500px;
+  max-width: 70%;
+  margin-left: 0;
+  overflow-x: hidden;
+  background: #fff;
+  height: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.17);
+}
+.sidemenu_close{
+  transform: translateX(-400px);
+  transition: transform .5s ease-in-out, background .10s;
+  background: rgba(0, 0, 0, 0);
+}
+.menu #shop_name{
+  text-transform: capitalize;
+}
+.menu ul{
+  margin-top: 1.4rem;
+  list-style: none;
+  font-size: 20px;
+  border-top: 0px solid var(--gray);
+  padding: 0 1rem;
+}
+.menu li{
+  padding: 1rem;
+  border-bottom: 0px solid var(--gray);
+}
+.menu li.active{
+  background: #F1F1F1;
+  border-radius: 10px;
+}
+
+main.purchase_mode{
+  padding-top: 6rem;
+  height: 100vh;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+img{
+  max-width: 100%;
+}
+.hint{
+  transition: .4s;
+  padding: .5rem 1rem;
+  background: #fff;
+  color: #7D8D90;
+  position: fixed;
+  bottom: 3rem;
+  margin: auto;
+  left: 15%;
+  right: 15%;
+  max-width: 70%;
+  border-radius: 7px;
+  -webkit-box-shadow: 0px 4px 23px 0px rgba(124, 125, 135, 0.39);
+-moz-box-shadow: 0px 4px 23px 0px rgba(124, 125, 135, 0.39);
+box-shadow: 0px 4px 23px 0px rgba(124, 125, 135, 0.39);
+-webkit-animation: hintHide .4s;
+-o-animation: hintHide .4s;
+animation: hint .4s;
+}
+@keyframes hint {
+  from{
+    opacity: 0;
+  }
+}
+.hidden{
+  display: none !important;
+}
+.hintOpacityDim{
+  display: block;
+  background: transparent;
+  -webkit-animation: hintHide .4s;
+  -o-animation: hintHide .4s;
+  animation: hintHide .4s;
+  opacity: 0;
 }

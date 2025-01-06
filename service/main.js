@@ -1,17 +1,44 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyBSXIeQX-Bh-Ao7e19DeKCGK17cDw1ewDE",
+  authDomain: "cannoo.firebaseapp.com",
+  databaseURL: "https://cannoo-default-rtdb.firebaseio.com",
+  projectId: "cannoo",
+  storageBucket: "cannoo.firebasestorage.app",
+  messagingSenderId: "147317550502",
+  appId: "1:147317550502:web:3ea5785813724c99333367",
+  measurementId: "G-LNYZXJ3CTQ"
+};
+
+
+
+const login=()=> {
+     console.log('loggining')
+     const admin_name = $('#admin_name').value
+if (admin_name.length > 3) {
+  console.log(admin_name)
+  localStorage.setItem('name', admin_name)
+  location.reload()
+} else {
+  alert('Name must be at least 3 characters long.')
+}
+   }
+document.querySelector('#login_btn').onclick=()=>login()
 const $=selector=>document.querySelector(selector)
 let DeleteThis = null
 let Confirm =false
+
 // Keep it up/Top
 
-const username = localStorage.getItem('name')?
-localStorage.getItem('name'):
-'';
-console.log(username)
+const username = localStorage.getItem('name') || ''
+$('#shop_name').textContent=username
+console.log(username || 'no user name')
 !username?
 $('.loginpage').classList.remove('hidden'):
 $('.loginpage').classList.add('hidden');
 
-
+firebase.initializeApp(firebaseConfig);
+var database = firebase.database();
+var ref = firebase.database().ref(username);
 
 // Date
   const today = new Date().toISOString().split('T')[0];
@@ -48,28 +75,16 @@ ref.push(newData)
   .then(() => {
     $('.creation_page').classList.add('hidden');
     console.log('Data added successfully');
+    showHint('Data added successfully')
   })
   .catch((error) => {
     console.error('Error adding data:', error);
+    showHint('Error adding data:', error)
   });
 
 }
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBSXIeQX-Bh-Ao7e19DeKCGK17cDw1ewDE",
-  authDomain: "cannoo.firebaseapp.com",
-  databaseURL: "https://cannoo-default-rtdb.firebaseio.com",
-  projectId: "cannoo",
-  storageBucket: "cannoo.firebasestorage.app",
-  messagingSenderId: "147317550502",
-  appId: "1:147317550502:web:3ea5785813724c99333367",
-  measurementId: "G-LNYZXJ3CTQ"
-};
 
 
-firebase.initializeApp(firebaseConfig);
-var database = firebase.database();
-var ref = firebase.database().ref(username);
 
 
 // Assuming you want to access an item with the key 'itemId'
@@ -164,7 +179,10 @@ $('.list_view').addEventListener('click', (event) => {
     const newStatus = event.target.classList[0]; // Get the new status
     ref.child(dataKey).update({ status: newStatus })
       .then(() => console.log('Status updated successfully'))
-      .catch((error) => console.error('Error updating status:', error));
+      .catch((error) => {
+        console.error('Error updating status:', error)
+        showHint('Error updating status:', error)
+      });
   }
 });
 
@@ -172,6 +190,35 @@ $('.list_view').addEventListener('click', (event) => {
 }
 
 
+const modeButtons = document.querySelectorAll('.mode_selector')
+modeButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    modeButtons.forEach((btn) => btn.classList.remove("active"));
+    event.target.classList.add("active");
+    let mode = event.target.classList[1]
+    let modeName=event.target.dataset.modename
+    console.log(modeName)
+openMode(mode, modeName);
+  });
+});
+
+const openMode = (mode, modeName) =>{
+  let modePages = document.querySelectorAll('.mode_pages');
+  modePages.forEach(page=>{
+    page.classList.add('hidden')
+    
+    if (mode==page.classList[1]) {
+      $(`main.${mode}`).classList.remove('hidden')
+    }
+  })
+  //$('.mode_pages').classList.add('hidden');
+  
+  //$(`.${mode}`).classList.remove('hidden');
+  mode!='service_mode'?
+  $('.sub-header').classList.add('hidden'):
+  $('.sub-header').classList.remove('hidden')
+  $('#headText').textContent=modeName;
+}
 const listLayout=(data, key)=>`
 <div class="list" data-key='${key}'>
        <div class="nav">
@@ -201,27 +248,24 @@ database.ref(username+"/").once("value", (snapshot) => {
       const snapshotKey = childSnapshot.key;
       const datas = childSnapshot.val();
      // dataArr.push({ data, snapshotKey });
-     console.log(datas)
+     
     });
     
     })
     
     
-   const login=()=> {
-     const admin_name = $('#admin_name').value
-if (admin_name.length > 3) {
-  console.log(admin_name)
-  localStorage.setItem('name', admin_name)
-  location.reload()
-} else {
-  alert('Name must be at least 3 characters long.')
-}
-   }
+   
    
    const toggleMenu=()=>{
+     $('.side_menu').classList.toggle('sidemenu_close')
      console.log('comming soon')
    }
-   
+   document.body.onclick=e=>{
+     if (e.target.id!='menu_bar' && e.target.id!='menu') {
+       $('.side_menu').classList.add('sidemenu_close')
+       
+     }
+   }
    const closeWarningPage=()=>{
        $('.warning_page').classList.add('hidden')
        DeleteThis=null
@@ -233,6 +277,7 @@ if (admin_name.length > 3) {
   ref.child(DeleteThis).remove()
     .then(() => {
       console.log('Data deleted successfully');
+      showHint('Data deleted successfully')
       const listElement = document.querySelector(`.list[data-key="${DeleteThis}"]`);
         if (listElement) listElement.remove();
       DeleteThis=null
@@ -240,7 +285,7 @@ if (admin_name.length > 3) {
     })
     .catch((error) => {
       console.error('Error deleting data:', error);
-      alert('Error deleting data : ', error)
+      showHint('Error deleting data : ', error)
     });
 
 }
@@ -356,3 +401,14 @@ database.ref(username).on("child_changed", (snapshot) => {
     $(".list_view").innerHTML += listLayout(updatedData, key);
   }
 });
+
+//------
+const showHint=text =>{
+  text?$('.hint').classList.remove('hidden'):null
+  $('.hint').classList.remove('hintOpacityDim')
+  $('.hint p').textContent=text;
+  setTimeout(()=>$('.hint').classList.add('hintOpacityDim'), 2000)
+  setTimeout(()=>$('.hint').classList.add('hidden'), 2300)
+}
+//------
+
