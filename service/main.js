@@ -238,7 +238,6 @@ const listLayout=(data, key)=>`
        <p class='complaint'>${data.complaint}</p>
        <p>Model : ${data.model?data.model:''}</p>
        <p>Amount : ${data.code} | ${data.amount}</p>
-       <p>Name : ${data.name}</p>
        <p>Number : ${data.number}</p>
        
        <div class="button_wrapper">
