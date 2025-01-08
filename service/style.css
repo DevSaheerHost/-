@@ -399,3 +399,6 @@ p.complaint{
 p.gray{
   color: var(--gray);
 }
+p.version{
+  text-align: center;
+}
