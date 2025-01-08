@@ -6,6 +6,7 @@
   border: none;
   transition: .2s;
   font-family: sans-serif;
+  user-select: none;
 }
 a{
   text-decoration: none;
@@ -288,6 +289,13 @@ header i{
   transition: transform .10s 0 ease-in-out, background .10s 1s;
   background: rgba(0, 0, 0, 0.18);
 }
+.side_menu header {
+  justify-content: space-between;
+}
+.side_menu header a{
+  color: #09a0ff;
+  font-size: 15px;
+}
 .side_menu .menu{
   width: 500px;
   max-width: 70%;
@@ -296,6 +304,7 @@ header i{
   background: #fff;
   height: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.17);
+  position: relative;
 }
 .sidemenu_close{
   transform: translateX(-400px);
@@ -367,4 +376,23 @@ animation: hint .4s;
   -o-animation: hintHide .4s;
   animation: hintHide .4s;
   opacity: 0;
+}
+.menu .bottom_in_menu{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  border-top: 1px solid var(--gray);
+}
+.bottom_in_menu button{
+  color: var(--error);
+  border: none;
+}
+.bottom_in_menu button i{
+  margin-right: 5px;
+}
+p.complaint{
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 7px;
 }

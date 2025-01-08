@@ -22,6 +22,16 @@ if (admin_name.length > 3) {
   alert('Name must be at least 3 characters long.')
 }
    }
+   
+   const logout=()=> {
+     if (confirm('Are you sure you want to logout?')) {
+       localStorage.removeItem('name');
+       location.reload()
+     } else {
+       showHint('Logout canceled')
+     }
+
+   }
 document.querySelector('#login_btn').onclick=()=>login()
 const $=selector=>document.querySelector(selector)
 let DeleteThis = null
@@ -55,21 +65,21 @@ $('#create').onclick=()=>calculateData()
 
 const calculateData=()=>{
   let newData={}
-  newData.name = $('#name').value || 'N/A'
-  newData.number = $('#number').value || 'N/A'
+  newData.name = $('#name').value || ''
+  newData.number = $('#number').value || ''
   newData.complaint = $('#complaint').value
-  newData.amount = $('#amount').value || 'N/A'
-  newData.code = $('#code').value.toUpperCase() || 'N/A'
+  newData.amount = $('#amount').value || 0
+  newData.code = $('#code').value.toUpperCase() || ''
   newData.date = $('#dateInput').value
   newData.status = $('#status').value
-  newData.model = $('#model').value || 'N/A'
+  newData.model = $('#model').value || ''
+  console.log(newData)
   
-  
-  if (!newData.name || !newData.number || !newData.amount) {
-  openWarningPage()
-  $('.warning_page').classList.removehidden()
-  return;
-}
+//   if (!newData.name || !newData.number || !newData.amount) {
+//   openWarningPage()
+//   $('.warning_page').classList.remove('hidden')
+//   return;
+// }
 
 ref.push(newData)
   .then(() => {
@@ -222,12 +232,14 @@ const openMode = (mode, modeName) =>{
 const listLayout=(data, key)=>`
 <div class="list" data-key='${key}'>
        <div class="nav">
-         <h4>${data.complaint}</h4>
+         <h4>${data.name}</h4>
          <h4 class="status ${data.status}">• ${data.status}</h4>
        </div>
-       <p>${data.model?data.model:''} | ${data.code} | ${data.amount}</p>
-       <p>Name: ${data.name}</p>
-       <p>Number: ${data.number}</p>
+       <p class='complaint'>${data.complaint}</p>
+       <p>Model : ${data.model?data.model:''}</p>
+       <p>Amount : ${data.code} | ${data.amount}</p>
+       <p>Name : ${data.name}</p>
+       <p>Number : ${data.number}</p>
        
        <div class="button_wrapper">
          <button class="pending status_btn">Pending</button>
