@@ -65,7 +65,7 @@ $('#create').onclick=()=>calculateData()
 
 const calculateData=()=>{
   let newData={}
-  newData.name = $('#name').value || ''
+  newData.name = $('#name').value || '<p class="gray">NONAME</p>'
   newData.number = $('#number').value || ''
   newData.complaint = $('#complaint').value
   newData.amount = $('#amount').value || 0

@@ -396,3 +396,6 @@ p.complaint{
   font-size: 16px;
   margin-bottom: 7px;
 }
+p.gray{
+  color: var(--gray);
+}
