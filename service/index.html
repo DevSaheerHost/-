@@ -20,7 +20,7 @@
     <h3 id="headText">Service Status</h3>
   </header>
   <div class="sub-header filters">
-    <span class="active" id="filter_all" data-status="all">All</span>
+    <span class="" id="filter_all" data-status="all">All</span>
     <span id="filter_pending" data-status="pending">
       Pending
     </span> 
@@ -34,12 +34,16 @@
   <div class="filter">
     <p>Filter by date</p>
     <input type="date" name="" id="filterDate">
-    <span>Clear</span>
+    <span id="totel_data"></span>
   </div>
   </div>
   
   <main class="mode_pages purchase_mode hidden">
      <img src="https://media.istockphoto.com/id/1090952638/vector/electric-socket-unplugged-page-not-found-vector.jpg?s=612x612&w=0&k=20&c=4LCR2Vb-NYcRrokpv4buZZ4IjdPiQTrY98E8DjZiwhI=" alt="Err">
+     
+       <div onclick="open_purchase_page()" id="open_purchase_page_btn" class="floating_btn purchase">
+    <i class="fa-solid fa-indian-rupee-sign"></i>
+  </div>
     </main>
     
   <main class="mode_pages service_mode">
@@ -97,7 +101,9 @@
        </div>
      </div>
    </div>
-  
+    <div id="open_serv_page_btn" class="floating_btn">
+    <i class="fa-solid fa-screwdriver-wrench"></i>
+  </div>
    </main>
    
     
@@ -105,10 +111,8 @@
    
    
   <!-- Fixed components and pages -->
-  <div class="floating_btn">
-    +
-  </div>
-  <div class="creation_page hidden">
+
+  <div id="creation_page" class="creation_page hidden">
     <h3 class="head_text">Add Service</h3>
     <div class="card">
       <input type="text" placeholder="Customer name" required id="name">
@@ -127,6 +131,22 @@
       </select>
       <button class="create" id="create">Add Service</button>
       <button class="close">Close</button>
+    </div>
+  </div>
+  
+  <div id="service_page" class="creation_page hidden purchase_page">
+    <h3 class="head_text">Add Purchase</h3>
+    <div class="card">
+      <input type="text" placeholder="Shop Name" required id="shop_name">
+      <input type="number" required name="" id="purchase_amount" placeholder="Amount">
+      
+      <input required type="text" name="" id="purchase_product_name" placeholder="Product Name">
+      
+      
+      <input type="date" required name="" id="purchase_date">
+      
+      <button class="create create_purchase" onclick="create_purchase()">Add Service</button>
+      <button onclick="close_purchase_page()" class="close">Close</button>
     </div>
   </div>
  
@@ -159,15 +179,16 @@
       </header>
       
       <ul class="mode_selector">
-        <li class="mode_selector service_mode active" data-modename="Service Status">Service</li>
-        <li class="mode_selector purchase_mode" data-modename="Purchase Dashboard">Purchase</li>
+        <li class="mode_selector service_mode active" data-modename="Service Status">
+          <i data-modename="Service Status" class="fa-solid service_mode fa-screwdriver-wrench"></i> Service</li>
+        <li class="mode_selector purchase_mode" data-modename="Purchase Dashboard"><i class="fa-solid purchase_mode fa-indian-rupee-sign"></i> Purchase</li>
       </ul>
       <div class="bottom_in_menu">
         <button class="logout_btn" onclick="logout()">
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
           Log Out
           </button>
-          <p class="version gray">v 1.1.7</p>
+          <p class="version gray">v 1.1.8</p>
       </div>
       
     </div>

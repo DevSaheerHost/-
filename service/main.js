@@ -9,7 +9,7 @@ const firebaseConfig = {
   measurementId: "G-LNYZXJ3CTQ"
 };
 
-
+let totelData=0;
 
 const login=()=> {
      console.log('loggining')
@@ -55,10 +55,41 @@ var ref = firebase.database().ref(username);
   document.getElementById('dateInput').value = today;
   $('#filterDate').value=today//'2025-01-29';
 //---
+$('#purchase_date').value=today
+const open_purchase_page=()=>{
+document.querySelector('#service_page').classList.remove('hidden')
+}
+const close_purchase_page=()=>{
+  document.querySelector('#service_page').classList.add('hidden')
+}
 
-$('.creation_page').classList.add('hidden')
-$('.floating_btn').onclick=()=>$('.creation_page').classList.remove('hidden')
-$('.close').onclick=()=>$('.creation_page').classList.add('hidden')
+const initListButtons=()=>{
+  $('.list_view').addEventListener('click', (event) => {
+  const listElement = event.target.closest('.list');
+  const dataKey = listElement?.dataset.key;
+
+  if (event.target.classList.contains('delete_btn')) {
+    DeleteThis = dataKey;
+    console.log(dataKey)
+    openWarningPage()
+//this way to delete
+  }
+
+  if (event.target.classList.contains('status_btn')) {
+    const newStatus = event.target.classList[0]; // Get the new status
+    ref.child(dataKey).update({ status: newStatus })
+      .then(() => console.log('Status updated successfully'))
+      .catch((error) => {
+        console.error('Error updating status:', error)
+        showHint('Error updating status:', error)
+      });
+  }
+});
+}
+
+$('#creation_page').classList.add('hidden')
+$('#open_serv_page_btn').onclick=()=>$('#creation_page').classList.remove('hidden')
+$('.close').onclick=()=>$('#creation_page').classList.add('hidden')
 
 
 $('#create').onclick=()=>calculateData()
@@ -83,9 +114,14 @@ const calculateData=()=>{
 
 ref.push(newData)
   .then(() => {
-    $('.creation_page').classList.add('hidden');
+    $('#creation_page').classList.add('hidden');
     console.log('Data added successfully');
     showHint('Data added successfully')
+    totelData=0
+    filterByDate(today)
+    if (document.querySelector('.filters .active')) {
+      document.querySelector('.filters .active').classList.remove('active')
+    }
   })
   .catch((error) => {
     console.error('Error adding data:', error);
@@ -94,8 +130,31 @@ ref.push(newData)
 
 }
 
-
-
+const create_purchase=()=>{
+  calculate_purchase_data()
+}
+const calculate_purchase_data=()=>{
+  purchase_data={}
+  purchase_data.shop=$('#shop_name').value
+  purchase_data.amount=$('#purchase_amount').value
+  purchase_data.product=$('#purchase_product_name').value
+  purchase_data.date=$('#purchase_date').value;
+  upload_purchase_data(purchase_data)
+  
+}
+const upload_purchase_data=(data)=>{
+  var ref = firebase.database().ref(`${username}/purchase`);
+  ref.push(data)
+  .then(() => {
+    $('.purchase_page').classList.add('hidden');
+    console.log('Data added successfully');
+    showHint('Purchase data added successfully')
+  })
+  .catch((error) => {
+    console.error('Error adding data:', error);
+    showHint('Error adding data:', error)
+  });
+}
 
 // Assuming you want to access an item with the key 'itemId'
 // ref.child(username).once('value', (snapshot) => {
@@ -110,19 +169,22 @@ database.ref(username).on("child_added", (snapshot) => {
   const data = snapshot.val();
   const key = snapshot.key
   //console.log(key)
-  showAllData(data, key)
+  //showAllData(data, key)
 // Attach event listener to the date input
 $("#filterDate").onchange = () => {
+  totelData=0
+  $('#totel_data').textContent = totelData
   const selectedDate = $("#filterDate").value;
   filterButtons.forEach((btn) => btn.classList.remove("active"));
   filterByDate(selectedDate);
 };
 
+
+})
 // Function to filter by date
 const filterByDate = (selectedDate) => {
   // Clear the current list view
   $(".list_view").innerHTML = "";
-
   // Fetch all data from Firebase
   database.ref(username).once("value", (snapshot) => {
     snapshot.forEach((childSnapshot) => {
@@ -132,12 +194,17 @@ const filterByDate = (selectedDate) => {
       // Check if the data's date matches the selected date
       if (data.date === selectedDate) {
         $(".list_view").innerHTML += listLayout(data, key);
+        totelData++
+$('#totel_data').textContent = totelData
       }
+      showHint('Today')
     });
   });
+  initListButtons()
 };
+filterByDate(today)
 /////////////
-})
+
 
 const filterByDate2=(data, Customdate)=>
 {
@@ -152,12 +219,15 @@ const [year, month, day]=data.date.split('-')
   console.log(data)
   if (dat==month) {
     $('.list_view').innerHTML+=listLayout(data)
-    console.log(data)
+
   }
   
 }
 let deleteKey =null
 const showAllData=(data, key)=>{
+  
+totelData++
+$('#totel_data').textContent=totelData;
   $('.list_view').innerHTML+=listLayout(data, key);
   
 $('.list_view').addEventListener('click', (event) => {
@@ -169,20 +239,6 @@ $('.list_view').addEventListener('click', (event) => {
     console.log(dataKey)
     openWarningPage()
 //this way to delete
-
-    
-    //openWarningPage()
-    //DeleteThis=dataKey;
-    // old delete quick 
-    
-  //   ref.child(dataKey).remove()
-  // .then(() => {
-  //   console.log('Data deleted successfully');
-  //   listElement.remove(); // Remove from DOM
-  // })
-  // .catch((error) => {
-  //   console.error('Error deleting data:', error);
-  // });
   }
 
   if (event.target.classList.contains('status_btn')) {
@@ -200,6 +256,8 @@ $('.list_view').addEventListener('click', (event) => {
 }
 
 
+
+
 const modeButtons = document.querySelectorAll('.mode_selector')
 modeButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -212,6 +270,7 @@ openMode(mode, modeName);
   });
 });
 
+//service mode, purchase mode switching 
 const openMode = (mode, modeName) =>{
   let modePages = document.querySelectorAll('.mode_pages');
   modePages.forEach(page=>{
@@ -293,6 +352,8 @@ database.ref(username+"/").once("value", (snapshot) => {
         if (listElement) listElement.remove();
       DeleteThis=null
       closeWarningPage()
+      totelData--
+$('#totel_data').textContent = totelData
     })
     .catch((error) => {
       console.error('Error deleting data:', error);
@@ -337,6 +398,7 @@ filterButtons.forEach((button) => {
 });
 
 const filterData = (status) => {
+  totelData=0
   // Clear the current list view
   $(".list_view").innerHTML = "";
 
@@ -349,6 +411,8 @@ const filterData = (status) => {
       // Show all data if status is 'all', otherwise filter by specific status
       if (status === "all" || data.status === status) {
         $(".list_view").innerHTML += listLayout(data, key);
+        totelData++
+$('#totel_data').textContent = totelData
       }
     });
   });
@@ -364,6 +428,8 @@ database.ref(username).on("child_added", (snapshot) => {
   // Initially display all items
   if ($("#filter_all").classList.contains("active")) {
     //$(".list_view").innerHTML += listLayout(data, key);
+  } else {
+    //showAllData()
   }
 });
 
