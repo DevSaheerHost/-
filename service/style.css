@@ -339,7 +339,7 @@ header i{
 }
 
 main.purchase_mode{
-  padding-top: 6rem;
+  padding-top: 8rem;
   height: 100vh;
   width: 100%;
   background: #fff;
@@ -349,6 +349,9 @@ main.purchase_mode{
 }
 img{
   max-width: 100%;
+}
+main div.purchase_list_view{
+  height: 100%;
 }
 .hint{
   transition: .4s;
@@ -379,6 +382,9 @@ animation: hint .4s;
 box-shadow: 0px 4px 23px 0px rgba(124, 125, 135, 0.39);
 max-width: fit-content;
 margin: auto;
+}
+.hint.red{
+  color: red;
 }
 .hidden{
   display: none !important;

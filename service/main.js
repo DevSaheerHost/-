@@ -9,6 +9,7 @@ const firebaseConfig = {
   measurementId: "G-LNYZXJ3CTQ"
 };
 
+
 let totelData=0;
 
 const login=()=> {
@@ -28,7 +29,7 @@ if (admin_name.length > 3) {
        localStorage.removeItem('name');
        location.reload()
      } else {
-       showHint('Logout canceled')
+       showHint('Logout canceled', 'red')
      }
 
    }
@@ -49,6 +50,7 @@ $('.loginpage').classList.add('hidden');
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 var ref = firebase.database().ref(username);
+var purchase_ref = firebase.database().ref(`${username}Purchase`);
 
 // Date
   const today = new Date().toISOString().split('T')[0];
@@ -62,7 +64,10 @@ document.querySelector('#service_page').classList.remove('hidden')
 const close_purchase_page=()=>{
   document.querySelector('#service_page').classList.add('hidden')
 }
-
+const empty_page = `
+ <img src="https://media.istockphoto.com/id/1090952638/vector/electric-socket-unplugged-page-not-found-vector.jpg?s=612x612&w=0&k=20&c=4LCR2Vb-NYcRrokpv4buZZ4IjdPiQTrY98E8DjZiwhI=" alt="Err">
+`
+$('.list_view').innerHTML=empty_page
 const initListButtons=()=>{
   $('.list_view').addEventListener('click', (event) => {
   const listElement = event.target.closest('.list');
@@ -81,7 +86,7 @@ const initListButtons=()=>{
       .then(() => console.log('Status updated successfully'))
       .catch((error) => {
         console.error('Error updating status:', error)
-        showHint('Error updating status:', error)
+        showHint('Error updating status:', error, red)
       });
   }
 });
@@ -143,12 +148,14 @@ const calculate_purchase_data=()=>{
   
 }
 const upload_purchase_data=(data)=>{
-  var ref = firebase.database().ref(`${username}/purchase`);
+  var ref = firebase.database().ref(`${username}Purchase`);
   ref.push(data)
   .then(() => {
     $('.purchase_page').classList.add('hidden');
     console.log('Data added successfully');
     showHint('Purchase data added successfully')
+    totelData++
+$('#totel_data').textContent = totelData;
   })
   .catch((error) => {
     console.error('Error adding data:', error);
@@ -184,7 +191,7 @@ $("#filterDate").onchange = () => {
 // Function to filter by date
 const filterByDate = (selectedDate) => {
   // Clear the current list view
-  $(".list_view").innerHTML = "";
+  $(".list_view").innerHTML = '';
   // Fetch all data from Firebase
   database.ref(username).once("value", (snapshot) => {
     snapshot.forEach((childSnapshot) => {
@@ -196,13 +203,14 @@ const filterByDate = (selectedDate) => {
         $(".list_view").innerHTML += listLayout(data, key);
         totelData++
 $('#totel_data').textContent = totelData
+
       }
       showHint('Today')
     });
   });
   initListButtons()
 };
-filterByDate(today)
+filterByDate(today);
 /////////////
 
 
@@ -215,8 +223,8 @@ const [year, month, day]=data.date.split('-')
   dat = Customdate.split('-')[1]
   console.log('cust date ',Customdate)
   console.log('formtedDate',formatedDate)
-  console.log(month)
-  console.log(data)
+  //console.log(month)
+  //console.log(data)
   if (dat==month) {
     $('.list_view').innerHTML+=listLayout(data)
 
@@ -228,6 +236,8 @@ const showAllData=(data, key)=>{
   
 totelData++
 $('#totel_data').textContent=totelData;
+
+
   $('.list_view').innerHTML+=listLayout(data, key);
   
 $('.list_view').addEventListener('click', (event) => {
@@ -287,6 +297,9 @@ const openMode = (mode, modeName) =>{
   $('.sub-header').classList.add('hidden'):
   $('.sub-header').classList.remove('hidden')
   $('#headText').textContent=modeName;
+  $('.purchase_list_view').innerHTML=''
+  totelData=0
+  get_purchase_data()
 }
 const listLayout=(data, key)=>`
 <div class="list" data-key='${key}'>
@@ -307,6 +320,30 @@ const listLayout=(data, key)=>`
        <div>
          <p class="date">${data.date}</p>
          <button class="call"><a href='tel:${data.number}'>Call</a></button>
+         <button class="delete_btn">Delete</button>
+
+       </div>
+       
+       `
+       const purchase_listLayout=(data, key)=>`
+<div class="list" data-key='${key}'>
+       <div class="nav">
+         <h4>${data.shop || '<p class="gray">NONAME</p>'}</h4>
+         <h4 class="status ${data.status}">• ${data.status || ''}</h4>
+       </div>
+       <p class='Complaint'>${data.product}</p>
+       
+       <p>Amount : ${data.amount}</p>
+       
+       
+       <div class="button_wrapper">
+         <button class="pending status_btn">Pending</button>
+         <button class="failed status_btn">Return</button>
+         <button class="finished status_btn">Finished</button>
+       </div>
+       <div>
+         <p class="date">${data.date}</p>
+         <button hidden class="call"><a href='tel:${data.number}'>Call</a></button>
          <button class="delete_btn">Delete</button>
 
        </div>
@@ -480,7 +517,8 @@ database.ref(username).on("child_changed", (snapshot) => {
 });
 
 //------
-const showHint=text =>{
+const showHint=(text, color) =>{
+  $('.hint').classList.add(color)
   text?$('.hint').classList.remove('hidden'):null
   $('.hint').classList.remove('hintOpacityDim')
   $('.hint p').textContent=text;
@@ -489,3 +527,58 @@ const showHint=text =>{
 }
 //------
 
+
+
+
+
+get_purchase_data=()=>{
+  database.ref(`${username}Purchase`).once("value", (snapshot) => {
+    snapshot.forEach((childSnapshot) => {
+      const key = childSnapshot.key;
+      const data = childSnapshot.val();
+
+
+      // Check if the data's date matches the today date
+     
+        $(".purchase_list_view").innerHTML += purchase_listLayout(data, key);
+        totelData++
+$('#totel_data').textContent = totelData;
+      
+      showHint('Today')
+      load_btns_purchase(key)
+    });
+  });
+}
+const load_btns_purchase=(key)=>{
+  $('.purchase_list_view').onclick=e=>{
+    const button = e.target.classList
+    if (button.contains('delete_btn')) {
+      const listElement = event.target.closest('.list');
+  const dataKey = listElement?.dataset.key;
+  if (confirm('Are you sure to delete?\n '+dataKey)) {
+  purchase_ref.child(dataKey).remove()
+  .then(() => {
+    const listElement = document.querySelector(`.list[data-key="${dataKey}"]`);
+    if (listElement) listElement.remove();
+    showHint('Data delete successfully ;)' + dataKey)
+  })
+}else showHint('Canceled by user', 'red')
+      
+    }
+  }
+}
+
+
+
+
+
+
+database.ref(`${username}Purchase`).on("child_added", (snapshot) => {
+  const data = snapshot.val();
+  const key = snapshot.key;
+
+  // Initially display all items
+     $(".purchase_list_view").innerHTML += purchase_listLayout(data, key);
+        //totelData++
+//$('#totel_data').textContent = totelData;
+});
