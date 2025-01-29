@@ -132,9 +132,15 @@ header i{
   font-size: 12px;
   color: #838383;
 }
+.list div.flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .button_wrapper{
   margin-top: 1rem;
 }
+
 .list button{
   padding: .5rem 1rem;
   border-radius: 20px;

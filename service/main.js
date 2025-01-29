@@ -72,6 +72,7 @@ const initListButtons=()=>{
   $('.list_view').addEventListener('click', (event) => {
   const listElement = event.target.closest('.list');
   const dataKey = listElement?.dataset.key;
+  const currentText = listElement.querySelector('.complaint').innerText
 
   if (event.target.classList.contains('delete_btn')) {
     DeleteThis = dataKey;
@@ -89,6 +90,18 @@ const initListButtons=()=>{
         showHint('Error updating status:', error, red)
       });
   }
+  if (event.target.classList.contains('edit')) {
+    const edit_data = prompt(' Edit data', currentText)
+    if (edit_data) {
+      ref.child(dataKey).update({ complaint: edit_data })
+  .then(() => showHint('Data updating successfully'))
+  .catch((error) => {
+    console.error('Error updating Complaint:', error)
+    showHint('Error updating Complaint:', error)
+  });
+    }
+  }
+  //two
 });
 }
 
@@ -260,6 +273,10 @@ $('.list_view').addEventListener('click', (event) => {
         showHint('Error updating status:', error)
       });
   }
+  if (event.target.classList.contains('edit')) {
+    alert('c')
+  }
+  console.log('hey')//one
 });
 
 
@@ -307,7 +324,10 @@ const listLayout=(data, key)=>`
          <h4>${data.name}</h4>
          <h4 class="status ${data.status}">• ${data.status}</h4>
        </div>
+       <div class='flex'>
        <p class='complaint'>${data.complaint}</p>
+       <i class="fa-solid fa-pen edit"></i>
+       </div>
        <p>Model : ${data.model?data.model:''}</p>
        <p>Amount : ${data.code} | ${data.amount}</p>
        <p>Number : ${data.number}</p>
