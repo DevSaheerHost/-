@@ -1,0 +1,90 @@
+*{
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  outline: none;
+  user-select: none;
+}
+body{
+  font-size: 16px;
+  max-width: 600px;
+  margin: auto;
+}
+.input, .answer, .keys{
+  background: #F2F3FF;
+  padding: 1rem;
+  border-radius: 20px;
+  margin: 1rem;
+  height: 110px;
+}
+input{
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  font-size: 3em;
+}
+h3{
+  padding: 1rem;
+}
+h2{
+  font-weight: normal;
+  font-size: 3em;
+}
+.answer{
+  min-height: 100px;
+  margin-top: .5rem;
+  height: max-content;
+}
+
+.keys{
+  background: #F2F3FF;
+  height: max-content;
+  display: flex;
+  align-items: start;
+}
+.letters, .numbers{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  min-width: 100%;
+}
+.numbers span, .letters span, .typekeys span, .clear-all{
+  padding: .5rem;
+  border-radius: 10px;
+  background: #7984FF;
+  color: #fff;
+  width: 70px;
+  height: 70px;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.letters span{
+  background: #515798;
+}
+.typekeys span, .clear-all{
+  margin-bottom: 1rem;
+  background: #98518D;
+}
+.hori{
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+.hori::-webkit-scrollbar {
+ display: none;
+}
+.hori > * {
+ scroll-snap-align: start;
+}
+.typekeys{
+  position: relative;
+}
+.clear-all{
+  position: absolute;
+  right: calc(1rem + 70px);
+  bottom: 0;
+}
