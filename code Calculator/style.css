@@ -10,6 +10,7 @@ body{
   font-size: 16px;
   max-width: 600px;
   margin: auto;
+  font-family: 'sans-serif';
 }
 .input, .answer, .keys{
   background: #F2F3FF;
