@@ -107,7 +107,7 @@ $('#save').addEventListener('click', () => {
   }
 });
 const renderHistory=()=>{
-  
+      $('#history-list').innerHTML=''
   history.forEach(his=>{
     $('#history-list').innerHTML+=`<span class='history'>${his}</span>`
   })
