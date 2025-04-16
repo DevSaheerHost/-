@@ -49,6 +49,8 @@ input.addEventListener('input', function() {
   } catch {
     out.textContent = 'Invalid Expression';
   }
+  
+  this.scrollLeft = this.scrollWidth - this.clientWidth;
 });
 
 document.querySelectorAll('.numbers span, .letters span, .typekeys span').forEach(span => {

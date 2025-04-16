@@ -87,8 +87,11 @@ h2{
 .typekeys{
   position: relative;
 }
-.clear-all{
+.clear-all, .save{
   position: absolute;
   right: calc(1rem + 70px);
   bottom: 0;
+}
+.save{
+  bottom: calc(1rem + 70px);
 }
