@@ -95,3 +95,22 @@ h2{
 .save{
   bottom: calc(1rem + 70px);
 }
+
+.input-history-wrapper{
+  height: 110px;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  margin-top: 1rem;
+}
+.input-history-wrapper > *{
+  scroll-snap-align: start;
+}
+.history span{
+  padding: .5rem;
+  background: rgba(121, 132, 255, .2);
+  display: block;
+  margin: .5rem;
+  width: max-content;
+  border-radius: 5px;
+  color: rgba(121, 132, 255, 1);;
+}

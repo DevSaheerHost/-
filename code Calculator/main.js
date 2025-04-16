@@ -1,4 +1,5 @@
 const $ = selector => document.querySelector(selector);
+
 const input = $('input');
 const out = $('.answer h2');
 const charMap = {
@@ -60,6 +61,7 @@ document.querySelectorAll('.numbers span, .letters span, .typekeys span').forEac
     let char = this.textContent;
     input.value += {'×':'*', '÷':'/'}[char] || char;
     input.dispatchEvent(new Event('input'));
+    $('.input-history-wrapper').scrollTop=0
   });
 });
 
@@ -74,3 +76,42 @@ $('#ac').addEventListener('click', () => {
   out.textContent = '0';
   input.dispatchEvent(new Event('input'));
 });
+
+
+
+// Load existing history from localStorage on page load
+let history = [];
+try {
+  const storedHistory = localStorage.getItem('history');
+  history = storedHistory ? JSON.parse(storedHistory) : [];
+} catch (error) {
+  console.error('Error loading history:', error);
+  localStorage.removeItem('history'); // Clear corrupted data
+}
+
+$('#save').addEventListener('click', () => {
+  if (input.value.trim()) {
+    history.push(`${input.value.trim()} = ${out.textContent}`);
+    
+    // Save to localStorage with validation
+    try {
+      localStorage.setItem('history', JSON.stringify(history));
+      console.log('History saved successfully');
+
+      renderHistory()
+    } catch (error) {
+      console.error('Failed to save history:', error);
+    }
+    
+    
+  }
+});
+const renderHistory=()=>{
+  
+  history.forEach(his=>{
+    $('#history-list').innerHTML+=`<span class='history'>${his}</span>`
+  })
+  $('.input-history-wrapper').scrollTop = $('.input-history-wrapper').scrollHeight - $('.input-history-wrapper').clientHeight;
+}
+renderHistory()
+    $('.input-history-wrapper').scrollTop=0
