@@ -10,7 +10,6 @@ body{
   font-size: 16px;
   max-width: 600px;
   margin: auto;
-  font-family: 'sans-serif';
 }
 .input, .answer, .keys{
   background: #F2F3FF;
@@ -56,8 +55,9 @@ h2{
   border-radius: 10px;
   background: #7984FF;
   color: #fff;
-  width: 70px;
+  max-width: 70px;
   height: 70px;
+  width: 26%;
   font-size: 2em;
   display: flex;
   align-items: center;
@@ -65,6 +65,9 @@ h2{
 }
 .letters span{
   background: #515798;
+}
+.typekeys span{
+  width: 70px;
 }
 .typekeys span, .clear-all{
   margin-bottom: 1rem;
