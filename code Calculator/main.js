@@ -56,6 +56,7 @@ input.addEventListener('input', function() {
 document.querySelectorAll('.numbers span, .letters span, .typekeys span').forEach(span => {
   span.addEventListener('click', function() {
     if (this.id === 'back') return;
+    if (this.id==='save') return;
     let char = this.textContent;
     input.value += {'×':'*', '÷':'/'}[char] || char;
     input.dispatchEvent(new Event('input'));
