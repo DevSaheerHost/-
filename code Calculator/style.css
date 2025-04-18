@@ -5,6 +5,7 @@
   box-sizing: border-box;
   outline: none;
   user-select: none;
+  scroll-behavior: smooth;
 }
 body{
   font-size: 16px;
@@ -114,3 +115,4 @@ h2{
   border-radius: 5px;
   color: rgba(121, 132, 255, 1);;
 }
+

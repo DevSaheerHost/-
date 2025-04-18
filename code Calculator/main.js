@@ -115,3 +115,21 @@ const renderHistory=()=>{
 }
 renderHistory()
     $('.input-history-wrapper').scrollTop=0
+    
+
+
+
+// For multiple spans
+const numberSpans = document.querySelectorAll('.numbers > span');
+document.querySelectorAll('.typekeys > span').forEach((span, index) => {
+  span.style.width = `${numberSpans[index].offsetWidth}px`;
+});
+
+const tutorial = parseInt(localStorage.getItem('tutorial')) ||0
+
+if (tutorial !=5) {
+  setTimeout(() => {document.querySelector('.hori').scrollLeft = 1000
+  setTimeout(()=>$('.hori').scrollLeft=0, 500)
+}, 0);
+localStorage.setItem('tutorial', tutorial+1)
+}
