@@ -6,6 +6,7 @@
   --card-black: #131313;
   --card-white: #eeeeee;
   --special-text: #09a0ff;
+  --special-bg: #013f66;
   --placeholder: gray;
   --border-dim: rgb(202, 202, 202);
 }
@@ -17,7 +18,7 @@
     --text: var(--white);
     --card-bg: var(--card-black);
     --border-dim: rgb(65, 65, 65);
-    --special-text: #00619e;
+    --special-text: #008ae0;
   }
 }
 
@@ -29,6 +30,7 @@
     --card-bg: var(--card-white);
     --dim: #5f5f5f;
     --border-dim: rgb(202, 202, 202);
+    --special-bg: #5dc1ff;
   }
 }
 
@@ -45,4 +47,5 @@ body.light-theme {
   --card-bg: var(--card-white);
   --dim: #5e5e5e;
   --border-dim: rgb(202, 202, 202);
+  --special-bg: #5dc1ff;
 }

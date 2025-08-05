@@ -110,16 +110,16 @@ commandInput.oninput = () => {
   }
 };
 
-const createCard = (data, snapshotKey, parant) => {
+const createCard = (data, snapshotKey, parant, typeText) => {
   TotalData++;
-  totellabel.innerHTML = TotalData + " Projects";
+  totellabel.innerHTML = `${TotalData} ${typeText || "Contents"}`;
   loader.style.display = "none";
   const newCard = document.createElement("card");
   newCard.innerHTML = getCardLayout(data);
   parant.appendChild(newCard);
 
   console.log(parant.classList);
-  
+
   addReactionToDataCard(data, newCard);
   newCard.querySelector(".addReaction").onclick = () => {
     addNewReactionToDataCard(data, snapshotKey, newCard);
@@ -411,11 +411,29 @@ changeImage();
 // Section switcher 4 li , when click this.borderBottom= 1px solid
 document.querySelectorAll("#sectionSwitcher li").forEach((li) => {
   li.onclick = () => {
+    TotalData = 0
     document
       .querySelectorAll("#sectionSwitcher li")
       .forEach((li) => li.classList.remove("active"));
     li.classList.add("active");
-    switchTHeSection(li);
+    //switchTHeSection(li);
+    
+cardSection.innerHTML=''
+    dataStore.reverse().forEach((item) => {
+        // createCard(item.data, item.snapshotKey, cardSection);
+        if (item.type== li.dataset.type || item.type == "Project/Hope") {
+          createCard(item, item.snapshotKey, cardSection, li.dataset.type=="My project" ? "Projects" : li.dataset.type);
+        } else if (li.dataset.type == "view-all") {
+          createCard(item, item.snapshotKey, cardSection, "Projects");
+        }
+
+        // the design button.dataset is "Design" and the data.type is "web design/ ui design"
+        if (li.dataset.type == "Design" && item.type == "web design") {
+          createCard(item, item.snapshotKey, cardSection, li.dataset.type);
+        }
+
+      });
+
   };
 });
 const viewAllSec = document.querySelector("#viewAllSec");
@@ -434,8 +452,15 @@ const switchTHeSection = (li) => {
       addDataToTheSection(projectSection);
       break;
     case "designs":
-      hideAllSections(viewAllSec, designSection, postSection, projectSection);
+      // hideAllSections(viewAllSec, designSection, postSection, projectSection);
       designSection.classList.remove("hidden");
+      dataStore.forEach((item) => {
+        // createCard(item.data, item.snapshotKey, cardSection);
+        if (item.title == "design") {
+          console.log(item);
+        }
+
+      });
       break;
     case "posts":
       hideAllSections(viewAllSec, designSection, postSection, projectSection);
