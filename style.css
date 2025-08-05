@@ -329,11 +329,11 @@ main container section card img {
 }
 
 main container section card text-area {
-  display: block;
   overflow: hidden;
   /* background: #E4E4E4; */
   margin: 3px;
   border-radius: 7px;
+  
 }
 
 main container section card text-area h5 {
@@ -349,6 +349,8 @@ main container section card text-area label {
   color: rgb(100, 99, 99);
   margin: auto;
   line-height: 1.5rem;
+
+  
 }
 main container section card text-area label.type {
   color: var(--special-text);
@@ -356,6 +358,11 @@ main container section card text-area label.type {
   font-size: 12px;
   font-weight: normal;
   line-height: 1.5rem;
+}
+
+main container section card .subtitle{
+  max-height: 20px;
+  overflow-y: hidden;
 }
 
 main container section card .timeLbl {

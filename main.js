@@ -147,6 +147,10 @@ const addNewReactionToDataCard = (data, snapshotKey, newCard) => {
   });
 };
 const getCardLayout = (data) => {
+const maxLength = 100; // Maximum length for the subtitle
+    const limitedText = data.subtitle.length > maxLength 
+    ? data.subtitle.slice(0, maxLength) + '...' 
+    : data.subtitle;
   return (
     `
           <a href="` +
@@ -158,8 +162,8 @@ const getCardLayout = (data) => {
 <h5 class='m-1-0'>` +
     data.title +
     `</h5>
- <label for=""> ` +
-    data.subtitle +
+ <label class="subtitle"> ` +
+    limitedText +
     `</label>
  <label class="type m-1-0"> ` +
     data.type +
