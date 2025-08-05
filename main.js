@@ -48,6 +48,7 @@ let name = localStorage.getItem("name")
 const messageDiv = document.querySelector("message-div");
 var TotalData = 0;
 
+// check if user is signed in, the title will be set to the user's name
 if (localStorage.getItem("name") !== null) {
   document.title = localStorage.getItem("name");
 }
@@ -117,6 +118,8 @@ const createCard = (data, snapshotKey, parant) => {
   newCard.innerHTML = getCardLayout(data);
   parant.appendChild(newCard);
 
+  console.log(parant.classList);
+  
   addReactionToDataCard(data, newCard);
   newCard.querySelector(".addReaction").onclick = () => {
     addNewReactionToDataCard(data, snapshotKey, newCard);
@@ -307,7 +310,7 @@ const loadCmd = () => {
 </card>
  `;
   };
-  
+
   const messageByUser = (msg, time, uname, Udp) => {
 
     messageDiv.innerHTML +=
@@ -333,7 +336,7 @@ const loadCmd = () => {
       `</label>
             </card>
             `;
-          
+
   };
 
   loader2.style.display = "none";
@@ -456,6 +459,18 @@ const hideAllSections = (
 };
 hideAllSections(viewAllSec, designSection, postSection, projectSection);
 viewAllSec.classList.remove("hidden");
+
+
+// Add data to the project section
+// This function will be called when the "Projects" section is clicked
+// It will fetch data from Firebase and create cards dynamically
+// It will also remove the "hidden" class from the project section to make it visible
+// The project section will be populated with cards containing project data
+// The function will create a new section element with the class "cardSec" and append it to the project section
+// The FetchAndCreateCard function will be called to fetch data and create cards within this new section
+// The project section will be displayed with a padding of 1rem
+// The inner HTML of the project section will be cleared before appending the new section
+// This ensures that the project section is always up-to-date with the latest data from Firebase
 const addDataToTheSection = (projectSection) => {
   projectSection.classList.remove("hidden");
 

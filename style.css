@@ -72,6 +72,13 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--special-text);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 header button.login,
 header button.logout {
@@ -145,6 +152,7 @@ section.static {
   margin: 2rem auto;
   position: relative;
   overflow: hidden;
+  margin-top: calc(70px + 2rem);
 }
 section.static img {
   height: 100%;
@@ -168,16 +176,22 @@ main container {
 main ul.section-switcher {
   border-bottom: 2px solid var(--border-dim);
   color: var(--dim);
-  padding: 1rem 0;
+  padding: 1rem;
   width: 100%;
   overflow-x: scroll;
   position: relative;
   display: flex;
+  background-color: var(--special-text);
+  border-radius: 100px;
 }
 /* main ul.section-switcher li {
   padding-bottom: 1rem;
   white-space: nowrap;
 } */
+
+main ul.section-switcher li.active{
+  color: var(--text);
+}
 
 main ul.section-switcher li.active:after {
   content: "";
@@ -282,9 +296,17 @@ main container section.cardSec card {
   }
 }
 
-/* main container section card:hover {
-  box-shadow: -6px -6px 15px var(--box-shadow), 6px 6px 15px var(--box-shadow);
-} */
+main container section card:hover {
+  background-color: var(--special-text);
+  scale: 1.05;
+}
+main container section card:hover label{
+  color: var(--text);
+}
+main container section card:hover label.type{
+  color: var(--text);
+}
+
 
 main container section card a {
   border-radius: 10px;

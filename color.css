@@ -1,6 +1,6 @@
 /* v 1.0 */
 :root {
-  --black: #000;
+  --black: #000000;
   --white: #fff;
   --dim: #b3b3b3;
   --card-black: #131313;
@@ -17,6 +17,7 @@
     --text: var(--white);
     --card-bg: var(--card-black);
     --border-dim: rgb(65, 65, 65);
+    --special-text: #00619e;
   }
 }
 
