@@ -73,7 +73,7 @@ A modern ecommerce platform with animated filters, layered routing, and Firebase
 
 ## 🖥️ Preview
 
-![Screenshot](./assets/screenshot.png)
+![Screenshot](https://res.cloudinary.com/saheerbabu/image/upload/v1754406020/webDevelopment/coder/brecart.png)
 
 ## 🛠️ Built With
 - HTML, CSS, JS
