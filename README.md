@@ -1,5 +1,14 @@
-# 💫 About Me:
-🔭 I'm currently looking for work.<br>🪸 Frontend Developer.
+### 🙋‍♂️ About Me
+
+I'm **Saheer Babu**, a self-taught frontend developer from Kerala 🇮🇳  
+I specialize in building responsive web apps with clean UI and modern design.
+
+🔧 Currently building:  
+→ `Brecart` – a layered-routing ecommerce platform  
+→ `AI Chat UI` – chat UI design for AI-based assistant  
+→ `OpenCoder` – all-in-one code+UI showcase
+
+💼 Available for freelance, full-time, or collaboration.
 
 
 ## 🌐 Socials:
