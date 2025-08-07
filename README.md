@@ -11,6 +11,14 @@ I specialize in building responsive web apps with clean UI and modern design.
 💼 Available for freelance, full-time, or collaboration.
 
 
+
+## 💼 Hire Me
+
+If you're looking for a passionate frontend developer who also understands devices and real-world users — I'm ready.
+
+📧 Email: sheerbabu549@gmail.com  
+🌍 Location: Kerala, India  
+
 ## 🌐 Socials:
 [![Behance](https://img.shields.io/badge/Behance-1769ff?logo=behance&logoColor=white)](https://www.behance.net/sheerbabu) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/saheer__babu) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/saheer-babu-29a180320) [![Pinterest](https://img.shields.io/badge/Pinterest-%23E60023.svg?logo=Pinterest&logoColor=white)](https://pinterest.com/Saheer_Babu_) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/SaheerBabu_) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@@mytechmedia267) [![Codepen](https://img.shields.io/badge/Codepen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/Saheer-Babu) 
 
@@ -47,6 +55,30 @@ I specialize in building responsive web apps with clean UI and modern design.
 
 •All projects Uploaded Here --->
  <a href ="https://devsaheerhost.github.io/-/" target='_blank'>MainPage</a>
+
+
+
+# 🛒 Brecart
+
+A modern ecommerce platform with animated filters, layered routing, and Firebase integration.
+
+## 🔧 Features
+- Product listing with category filter
+- Wishlist with localStorage
+- Deal banner with auto-slide
+- Firebase database structure
+
+## 🚀 Live Demo
+👉 [brecart](https://devsaheerhost.github.io/brecart)
+
+## 🖥️ Preview
+
+![Screenshot](./assets/screenshot.png)
+
+## 🛠️ Built With
+- HTML, CSS, JS
+- Firebase Realtime DB
+- CSS Transitions
 
 
 <h3>TODO APP</h3>
