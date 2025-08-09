@@ -1,0 +1,85 @@
+*{
+    padding: 0 0 0 0;
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+    transition: .5s ease;
+}
+
+body{
+    background: black;
+}
+button, input{
+    padding: .5rem;
+    border-radius: 7px;
+    border: none;
+    background-color: rgba(255, 190, 0, 0.19);
+}
+button{
+    background-color: #FFBE00;
+    font-weight: 600;
+}
+input{
+    border: 1px solid #FFBE00;
+    font-size: 16px;
+}
+
+.todo-container{
+    padding: 2rem;
+    background-color: #FFFFFF;
+    margin: 1rem;
+    border-radius: 10px;
+}
+.input-wraper{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #FFBE00;
+    position: sticky;
+    top: 1rem;
+}
+li{
+    display: flex;
+justify-content: space-between;
+gap: 2rem;
+    margin-top: 1rem;
+    background-color: rgba(255, 190, 0, 0.19);
+    padding: 1rem;
+    border-radius: 10px;
+    align-items: center;
+    
+    animation: fadein .5s;
+}
+.delete-btn{
+    background-color: rgba(255, 45, 0, 0.80);
+    color: #fff;
+}
+
+.slide{
+    transform: translateX(100vw);
+    opacity: 0;
+}
+.fadeout{
+    scale: 0.5;
+    opacity: 0;
+}
+
+.completed{
+    text-decoration: line-through;
+    color: #A2A2A2;
+    background-color: rgba(255, 190, 0, 0.11);
+}
+
+@keyframes fadein{
+    from{
+        scale: 0.5;
+        opacity: 0;
+    }
+}
+
+.btn-wraper{
+    display: flex;
+    gap: 1rem;
+}
