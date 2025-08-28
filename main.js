@@ -60,7 +60,6 @@ database
   );
 setTimeout(() => {
   dataStore.reverse();
-  console.log(dataStore);
 }, 5000);
 
 const FetchAndCreateCard = (cardSection) => {
@@ -69,16 +68,27 @@ const FetchAndCreateCard = (cardSection) => {
   // Fetch all data once
   database.ref("web/data/").once("value", (snapshot) => {
     snapshot.forEach((childSnapshot) => {
+
+      const raw = childSnapshot.val();
+      if (!raw.image) return; // Skip if no image
       const snapshotKey = childSnapshot.key;
-      const data = childSnapshot.val();
+      const data = raw;
+      //console.log(data);
+
       dataArr.push({ data, snapshotKey });
     });
 
-    // Reverse the data array
-    const reversedData = dataArr.reverse();
+    // Sort the data array
+
+    const sortedData = dataArr.sort((a, b)=>{
+      const reactA = a.data?.totReact || 0;
+      const reactB = b.data?.totReact || 0;
+      return reactB - reactA;
+    })
+    //const reversedData = dataArr.reverse();
 
     // Now call createCard once for each reversed item
-    reversedData.forEach((item) => {
+    sortedData.forEach((item) => {
       createCard(item.data, item.snapshotKey, cardSection);
     });
   });
@@ -118,38 +128,83 @@ const createCard = (data, snapshotKey, parant, typeText) => {
   newCard.innerHTML = getCardLayout(data);
   parant.appendChild(newCard);
 
-  console.log(parant.classList);
+  //console.log(parant.classList);
 
   addReactionToDataCard(data, newCard);
+  
   newCard.querySelector(".addReaction").onclick = () => {
     addNewReactionToDataCard(data, snapshotKey, newCard);
   };
 };
 
+// const addReactionToDataCard = (data, newCard) => {
+//   if (data.clicked && data.totReact) {
+//     newCard.querySelector(".addReaction").innerText = `👍🏼 ${data.totReact}`;
+//   }
+// };
+
+// const addNewReactionToDataCard = (data, snapshotKey, newCard) => {
+//   // Update the UI to show an immediate reaction change
+//   const currentReactions = data.totReact || 0; // Set to 0 if undefined
+//   const newReactionCount = currentReactions + 1;
+
+//   newCard.querySelector(".addReaction").innerText = `👍🏼 ${newReactionCount} `;
+
+//   // Update Firebase with the new reaction count and set clicked to true
+//   database.ref("web/data/" + snapshotKey).update({
+//     clicked: true,
+//     totReact: newReactionCount,
+//     reactorName: name,
+//   });
+// };
+
+
 const addReactionToDataCard = (data, newCard) => {
-  if (data.clicked && data.totReact) {
+
+  
+
+  // If user already reacted, disable further reaction
+  if (data.reactors && data.reactors[name]) {
+    newCard.querySelector(".addReaction").innerText = `👍🏼 ${data.totReact}`;
+    newCard.querySelector(".addReaction").disabled = true; 
+    newCard.querySelector(".addReaction").classList.add("reacted");
+  } else if (data.totReact) {
     newCard.querySelector(".addReaction").innerText = `👍🏼 ${data.totReact}`;
   }
 };
 
 const addNewReactionToDataCard = (data, snapshotKey, newCard) => {
-  // Update the UI to show an immediate reaction change
-  const currentReactions = data.totReact || 0; // Set to 0 if undefined
+  if (!localStorage.getItem("login")){
+  showSignupPage()
+return;
+  }
+  // Prevent double reaction by same user
+  if (data.reactors && data.reactors[name]) {
+    return; // already reacted
+  }
+
+  const currentReactions = data.totReact || 0;
   const newReactionCount = currentReactions + 1;
 
-  newCard.querySelector(".addReaction").innerText = `👍🏼 ${newReactionCount} `;
+  // UI update
+  newCard.querySelector(".addReaction").innerText = `👍🏼 ${newReactionCount}`;
+  newCard.querySelector(".addReaction").disabled = true;
+  newCard.querySelector(".addReaction").classList.add("reacted");
+  showLog("You reacted to this post!")
 
-  // Update Firebase with the new reaction count and set clicked to true
+
+  // Firebase update
   database.ref("web/data/" + snapshotKey).update({
-    clicked: true,
     totReact: newReactionCount,
-    reactorName: name,
+    [`reactors/${name}`]: true, // mark user reacted
   });
 };
+
+
 const getCardLayout = (data) => {
-const maxLength = 100; // Maximum length for the subtitle
-    const limitedText = data.subtitle.length > maxLength 
-    ? data.subtitle.slice(0, maxLength) + '...' 
+  const maxLength = 100; // Maximum length for the subtitle
+  const limitedText = data.subtitle?.length > maxLength
+    ? data.subtitle.slice(0, maxLength) + '...'
     : data.subtitle;
   return (
     `
@@ -421,22 +476,23 @@ document.querySelectorAll("#sectionSwitcher li").forEach((li) => {
       .forEach((li) => li.classList.remove("active"));
     li.classList.add("active");
     //switchTHeSection(li);
-    
-cardSection.innerHTML=''
-    dataStore.reverse().forEach((item) => {
-        // createCard(item.data, item.snapshotKey, cardSection);
-        if (item.type== li.dataset.type || item.type == "Project/Hope") {
-          createCard(item, item.snapshotKey, cardSection, li.dataset.type=="My project" ? "Projects" : li.dataset.type);
-        } else if (li.dataset.type == "view-all") {
-          createCard(item, item.snapshotKey, cardSection, "Projects");
-        }
 
-        // the design button.dataset is "Design" and the data.type is "web design/ ui design"
-        if (li.dataset.type == "Design" && item.type == "web design") {
-          createCard(item, item.snapshotKey, cardSection, li.dataset.type);
-        }
+    cardSection.innerHTML = ''
+    dataStore.forEach((item) => {
+      if (!item.image) return;
+      // createCard(item.data, item.snapshotKey, cardSection);
+      if (item.type == li.dataset.type || item.type == "Project/Hope") {
+        createCard(item, item.snapshotKey, cardSection, li.dataset.type == "My project" ? "Projects" : li.dataset.type);
+      } else if (li.dataset.type == "view-all") {
+        createCard(item, item.snapshotKey, cardSection, "Projects");
+      }
 
-      });
+      // the design button.dataset is "Design" and the data.type is "web design/ ui design"
+      if (li.dataset.type == "Design" && item.type == "web design") {
+        createCard(item, item.snapshotKey, cardSection, li.dataset.type);
+      }
+
+    });
 
   };
 });
@@ -444,7 +500,7 @@ const viewAllSec = document.querySelector("#viewAllSec");
 const projectSection = document.querySelector("#projectSection");
 const designSection = document.querySelector("#designSection");
 const postSection = document.querySelector("#postSection");
-const switchTHeSection = (li) => {
+const switchTHeSection = li => {
   TotalData = 0;
 
   hideAllSections(viewAllSec, designSection, postSection, projectSection);
