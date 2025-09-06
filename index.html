@@ -88,7 +88,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="responsive.css" />
     <link rel="stylesheet" href="function.css" />
-    <link rel="stylesheet" href="color.css" />
+    <!-- <link rel="stylesheet" href="color.css" /> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -103,6 +103,9 @@
 
   <body>
     <header>
+      <div>
+
+      
       <nav id="nav">
         <h1 class="logo"><a href="?id=footer"> SahBitCode</a></h1>
         <ul class="menuList">
@@ -131,28 +134,8 @@
           </li>
         </ul>
       </nav>
-      <span class="auth-btn-wrapper">
-        <button class="login authIn" onclick="showSignupPage()">Log in</button>
-        <button class="signup authIn2" onclick="showSignupPage()">
-          Sign up
-        </button>
-        <button class="logout authOut" onclick="logout()">Log out</button>
-      </span>
-      <span id="menu-btn" onclick="togleMenu()">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-list"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
-          />
-        </svg>
-      </span>
+      
+     
 
       <span class="hidden">
         <p>#coder</p>
@@ -162,9 +145,25 @@
         <p>#coder babu</p>
         <p>saheer developer</p>
       </span>
+</div>
+      <hero>
+        <div class="left">
+          <img src="./avatar-no-bg.png" alt="avatar">
+        </div>
+
+        <div class="right">
+          <h1>Hi, I'm Saheer Babu</h1>
+        <h2>Web Developer & Designer</h2>
+        <p>
+          Crafting modern websites and interactive web applications with a
+          focus on user experience and cutting-edge design.
+        </p>
+        <button onclick="showSignupPage()">Hire Me</button>
+        </div>
+      </hero>
     </header>
 
-    <section class="static">
+    <section class="static hidden">
       <img id="hero-image-card" alt="saheerbabu" />
     </section>
 
