@@ -68,7 +68,6 @@ const FetchAndCreateCard = (cardSection) => {
   // Fetch all data once
   database.ref("web/data/").once("value", (snapshot) => {
     snapshot.forEach((childSnapshot) => {
-
       const raw = childSnapshot.val();
       if (!raw.image) return; // Skip if no image
       const snapshotKey = childSnapshot.key;
@@ -80,16 +79,17 @@ const FetchAndCreateCard = (cardSection) => {
 
     // Sort the data array
 
-    const sortedData = dataArr.sort((a, b)=>{
+    const sortedData = dataArr.sort((a, b) => {
       const reactA = a.data?.totReact || 0;
       const reactB = b.data?.totReact || 0;
       return reactB - reactA;
-    })
+    });
     //const reversedData = dataArr.reverse();
 
     // Now call createCard once for each reversed item
     sortedData.forEach((item) => {
       createCard(item.data, item.snapshotKey, cardSection);
+      console.log(item.data.reactors);
     });
   });
 };
@@ -97,6 +97,7 @@ FetchAndCreateCard(cardSection);
 
 togleMenu = () => {
   nav.classList.toggle("openMenu");
+  document.querySelector(".menu-btn").classList.toggle("open");
 };
 
 document.querySelector("main").onclick = () => nav.classList.remove("openMenu");
@@ -131,9 +132,32 @@ const createCard = (data, snapshotKey, parant, typeText) => {
   //console.log(parant.classList);
 
   addReactionToDataCard(data, newCard);
-  
-  newCard.querySelector(".addReaction").onclick = () => {
+
+  newCard.querySelector(".addReaction").onclick = () =>
     addNewReactionToDataCard(data, snapshotKey, newCard);
+
+  newCard.querySelector(".addReaction").ondblclick = () => {
+    // list of reactors to #reavctors-list
+    const reactors = data.reactors;
+
+    const reactorsList = document.querySelector("#reactors-list");
+    reactorsList.innerHTML = "";
+    if (reactors) {
+      Object.keys(reactors).forEach((reactor) => {
+        const li = document.createElement("li");
+        li.innerText = reactor;
+        reactorsList.appendChild(li);
+      });
+    } else {
+      const li = document.createElement("li");
+      li.innerText = "No reactions yet";
+      reactorsList.appendChild(li);
+    }
+    // show the #reavctors-list for 5 seconds
+    document.querySelector(".reactors-container").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".reactors-container").classList.remove("show");
+    }, 5000);
   };
 };
 
@@ -158,15 +182,11 @@ const createCard = (data, snapshotKey, parant, typeText) => {
 //   });
 // };
 
-
 const addReactionToDataCard = (data, newCard) => {
-
-  
-
   // If user already reacted, disable further reaction
   if (data.reactors && data.reactors[name]) {
     newCard.querySelector(".addReaction").innerText = `👍🏼 ${data.totReact}`;
-    newCard.querySelector(".addReaction").disabled = true; 
+    newCard.querySelector(".addReaction").disabled = true;
     newCard.querySelector(".addReaction").classList.add("reacted");
   } else if (data.totReact) {
     newCard.querySelector(".addReaction").innerText = `👍🏼 ${data.totReact}`;
@@ -174,12 +194,13 @@ const addReactionToDataCard = (data, newCard) => {
 };
 
 const addNewReactionToDataCard = (data, snapshotKey, newCard) => {
-  if (!localStorage.getItem("login")){
-  showSignupPage()
-return;
+  if (!localStorage.getItem("login")) {
+    showSignupPage();
+    return;
   }
   // Prevent double reaction by same user
   if (data.reactors && data.reactors[name]) {
+    showLog(`You already reacted to this post!`);
     return; // already reacted
   }
 
@@ -190,8 +211,7 @@ return;
   newCard.querySelector(".addReaction").innerText = `👍🏼 ${newReactionCount}`;
   newCard.querySelector(".addReaction").disabled = true;
   newCard.querySelector(".addReaction").classList.add("reacted");
-  showLog("You reacted to this post!")
-
+  showLog(`You reacted to this post!`);
 
   // Firebase update
   database.ref("web/data/" + snapshotKey).update({
@@ -200,12 +220,12 @@ return;
   });
 };
 
-
 const getCardLayout = (data) => {
   const maxLength = 100; // Maximum length for the subtitle
-  const limitedText = data.subtitle?.length > maxLength
-    ? data.subtitle.slice(0, maxLength) + '...'
-    : data.subtitle;
+  const limitedText =
+    data.subtitle?.length > maxLength
+      ? data.subtitle.slice(0, maxLength) + "..."
+      : data.subtitle;
   return (
     `
           <a href="` +
@@ -371,7 +391,6 @@ const loadCmd = () => {
   };
 
   const messageByUser = (msg, time, uname, Udp) => {
-
     messageDiv.innerHTML +=
       `
       <card class="msgdiv" id="myid message-card">
@@ -395,7 +414,6 @@ const loadCmd = () => {
       `</label>
             </card>
             `;
-
   };
 
   loader2.style.display = "none";
@@ -470,19 +488,24 @@ changeImage();
 // Section switcher 4 li , when click this.borderBottom= 1px solid
 document.querySelectorAll("#sectionSwitcher li").forEach((li) => {
   li.onclick = () => {
-    TotalData = 0
+    TotalData = 0;
     document
       .querySelectorAll("#sectionSwitcher li")
       .forEach((li) => li.classList.remove("active"));
     li.classList.add("active");
     //switchTHeSection(li);
 
-    cardSection.innerHTML = ''
+    cardSection.innerHTML = "";
     dataStore.forEach((item) => {
       if (!item.image) return;
       // createCard(item.data, item.snapshotKey, cardSection);
       if (item.type == li.dataset.type || item.type == "Project/Hope") {
-        createCard(item, item.snapshotKey, cardSection, li.dataset.type == "My project" ? "Projects" : li.dataset.type);
+        createCard(
+          item,
+          item.snapshotKey,
+          cardSection,
+          li.dataset.type == "My project" ? "Projects" : li.dataset.type
+        );
       } else if (li.dataset.type == "view-all") {
         createCard(item, item.snapshotKey, cardSection, "Projects");
       }
@@ -491,16 +514,14 @@ document.querySelectorAll("#sectionSwitcher li").forEach((li) => {
       if (li.dataset.type == "Design" && item.type == "web design") {
         createCard(item, item.snapshotKey, cardSection, li.dataset.type);
       }
-
     });
-
   };
 });
 const viewAllSec = document.querySelector("#viewAllSec");
 const projectSection = document.querySelector("#projectSection");
 const designSection = document.querySelector("#designSection");
 const postSection = document.querySelector("#postSection");
-const switchTHeSection = li => {
+const switchTHeSection = (li) => {
   TotalData = 0;
 
   hideAllSections(viewAllSec, designSection, postSection, projectSection);
@@ -519,7 +540,6 @@ const switchTHeSection = li => {
         if (item.title == "design") {
           console.log(item);
         }
-
       });
       break;
     case "posts":
@@ -544,7 +564,6 @@ const hideAllSections = (
 };
 hideAllSections(viewAllSec, designSection, postSection, projectSection);
 viewAllSec.classList.remove("hidden");
-
 
 // Add data to the project section
 // This function will be called when the "Projects" section is clicked
@@ -571,5 +590,5 @@ if (localStorage.getItem("login")) {
   document.querySelector(".authIn").classList.add("hidden");
   document.querySelector(".authIn2").classList.add("hidden");
 } else {
-  document.querySelector(".authOut").classList.add("hidden");
+  document.querySelector(".authOut")?.classList.add("hidden");
 }

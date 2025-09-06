@@ -3,6 +3,7 @@
 :root {
   --bg: #fff;
   --text: #000000;
+  --card-bg: #ffffff;
 }
 
 * {
@@ -42,7 +43,8 @@ a:actived {
   background: none;
 }
 
-li {
+header li,
+main li {
   display: inline;
   margin: 0 0.6rem;
   padding: 0.2rem;
@@ -71,26 +73,30 @@ header {
   background-color: #fff;
   padding: 1rem 4rem;
   color: var(--text);
+  height: 100vh;
+  min-height: max-content;
 }
-header nav{
+header nav {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
 }
-img{
+img {
   max-width: 100%;
 }
-hero{
+hero {
   display: flex;
+  margin-top: 2rem;
 }
-hero .left, .right{
+hero .left,
+.right {
   width: 50%;
 }
-hero .left{
+hero .left {
   text-align: center;
 }
-hero img{
+hero img {
   border-radius: 10000px;
   width: 300px;
   height: 300px;
@@ -135,17 +141,19 @@ main ul.section-switcher {
   position: relative;
   display: flex;
   background-color: var(--special-bg);
-  border-radius: 100px;
+  /* border-radius: 100px; */
+  margin-top: 2rem;
 }
 main ul.section-switcher li {
-  border-radius: 10px;
+  border-radius: 300px;
   padding: 0.4rem 1rem;
+  border: 3px solid transparent;
+  transition: all 0.2s;
 }
 
 main ul.section-switcher li.active {
-  color: var(--switch-label);
-  background-color: var(--text);
-  font-weight: 600;
+  background-color: #f3f2f2;
+  font-weight: 500;
 }
 
 /* main ul.section-switcher li.active:after {
@@ -236,6 +244,7 @@ main container section.cardSec card {
   animation-duration: 1ms;
   animation-timing-function: linear;
   background-color: var(--card-bg);
+  box-shadow: 0 0 10px #bdbdbd29;
   position: relative;
 
   animation-timeline: view(block 90% 0%);
@@ -264,17 +273,17 @@ main container section card::after {
   position: absolute;
   height: 0%;
   width: 0%;
-  background-color: var(--special-text);
+  background-color: rgb(235, 235, 235);
   top: 0;
   left: 50%;
   border-radius: 0 0 100% 100%;
+  z-index: -1;
 }
 
 main container section card:hover::after {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
   border-radius: 10px;
 }
 
@@ -293,9 +302,9 @@ main container section card:hover * {
 } */
 main container section card:hover label.type {
   font-weight: 600;
-  color: var(--special-text);
-  background-color: var(--white);
-  box-shadow: 0 0 10px #008ae0;
+  color: var(--bg);
+  background-color: var(--text);
+  box-shadow: 0 0 10px #ffffff;
 }
 
 main container section card a {
@@ -338,7 +347,8 @@ main container section card text-area label {
   overflow: hidden;
 }
 main container section card text-area label.type {
-  color: var(--white);
+  color: var(--bg);
+  background-color: #9b9b9b;
   display: block;
   font-size: 12px;
   font-weight: normal;
@@ -347,7 +357,7 @@ main container section card text-area label.type {
   position: absolute;
   top: -1rem;
   left: 0;
-  background-color: var(--special-text);
+
   border-radius: 10px 0 10px 0px;
   padding: 0 1rem;
 }
@@ -909,7 +919,8 @@ alert container card div #signup {
 .addReaction {
   position: absolute;
   bottom: -1rem;
-  background: var(--card-bg);
+  background: #e4e4e4;
+  border: 1px solid #e4e4e4;
   padding: 0.2rem 0.5rem;
   height: 30px;
   width: fit-content;
@@ -921,7 +932,7 @@ alert container card div #signup {
   left: 0;
   border-radius: 1000px;
   box-shadow: 0 2px 3px rgba(66, 68, 90, 0.041);
-  color: #a3a4aa;
+  color: #595a5a;
   cursor: pointer;
   border-top: 1px solid var(--bg);
   font-size: 16px;
@@ -953,4 +964,65 @@ alert container card div #signup {
 :where(h1) {
   margin-block: 0.67em;
   font-size: 2em;
+}
+
+.reactors-container {
+  position: fixed;
+  height: fit-content;
+  max-height: 70%;
+  overflow-y: auto;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  right: 50%;
+  width: 60%;
+  overflow-x: hidden;
+  transform: translateX(-50%);
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.233);
+  padding: 1rem;
+  text-align: start;
+  display: none;
+  opacity: 0;
+}
+.reactors-container ul {
+  padding: 0;
+  list-style: auto;
+}
+
+.reactors-container.show {
+  display: block;
+  opacity: 1;
+  animation: fad-up 0.5s;
+}
+
+@keyframes fad-up {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#reactors-list {
+  position: relative;
+}
+.reactors-container.show::before {
+  content: "";
+  width: calc(100% - 1rem);
+  transition: width 3s;
+  height: 3px;
+  background-color: rgb(0, 0, 0);
+
+  position: absolute;
+  animation: progressss 5.3s;
+  top: 0;
+}
+
+@keyframes progressss {
+  to {
+    width: 0px;
+  }
 }

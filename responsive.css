@@ -13,18 +13,74 @@
     justify-content: start;
     align-items: start;
   }
-  nav .logo{
+  nav .logo {
     padding: 1rem;
   }
-  header nav ul{
+  header nav ul {
     padding: 0 !important;
     gap: 0;
   }
-  nav li{
+  nav li {
     margin: 0;
     border-top: 1px solid rgba(128, 128, 128, 0.308);
     text-align: left;
     padding: 0;
+  }
+  hero {
+    display: block;
+    margin-top: 5rem;
+  }
+  hero .left,
+  .right {
+    width: 100%;
+    text-align: center;
+  }
+  hero .left img {
+    height: 150px;
+    width: 150px;
+    border: 5px solid #ebebeb;
+  }
+
+  .menu-btn,
+  .menu-btn::before,
+  .menu-btn::after {
+    height: 5px;
+    width: 30px;
+    background: var(--text);
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 1000px;
+  }
+  .menu-btn {
+    position: fixed;
+    z-index: 2;
+    top: 2rem;
+    left: 2rem;
+    transition: all 0.3s ease-in-out;
+  }
+  .menu-btn::before,
+  .menu-btn::after {
+    content: "";
+    position: fixed;
+    left: 2rem;
+    transition: all 0.3s ease-in-out;
+  }
+  .menu-btn::before {
+    top: 1.5rem;
+  }
+  .menu-btn::after {
+    top: 2.5rem;
+  }
+  .menu-btn.open {
+    background: transparent;
+  }
+  .menu-btn.open::before {
+    transform: rotate(45deg);
+    top: 2.2rem;
+  }
+  .menu-btn.open::after {
+    transform: rotate(-45deg);
+    top: 2.2rem;
   }
   section.static {
     height: auto;
@@ -33,7 +89,6 @@
     margin-top: 3rem;
     position: relative;
     overflow: hidden;
-    
   }
 
   section.static img {
@@ -66,18 +121,46 @@
     top: 2rem;
     left: 2rem;
   }
-  middle-row { /*in footer elemrnt*/
+  middle-row {
+    /*in footer elemrnt*/
     display: flex;
     flex-flow: column !important;
     flex-wrap: wrap;
   }
+
+  main ul.section-switcher {
+    overflow-x: auto;
+    --webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* For Firefox */
+    /* overflow-scrolling: touch; */
+    background: linear-gradient(white 30%, rgba(255, 255, 255, 0)) center left,
+      linear-gradient(rgba(255, 255, 255, 0), white 70%) center right,
+      radial-gradient(
+          farthest-side at 50% 0,
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0)
+        )
+        center left,
+      radial-gradient(
+          farthest-side at 50% 100%,
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0)
+        )
+        center right;
+
+    background-repeat: no-repeat;
+    background-size: 40px 100%, 40px 100%, 24px 100%, 24px 100%;
+    background-attachment: local, local, scroll, scroll;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+  }
 } /*closing tag of @media*/
 
 @media (max-width: 600px) {
-  main container section.cardSec {
+  /* main container section.cardSec {
     /*display: flex;*/
-    /*flex-direction: column-reverse !important; */
-  }
+  /*flex-direction: column-reverse !important; 
+  } */
   main container section card {
     margin: auto;
     width: 100%;
@@ -93,7 +176,7 @@
     display: none;
   }
 
-  msg-container container input{
+  msg-container container input {
     width: 100%;
   }
 }
