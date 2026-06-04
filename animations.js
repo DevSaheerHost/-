@@ -65,9 +65,15 @@ const Animations = (() => {
     .to('.hero-cta', {
       opacity: 1, y: 0, duration: 0.7, ease: 'power3.out',
     }, '-=0.4')
+    .to('.hero-avatar', {
+      opacity: 1, duration: 1.0, ease: 'power3.out',
+    }, '-=0.9')
+    .from('.avatar-frame', {
+      scale: 0.88, y: 20, duration: 1.1, ease: 'power4.out',
+    }, '<')
     .from('.hero-badge', {
       scale: 0.5, opacity: 0, duration: 1.2, ease: 'elastic.out(1, 0.5)',
-    }, '-=0.8')
+    }, '-=0.7')
     .from('.scroll-indicator', {
       opacity: 0, y: 10, duration: 0.6, ease: 'power2.out',
     }, '-=0.3');
