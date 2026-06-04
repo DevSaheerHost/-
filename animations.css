@@ -1,0 +1,199 @@
+/* ============================================================
+   SahBitCode Portfolio — animations.css
+   GSAP-driven class states + CSS-only micro-animations
+   ============================================================ */
+
+/* ---- Reveal state (toggled by GSAP ScrollTrigger) ---- */
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Hero stagger children ---- */
+.hero-eyebrow,
+.hero-name .line,
+.hero-sub,
+.hero-desc,
+.hero-cta {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* ---- Glitch hover effect on hero name ---- */
+.hero-name .accent-line {
+  position: relative;
+  display: inline-block;
+}
+.hero-name .accent-line::before,
+.hero-name .accent-line::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 0.1s;
+  color: var(--accent);
+}
+.hero-name .accent-line::before { color: #ff6b6b; opacity: 0.7; }
+.hero-name .accent-line::after  { color: #4ade80; opacity: 0.5; }
+
+.hero-name:hover .accent-line::before {
+  animation: glitch-1 0.3s steps(2) forwards;
+}
+.hero-name:hover .accent-line::after {
+  animation: glitch-2 0.3s steps(2) 0.05s forwards;
+}
+
+@keyframes glitch-1 {
+  0%   { clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%); transform: translateX(-4px); }
+  33%  { clip-path: polygon(0 50%, 100% 50%, 100% 70%, 0 70%); transform: translateX(4px); }
+  66%  { clip-path: polygon(0 80%, 100% 80%, 100% 90%, 0 90%); transform: translateX(-2px); }
+  100% { clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transform: translateX(0); }
+}
+@keyframes glitch-2 {
+  0%   { clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%); transform: translateX(3px); }
+  50%  { clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%); transform: translateX(-3px); }
+  100% { clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); transform: translateX(0); }
+}
+
+/* ---- Loader / page entry ---- */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.page-loader.hidden { display: none; }
+
+.loader-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.loader-bar-track {
+  width: 200px;
+  height: 1px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.loader-bar-fill {
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: var(--accent);
+  animation: loader-fill 1.2s var(--ease-out) forwards;
+}
+@keyframes loader-fill {
+  from { left: -100%; }
+  to   { left: 0; }
+}
+
+/* ---- Section number accent ---- */
+.label-num {
+  position: relative;
+}
+.label-num::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 100%; height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+.about-label.revealed .label-num::after {
+  transform: scaleX(1);
+}
+
+/* ---- Skill dot entrance ---- */
+.skill-list li {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.4s, transform 0.4s, color 0.2s;
+}
+.skill-group.revealed .skill-list li {
+  opacity: 1;
+  transform: translateX(0);
+}
+.skill-group.revealed .skill-list li:nth-child(1)  { transition-delay: 0.05s; }
+.skill-group.revealed .skill-list li:nth-child(2)  { transition-delay: 0.10s; }
+.skill-group.revealed .skill-list li:nth-child(3)  { transition-delay: 0.15s; }
+.skill-group.revealed .skill-list li:nth-child(4)  { transition-delay: 0.20s; }
+.skill-group.revealed .skill-list li:nth-child(5)  { transition-delay: 0.25s; }
+.skill-group.revealed .skill-list li:nth-child(6)  { transition-delay: 0.30s; }
+.skill-group.revealed .skill-list li:nth-child(7)  { transition-delay: 0.35s; }
+.skill-group.revealed .skill-list li:nth-child(8)  { transition-delay: 0.40s; }
+
+/* ---- Project item entrance ---- */
+.project-item {
+  transform: translateY(20px);
+}
+.project-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out), background 0.3s;
+}
+
+/* ---- Contact form input focus glow ---- */
+.form-field input:focus,
+.form-field textarea:focus {
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+/* ---- Submit button loading state ---- */
+.form-submit.loading .btn-text::after {
+  content: '...';
+  animation: ellipsis 1s steps(3) infinite;
+}
+@keyframes ellipsis {
+  0%   { content: '.'; }
+  33%  { content: '..'; }
+  66%  { content: '...'; }
+}
+
+/* ---- Ambient floating particle ---- */
+.ambient-particle {
+  position: fixed;
+  pointer-events: none;
+  width: 2px; height: 2px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+/* ---- Grid lines background (subtle) ---- */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* ---- Active nav link ---- */
+.nav-links a.active {
+  color: var(--accent);
+}
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ---- 3D canvas interaction hint pulse ---- */
+@keyframes hint-pulse {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1; }
+}
+.canvas-hint { animation: hint-pulse 3s ease-in-out infinite; }

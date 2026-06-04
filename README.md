@@ -1,108 +1,210 @@
-### 🙋‍♂️ About Me
+# SahBitCode Portfolio — Setup & Architecture Guide
 
-I'm **Saheer Babu**, a self-taught frontend developer from Kerala 🇮🇳  
-I specialize in building responsive web apps with clean UI and modern design.
+## File Structure
 
-🔧 Currently building:  
-→ `Brecart` – a layered-routing ecommerce platform  
-→ `AI Chat UI` – chat UI design for AI-based assistant  
-→ `OpenCoder` – all-in-one code+UI showcase
+```
+sahbitcode-portfolio/
+├── index.html          ← Main HTML (all sections)
+├── css/
+│   ├── style.css       ← Core styles, layout, components, responsive
+│   └── animations.css  ← GSAP-driven class states + CSS micro-animations
+└── js/
+    ├── scene.js        ← Three.js WebGL 3D background scene
+    ├── animations.js   ← GSAP + ScrollTrigger scroll animations
+    └── main.js         ← UI: cursor, nav, form, interactions
+```
 
-💼 Available for freelance, full-time, or collaboration.
+## How to Run
 
+### Option A — Live Server (recommended)
+```bash
+# Install Live Server globally
+npm install -g live-server
 
+# Navigate to folder and start
+cd sahbitcode-portfolio
+live-server
+```
 
-## 💼 Hire Me
+### Option B — Python HTTP Server
+```bash
+cd sahbitcode-portfolio
+python -m http.server 8080
+# Visit: http://localhost:8080
+```
 
-If you're looking for a passionate frontend developer who also understands devices and real-world users — I'm ready.
+### Option C — VS Code
+Install the **Live Server** extension, right-click `index.html` → "Open with Live Server".
 
-📧 Email: sheerbabu549@gmail.com  
-🌍 Location: Kerala, India  
-
-## 🌐 Socials:
-[![Behance](https://img.shields.io/badge/Behance-1769ff?logo=behance&logoColor=white)](https://www.behance.net/sheerbabu) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/saheer__babu) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/saheer-babu-29a180320) [![Pinterest](https://img.shields.io/badge/Pinterest-%23E60023.svg?logo=Pinterest&logoColor=white)](https://pinterest.com/Saheer_Babu_) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/SaheerBabu_) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@@mytechmedia267) [![Codepen](https://img.shields.io/badge/Codepen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/Saheer-Babu) 
-
-# 💻 Tech Stack:
-![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Swift](https://img.shields.io/badge/swift-F54A2A?style=for-the-badge&logo=swift&logoColor=white) ![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![OpenStack](https://img.shields.io/badge/Openstack-%23f01742.svg?style=for-the-badge&logo=openstack&logoColor=white) ![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white) ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white) ![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![Vue.js](https://img.shields.io/badge/vue.js-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) ![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=for-the-badge&logo=apache&logoColor=white) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Blender](https://img.shields.io/badge/blender-%23F5792A.svg?style=for-the-badge&logo=blender&logoColor=white) ![Inkscape](https://img.shields.io/badge/Inkscape-e0e0e0?style=for-the-badge&logo=inkscape&logoColor=080A13) ![Gimp](https://img.shields.io/badge/Gimp-657D8B?style=for-the-badge&logo=gimp&logoColor=FFFFFF) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=DevSaheerHost&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=DevSaheerHost&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=DevSaheerHost&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
-
-## 🏆 GitHub Trophies
-![](https://github-profile-trophy.vercel.app/?username=DevSaheerHost&theme=tokyonight&no-frame=false&no-bg=false&margin-w=4)
-
-### ✍️ Random Dev Quote
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
-
-### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=DevSaheerHost&limit=5&theme=tokyonight&combine_all_yearly_contributions=true)
+> ⚠️ You MUST use a local server. Opening `index.html` directly as a `file://` URL
+> will block CDN scripts (CORS policy) and Three.js won't load.
 
 ---
-[![](https://visitcount.itsvg.in/api?id=DevSaheerHost&icon=2&color=0)](https://visitcount.itsvg.in)
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+## CDN Dependencies (loaded in index.html)
 
+| Library | Version | Purpose |
+|---------|---------|---------|
+| Three.js | r134 | 3D WebGL scene |
+| GSAP | 3.12.5 | Scroll animations |
+| ScrollTrigger | 3.12.5 | GSAP scroll plugin |
+| Firebase | 8.10.0 | Contact form DB |
+| Google Fonts | — | Syne + DM Mono + DM Sans |
 
+No npm install required for the core portfolio.
 
+---
 
+## 3D Scene Architecture (`js/scene.js`)
 
+### Object Groups
+```
+webDevGroup      ← JS cube, CSS torus, Firebase node cluster,
+                   Three.js wireframe icosahedron, Cannon.js sphere
 
+hardwareGroup    ← CPU chip (body + pins + die + grid),
+                   Reballing stencil (TorusKnot),
+                   Motherboard PCB trace (custom LineGeometry),
+                   3× Microchip ICs
+```
 
+### Parallax System
+- `mouse.targetX/Y` captured on `mousemove`
+- Lerped to `mouse.x/y` at 5% per frame (smooth lag)
+- `camera.position.x/y` follows mouse × 1.5/1.0 multiplier
+- Each group also rotates slightly: webDev follows mouse, hardware opposes it
 
-<h1> OpenCoder </h1>
+### Scroll → Camera
+```js
+// In animate() loop:
+const targetZ = cameraBaseZ - scrollY * 0.008;
+camera.position.z += (targetZ - camera.position.z) * 0.06;
+```
+As you scroll down, camera slowly moves forward (Z decreases),
+making objects appear to rush past — immersive depth effect.
 
+### Hover Detection
+A THREE.Raycaster fires each frame against all mesh children.
+When a mesh is hit, its top-level parent in `allObjects` gets
+`_hovered = true`, which causes it to lerp scale to `1.15`.
 
-•All projects Uploaded Here --->
- <a href ="https://devsaheerhost.github.io/-/" target='_blank'>MainPage</a>
+---
 
+## Animation Architecture (`js/animations.js`)
 
+### Hero Entrance (on load)
+```
+delay 0.3s → eyebrow → name lines (stagger 0.12s) → sub → desc → CTA → badge → scroll indicator
+```
 
-# 🛒 Brecart
+### Scroll Reveals
+Every `[data-reveal]` element uses ScrollTrigger:
+- `start: 'top 88%'` (element enters 88% from top of viewport)
+- Animates: `opacity 0→1`, `y 24px→0`
+- `.revealed` class added for CSS-driven child staggering
 
-A modern ecommerce platform with animated filters, layered routing, and Firebase integration.
+### Skill Groups
+Each `.skill-group` triggers its own ScrollTrigger.
+When `.revealed` is added, CSS `transition-delay` cascades
+through `.skill-list li` children (0.05s increments).
 
-## 🔧 Features
-- Product listing with category filter
-- Wishlist with localStorage
-- Deal banner with auto-slide
-- Firebase database structure
+---
 
-## 🚀 Live Demo
-👉 [brecart](https://devsaheerhost.github.io/brecart)
+## Adding Your Real Avatar Image
 
-## 🖥️ Preview
+Replace the `hero-badge` section content or add an `<img>` to `.hero-content`:
+```html
+<div class="hero-avatar">
+  <img src="./avatar.png" alt="Saheer Babu" />
+</div>
+```
+Add CSS:
+```css
+.hero-avatar img {
+  width: 220px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+}
+```
 
-![Screenshot](https://res.cloudinary.com/saheerbabu/image/upload/v1754406020/webDevelopment/coder/brecart.png)
+---
 
-## 🛠️ Built With
-- HTML, CSS, JS
-- Firebase Realtime DB
-- CSS Transitions
+## Customizing 3D Objects
 
+To change colors, open `js/scene.js` and edit the `COL` object:
+```js
+const COL = {
+  accent:   0xf5a623,  // ← amber
+  green:    0x4ade80,  // ← Three.js object
+  blue:     0x60a5fa,  // ← CSS object
+  ...
+};
+```
 
-<h3>TODO APP</h3>
+To add a new floating object:
+```js
+// Inside buildWebDevObjects() or buildHardwareObjects():
+const myGeo = new THREE.DodecahedronGeometry(0.8, 0);
+const myMat = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+const myMesh = new THREE.Mesh(myGeo, myMat);
+myMesh.position.set(x, y, z);
+myMesh._basePos = myMesh.position.clone();
+myMesh._rotSpeed = { x: 0.004, y: 0.006 };
+myMesh._floatAmp = 0.4;
+myMesh._floatOffset = Math.PI;
+webDevGroup.add(myMesh);
+allObjects.push(myMesh);     // ← Required for hover + animation
+```
 
- <a href ="https://devsaheerhost.github.io/-/ToDO" target='_blank'>TODOapp</a>
+---
 
- 
+## Firebase Contact Form
 
-<h3> Online code editor </h3>
- •HTML <br>
- •CSS <br>
- •JS
- 
- <a href ="https://devsaheerhost.github.io/-/code_editor" target='_blank'>CheckoutTheEditor</a>
+The form uses your existing Firebase project `codersaheer`.
+Data is written to `portfolio/contacts/{pushId}` with:
+```json
+{
+  "name": "...",
+  "email": "...",
+  "message": "...",
+  "timestamp": 1234567890
+}
+```
+Add this Firebase Security Rule to allow public writes:
+```json
+{
+  "rules": {
+    "portfolio": {
+      "contacts": {
+        ".write": true,
+        ".read": false
+      }
+    }
+  }
+}
+```
 
- <h3>Weather app </h3>
- Click <a href ="https://devsaheerhost.github.io/-/weather/" target='_blank'> here </a> for WeatherApp
+---
 
+## Performance Notes
 
-<h3>Shopless online cart</h3>
+- Three.js pixel ratio is capped at 2× (`Math.min(devicePixelRatio, 2)`)
+- Particle count: 200 (increase to 500 for denser field on desktop)
+- All ScrollTrigger animations use `once: true` to avoid re-triggering
+- Fog is applied to the scene (`FogExp2`) to fade distant objects naturally
+- `pointer-events: none` on canvas ensures no interference with page scroll
 
- <a href ="https://devsaheerhost.github.io/shopless.com/" target='_blank'> shopless.com</a>
+---
 
+## Deployment (GitHub Pages)
 
+```bash
+git init
+git add .
+git commit -m "Portfolio v4 — Three.js + GSAP"
+git remote add origin https://github.com/devsaheerhost/-.git
+git push -u origin main
+```
+Enable GitHub Pages: Settings → Pages → Branch: `main` / root `/`
 
-
- 
+Your live URL: `https://devsaheerhost.github.io/-/`
