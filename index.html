@@ -6,6 +6,7 @@
   <meta name="description" content="Portfolio of Saheer Babu — Web Developer & Smartphone Repair Engineer. Explore projects, skills, and interactive 3D experiences." />
   <meta name="keywords" content="Saheer Babu, Web Developer, SahBitCode, JavaScript, Firebase, Three.js, Smartphone Repair" />
   <meta name="author" content="Saheer Babu" />
+  <meta name="theme-color" content="#0d0d0f" />
   <meta property="og:title" content="SahBitCode — Saheer Babu" />
   <meta property="og:description" content="Web Developer & Hardware Engineer. Interactive 3D portfolio." />
   <meta property="og:type" content="website" />
@@ -22,7 +23,7 @@
 </head>
 <body class="dark">
 
-  <!-- Custom cursor -->
+  <!-- Custom cursor (desktop pointer devices only, see style.css) -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-follower" id="cursorFollower"></div>
 
@@ -60,93 +61,96 @@
 
   <!-- ========= HERO ========= -->
   <section id="hero" class="section-hero">
-    <div class="hero-content">
-      <div class="hero-eyebrow" data-reveal>
-        <span class="dot"></span>
-        <span>Available for work</span>
+    <div class="section-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow" data-reveal>
+          <span class="dot"></span>
+          <span>Available for work</span>
+        </div>
+        <h1 class="hero-name" data-reveal>
+          <span class="line">Saheer</span>
+          <span class="line accent-line">Babu.</span>
+        </h1>
+        <p class="hero-sub" data-reveal>
+          Web Developer <span class="divider">&amp;</span> Hardware Engineer
+        </p>
+        <p class="hero-desc" data-reveal>
+          I build full-stack web applications and repair the silicon they run on.
+          Dual-domain specialist — from Firebase architectures to CPU reballing.
+        </p>
+        <div class="hero-cta" data-reveal>
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#contact" class="btn-ghost">Get in Touch</a>
+        </div>
       </div>
-      <h1 class="hero-name" data-reveal>
-        <span class="line">Saheer</span>
-        <span class="line accent-line">Babu.</span>
-      </h1>
-      <p class="hero-sub" data-reveal>
-        Web Developer <span class="divider">&amp;</span> Hardware Engineer
-      </p>
-      <p class="hero-desc" data-reveal>
-        I build full-stack web applications and repair the silicon they run on. 
-        Dual-domain specialist — from Firebase architectures to CPU reballing.
-      </p>
-      <div class="hero-cta" data-reveal>
-        <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-ghost">Get in Touch</a>
-      </div>
-    </div>
 
-    <div class="hero-avatar" data-reveal>
-      <div class="avatar-frame">
-        <img src="avatar-no-bg.png" alt="Saheer Babu" class="avatar-img" />
-        <div class="avatar-glow"></div>
-        <div class="avatar-border"></div>
+      <div class="hero-avatar" data-reveal>
+        <div class="avatar-frame">
+          <img src="avatar-no-bg.png" alt="Saheer Babu" class="avatar-img" />
+          <div class="avatar-glow"></div>
+          <div class="avatar-border"></div>
+        </div>
       </div>
-    </div>
 
-    <div class="hero-badge">
-      <div class="badge-ring">
-        <svg viewBox="0 0 200 200" class="badge-text-svg">
-          <path id="badge-circle" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="none"/>
-          <text>
-            <textPath href="#badge-circle" startOffset="0%">
-              SAHEER BABU · WEB DEV · HARDWARE · SAHBITCODE ·&nbsp;
-            </textPath>
-          </text>
-        </svg>
-        <div class="badge-center">SB</div>
+      <div class="hero-badge">
+        <div class="badge-ring">
+          <svg viewBox="0 0 200 200" class="badge-text-svg">
+            <path id="badge-circle" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" fill="none"/>
+            <text>
+              <textPath href="#badge-circle" startOffset="0%">
+                SAHEER BABU · WEB DEV · HARDWARE · SAHBITCODE ·&nbsp;
+              </textPath>
+            </text>
+          </svg>
+          <div class="badge-center">SB</div>
+        </div>
       </div>
-    </div>
 
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
     </div>
   </section>
 
   <!-- ========= ABOUT ========= -->
   <section id="about" class="section-about">
     <div class="section-inner">
-      <div class="about-label" data-reveal>
-        <span class="label-num">01</span>
-        <span class="label-text">About</span>
+      <div class="spec-label" data-reveal>
+        <span class="spec-tag">U1</span>
+        <span class="spec-line"></span>
+        <span class="spec-title">About</span>
       </div>
 
       <div class="about-grid">
         <div class="about-text" data-reveal>
           <h2>Two worlds,<br/><em>one mind.</em></h2>
           <p>
-            I'm a self-taught developer who fell in love with both the elegance of clean code 
-            and the precision of hardware engineering. Based in UAE, I build ambitious web 
-            applications with Vanilla JS and Firebase — then take them apart, chip by chip, 
+            I'm a self-taught developer who fell in love with both the elegance of clean code
+            and the precision of hardware engineering. Based in UAE, I build ambitious web
+            applications with Vanilla JS and Firebase — then take them apart, chip by chip,
             when hardware demands it.
           </p>
           <p>
-            My dual background means I think in full stacks — from the browser paint cycle 
-            all the way down to the PCB trace. ServicePro, Brecart, and SahBitCode are 
+            My dual background means I think in full stacks — from the browser paint cycle
+            all the way down to the PCB trace. ServicePro, Brecart, and SahBitCode are
             testaments to building real, production-grade tools without bloated frameworks.
           </p>
         </div>
         <div class="about-stats" data-reveal>
-          <div class="stat-card">
+          <div class="stat-card corner-frame">
             <span class="stat-num">3+</span>
             <span class="stat-label">Years Building</span>
           </div>
-          <div class="stat-card">
+          <div class="stat-card corner-frame">
             <span class="stat-num">10+</span>
             <span class="stat-label">Live Projects</span>
           </div>
-          <div class="stat-card">
+          <div class="stat-card corner-frame">
             <span class="stat-num">∞</span>
             <span class="stat-label">Curiosity</span>
           </div>
-          <div class="stat-card">
+          <div class="stat-card corner-frame">
             <span class="stat-num">2</span>
             <span class="stat-label">Domains Mastered</span>
           </div>
@@ -158,9 +162,10 @@
   <!-- ========= SKILLS ========= -->
   <section id="skills" class="section-skills">
     <div class="section-inner">
-      <div class="about-label" data-reveal>
-        <span class="label-num">02</span>
-        <span class="label-text">Skills</span>
+      <div class="spec-label" data-reveal>
+        <span class="spec-tag">U2</span>
+        <span class="spec-line"></span>
+        <span class="spec-title">Skills</span>
       </div>
       <h2 class="section-title" data-reveal>The Toolkit</h2>
 
@@ -212,138 +217,111 @@
   <!-- ========= PROJECTS ========= -->
   <section id="projects" class="section-projects">
     <div class="section-inner">
-      <div class="about-label" data-reveal>
-        <span class="label-num">03</span>
-        <span class="label-text">Projects</span>
+      <div class="spec-label" data-reveal>
+        <span class="spec-tag">U3</span>
+        <span class="spec-line"></span>
+        <span class="spec-title">Projects</span>
       </div>
       <h2 class="section-title" data-reveal>Selected Work</h2>
 
-      <div class="projects-list">
+      <div class="projects-grid">
 
         <!-- ServicePro -->
-        <article class="project-item" data-reveal data-project="servicepro">
-          <div class="project-meta">
-            <span class="project-num">01</span>
-            <div class="project-tags">
-              <span class="tag">PWA</span>
-              <span class="tag">Firebase</span>
-              <span class="tag">Vanilla JS</span>
-            </div>
+        <article class="project-item corner-frame" data-reveal data-project="servicepro">
+          <div class="project-visual" data-ref="R1">
+            <span class="visual-badge">PWA</span>
           </div>
           <div class="project-body">
+            <div class="project-top">
+              <span class="ref-tag">R1</span>
+              <div class="project-tags">
+                <span class="tag">PWA</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Vanilla JS</span>
+              </div>
+            </div>
             <h3 class="project-name">ServicePro</h3>
             <p class="project-desc">
-              A full-stack mobile repair shop management PWA. Features job tracking with 
-              6-state workflow, per-job WhatsApp-style chat, real-time Firebase sync, 
+              A full-stack mobile repair shop management PWA. Features job tracking with
+              6-state workflow, per-job WhatsApp-style chat, real-time Firebase sync,
               service request system, and role-based access. Zero frameworks — pure Vanilla JS.
             </p>
-            <div class="project-links">
-              <a href="#" class="project-link">View Project →</a>
-            </div>
-          </div>
-          <div class="project-visual">
-            <div class="project-vis-inner">
-              <div class="vis-line"></div>
-              <div class="vis-line"></div>
-              <div class="vis-line"></div>
-              <span class="vis-badge">PWA</span>
-            </div>
+            <a href="#" class="project-link">View project <span class="link-arrow">→</span></a>
           </div>
         </article>
 
         <!-- Brecart (Alfonex/iAlfonex) -->
-        <article class="project-item" data-reveal data-project="brecart">
-          <div class="project-meta">
-            <span class="project-num">02</span>
-            <div class="project-tags">
-              <span class="tag">E-commerce</span>
-              <span class="tag">Firebase RTDB</span>
-              <span class="tag">B2B</span>
-            </div>
+        <article class="project-item corner-frame" data-reveal data-project="brecart">
+          <div class="project-visual" data-ref="R2">
+            <span class="visual-badge">E-COM</span>
           </div>
           <div class="project-body">
+            <div class="project-top">
+              <span class="ref-tag">R2</span>
+              <div class="project-tags">
+                <span class="tag">E-commerce</span>
+                <span class="tag">Firebase RTDB</span>
+                <span class="tag">B2B</span>
+              </div>
+            </div>
             <h3 class="project-name">Brecart</h3>
             <p class="project-desc">
-              Full-stack e-commerce platform with an Amazon/Flipkart-inspired layout. 
-              Includes admin panel, dynamic variant pricing with delta model, order management, 
-              B2B wholesale flow, partner approval system, and PDF export. Firebase security 
+              Full-stack e-commerce platform with an Amazon/Flipkart-inspired layout.
+              Includes admin panel, dynamic variant pricing with delta model, order management,
+              B2B wholesale flow, partner approval system, and PDF export. Firebase security
               rules + Cloudinary media.
             </p>
-            <div class="project-links">
-              <a href="#" class="project-link">View Project →</a>
-            </div>
-          </div>
-          <div class="project-visual">
-            <div class="project-vis-inner">
-              <div class="vis-line"></div>
-              <div class="vis-line"></div>
-              <div class="vis-line"></div>
-              <span class="vis-badge">E-COM</span>
-            </div>
+            <a href="#" class="project-link">View project <span class="link-arrow">→</span></a>
           </div>
         </article>
 
         <!-- SahBitCode -->
-        <article class="project-item" data-reveal data-project="sahbitcode">
-          <div class="project-meta">
-            <span class="project-num">03</span>
-            <div class="project-tags">
-              <span class="tag">Three.js</span>
-              <span class="tag">GSAP</span>
-              <span class="tag">Portfolio</span>
-            </div>
+        <article class="project-item corner-frame" data-reveal data-project="sahbitcode">
+          <div class="project-visual" data-ref="R3">
+            <span class="visual-badge">3D</span>
           </div>
           <div class="project-body">
+            <div class="project-top">
+              <span class="ref-tag">R3</span>
+              <div class="project-tags">
+                <span class="tag">Three.js</span>
+                <span class="tag">GSAP</span>
+                <span class="tag">Portfolio</span>
+              </div>
+            </div>
             <h3 class="project-name">SahBitCode</h3>
             <p class="project-desc">
-              This very portfolio — an interactive WebGL experience with scroll-driven 
-              3D animations, floating hardware and code-object scenes, GSAP-powered 
-              text reveals, and a Firebase-backed contact system. Built as a technical 
+              This very portfolio — an interactive WebGL experience with scroll-driven
+              3D animations, floating hardware and code-object scenes, GSAP-powered
+              text reveals, and a Firebase-backed contact system. Built as a technical
               showcase of full-stack and graphics capabilities.
             </p>
-            <div class="project-links">
-              <a href="#" class="project-link">Live →</a>
-            </div>
-          </div>
-          <div class="project-visual">
-            <div class="project-vis-inner">
-              <div class="vis-line"></div>
-              <div class="vis-line"></div>
-              <div class="vis-line"></div>
-              <span class="vis-badge">3D</span>
-            </div>
+            <a href="#" class="project-link">Live <span class="link-arrow">→</span></a>
           </div>
         </article>
 
         <!-- Mobifixer Cashbook -->
-        <article class="project-item" data-reveal data-project="mobifixer">
-          <div class="project-meta">
-            <span class="project-num">04</span>
-            <div class="project-tags">
-              <span class="tag">AI Dashboard</span>
-              <span class="tag">PWA</span>
-              <span class="tag">Holt's Smoothing</span>
-            </div>
+        <article class="project-item corner-frame" data-reveal data-project="mobifixer">
+          <div class="project-visual" data-ref="R4">
+            <span class="visual-badge">AI</span>
           </div>
           <div class="project-body">
+            <div class="project-top">
+              <span class="ref-tag">R4</span>
+              <div class="project-tags">
+                <span class="tag">AI Dashboard</span>
+                <span class="tag">PWA</span>
+                <span class="tag">Holt's Smoothing</span>
+              </div>
+            </div>
             <h3 class="project-name">Mobifixer Cashbook</h3>
             <p class="project-desc">
-              A smart cashbook PWA for repair shops. Features a Zeno Z3 ensemble AI 
-              prediction engine (Holt's smoothing + linear regression + weighted moving 
-              average), daily bar charts, donut charts, dark theme with localStorage 
+              A smart cashbook PWA for repair shops. Features a Zeno Z3 ensemble AI
+              prediction engine (Holt's smoothing + linear regression + weighted moving
+              average), daily bar charts, donut charts, dark theme with localStorage
               persistence, and two-layer caching for offline-first performance.
             </p>
-            <div class="project-links">
-              <a href="#" class="project-link">View Project →</a>
-            </div>
-          </div>
-          <div class="project-visual">
-            <div class="project-vis-inner">
-              <div class="vis-line"></div>
-              <div class="vis-line"></div>
-              <div class="vis-line"></div>
-              <span class="vis-badge">AI</span>
-            </div>
+            <a href="#" class="project-link">View project <span class="link-arrow">→</span></a>
           </div>
         </article>
 
@@ -354,15 +332,16 @@
   <!-- ========= CONTACT ========= -->
   <section id="contact" class="section-contact">
     <div class="section-inner">
-      <div class="about-label" data-reveal>
-        <span class="label-num">04</span>
-        <span class="label-text">Contact</span>
+      <div class="spec-label" data-reveal>
+        <span class="spec-tag">U4</span>
+        <span class="spec-line"></span>
+        <span class="spec-title">Contact</span>
       </div>
       <h2 class="contact-heading" data-reveal>Let's build<br/><em>something.</em></h2>
 
       <div class="contact-grid">
         <div class="contact-info" data-reveal>
-          <p>Whether you need a full-stack web application, a hardware repair consultation, 
+          <p>Whether you need a full-stack web application, a hardware repair consultation,
           or just want to talk tech — I'm always open.</p>
           <div class="contact-links">
             <a href="https://www.instagram.com/saheer__babu/" target="_blank" class="contact-social">Instagram</a>
